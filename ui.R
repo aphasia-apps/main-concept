@@ -1,10 +1,6 @@
-
-
-# Define UI for application that draws a histogram
+# Define UI
 shinyUI(
-    
   tagList(
-    
     includeCSS("www/style.css"),
     navbarPage(title = "Main Concept, Sequencing & Story Grammar",
                id = "mainpage",
@@ -16,33 +12,20 @@ shinyUI(
                theme = minimal_theme,
                
                ############################ Instructions ############################## 
-               
-               tabPanel(value = "Intro", title = "Intro",
+               tabPanel(value = "intro", title = "Intro",
                             intro_tab_div
                ),
-               
-               
-               ############################ Assessment ################################
-               
-               tabPanel(value = "Scoring", title = "Scoring",
+               ############################ Scoring ###################################
+               tabPanel(value = "scoring", title = "Scoring",
                             scoring_div
                ),
-               
                ############################ Results ###################################
-               
-               tabPanel(value = "Results", title = "Results",
+               tabPanel(value = "results", title = "Results",
                             #results_tab_div
                )
-               
                ########################################################################
-               
-               # close navbar page
     ),
-    
     # adjusting for footer. 
     br(), br(), br(), br(), br(), 
-    
-    
   )
-
 )

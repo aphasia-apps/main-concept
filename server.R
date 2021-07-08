@@ -27,11 +27,9 @@ shinyServer(function(input, output, session) {
         req(file)
         validate(need(ext == "csv", "Please upload a csv file"))
         # save upload
-        values$previous <- read.csv(file$datapath) %>%
-            drop_na(response)
+        values$previous <- read.csv(file$datapath)
         # assign number of previous values
         values$num_previous <- length(unique(values$previous$date))
-        
     })
     
     ################################## OBSERVERS ###################################
@@ -63,7 +61,7 @@ shinyServer(function(input, output, session) {
         # dataframe of items, difficulty, discrimination; NA column for responses 
         values$i = 0
         # got to slides
-        updateNavbarPage(session, "mainpage", selected = "Assessment")
+        updateNavbarPage(session, "mainpage", selected = "scoring")
         
     })
     
@@ -74,7 +72,7 @@ shinyServer(function(input, output, session) {
         shinyjs::reset("intro_tab")
         updateTabsetPanel(session, "glide", "glide1")
         updateNavbarPage(session, "mainpage",
-                         selected = "Home")
+                         selected = "intro")
         values$datetime <- Sys.time() # reestablishes datetime
         values$i=0
         values$concept = list()
@@ -82,6 +80,44 @@ shinyServer(function(input, output, session) {
         values$concept_accuracy = list()
         
     })
+    
+    #################################### COUNTER #################################
+    #counter fnctions to change page contents ######
+    # note this also saves the input data to the reactive list 'values' #####
+    # this is probably ok for the time being
+    observeEvent(input$nxt,{
+        
+        # score = c(input$accuracy1, input$accuracy2, input$accuracy3, input$accuracy4)
+        # len = length(score)
+        # component = seq(1,len,1)
+        # concept = rep(values$i, len)
+        # 
+        # values$concept[[values$i]] = values$i
+        # values$selected_sentences[[values$i]] = input$score_mca
+        # values$concept_accuracy[[values$i]] = tibble(rating = score,
+        #                                              component = component,
+        #                                              concept = concept)
+        values$i <- values$i + 1
+    })
+    
+    # counter down
+    observeEvent(input$prev,{
+        values$i <- values$i - 1
+    })
+    #counter up getting started
+    observeEvent(input$start,{
+        #input$start
+        #isolate({
+        values$i <- values$i + 1
+        #})
+    })
+    observeEvent(input$goback,{
+        #input$prev
+        #isolate({
+        values$i <- 0
+        # })
+    })
+    
     
     ################################## FOOTER MODAL ################################
     # ------------------------------------------------------------------------------
@@ -107,6 +143,68 @@ shinyServer(function(input, output, session) {
         ))
     })
     
-
+    ################################## REACTIVE DATA ###############################
+    # ------------------------------------------------------------------------------
+    ################################################################################
+    
+    
+    
+    
+    ################################## OUTPUTS ####################################
+    # ------------------------------------------------------------------------------
+    ################################################################################
+    
+    
+    ###################################### SCORING INFO ############################
+    
+    stim_task <- reactive({
+        tibble(
+            stim = input$input_stimulus,
+            stim_num = if(input$input_stimulus == 'broken_window'){1
+            } else if(input$input_stimulus=='cat_rescue'){2
+            } else if(input$input_stimulus == 'refused_umbrella'){3
+            } else if(input$input_stimulus == 'cinderella'){4
+            } else if(input$input_stimulus == 'sandwich'){5
+            } else {0},
+            num_slides = if(input$input_stimulus == 'broken_window'){8
+            } else if(input$input_stimulus=='cat_rescue'){10
+            } else if(input$input_stimulus == 'refused_umbrella'){10
+            } else if(input$input_stimulus == 'cinderella'){34
+            } else if(input$input_stimulus == 'sandwich'){10
+            } else {0}
+        )
+    })
+    
+    output$scoring_info <- renderUI({
+        img_val = values$i
+        paste_val = if(input$input_stimulus == 'broken_window'){'bw'
+        } else if(input$input_stimulus == 'cat_rescue'){'cr'
+        } else if(input$input_stimulus == 'refused_umbrella'){'u'
+        } else if(input$input_stimulus == 'cinderella'){'c'
+        } else if(input$input_stimulus == 'sandwich'){'s'
+        } else {}
+        if(img_val>0 && img_val < stim_task()$num_slides+1){
+            return(get(paste0(paste_val, img_val)))
+        } else {}
+    })
+    
+    ###################################### SELECT BUTTONS SENTENCES ###################
+    # displays the unique sentences to be selected
+    # get sentences #######
+    sentences <- reactive({
+        df = tibble(txt = unlist(tokenize_sentences(input$input_transcript)))
+    })
+    
+    output$sentence_buttons <- renderUI({
+        df = sentences()
+            checkboxGroupButtons(
+                inputId = "score_mca",
+                justified = T,
+                individual = T,
+                choices = unique(df$txt)
+        )
+        
+    })
+    
 
 })
