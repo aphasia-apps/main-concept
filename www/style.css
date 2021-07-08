@@ -8,15 +8,15 @@ img {
   height: auto;
 }
 
-.navbar {
+/*.navbar {
   margin-bottom: 5px;
 }
 
 .navbar .navbar-nav {
   display:none;
-}
+}*/
 
-.navbar-default {
+/*.navbar-default {
     background-color: #b8bcc2;
     border-color: #e8e8e8;
     
@@ -24,14 +24,14 @@ img {
 
 .navbar-default .navbar-brand {
   color: #323333;
-}
+}*/
 
 .footer{
   position:fixed;
   bottom:0;
   right:0;
   left:0;
-  background:#f2f5f7;
+  background:#e9ecef;
   padding-bottom:0px;
   box-sizing:border-box;
 

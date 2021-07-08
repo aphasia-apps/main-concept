@@ -11,14 +11,14 @@ footer_div <- p(
            ),
            actionButton(
              inputId = "info",
-             label = "More Information",
+             label = "Scoring Info",
              icon = icon("info-circle"),
              style = "background:transparent; border:none;"
            ),
            actionButton(
-             inputId = "dev",
-             label = "Development Status",
-             icon = icon("code-branch"),
+             inputId = "about",
+             label = "About Us",
+             icon = icon("user-friends"),
              style = "background:transparent; border:none;"
            ),
            uiOutput("test_inputs"),

@@ -6,7 +6,6 @@ shinyUI(
   tagList(
     
     includeCSS("www/style.css"),
-    
     navbarPage(title = "Main Concept, Sequencing & Story Grammar",
                id = "mainpage",
                footer = tags$div(
@@ -18,25 +17,20 @@ shinyUI(
                
                ############################ Instructions ############################## 
                
-               tabPanelBody(value = "Home",
-                            #intro_tab_div
+               tabPanel(value = "Intro", title = "Intro",
+                            intro_tab_div
                ),
                
-               ############################ Practice ##################################
-               
-               tabPanelBody(value = "Practice", 
-                            #uiOutput("practice_tab")
-               ),
                
                ############################ Assessment ################################
                
-               tabPanelBody(value = "Assessment", 
-                            #uiOutput("slides_tab")
+               tabPanel(value = "Scoring", title = "Scoring",
+                            scoring_div
                ),
                
                ############################ Results ###################################
                
-               tabPanelBody(value = "Results", 
+               tabPanel(value = "Results", title = "Results",
                             #results_tab_div
                )
                

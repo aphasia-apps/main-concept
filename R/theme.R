@@ -5,5 +5,6 @@ minimal_theme =
          version = "4",
          `enable-rounded` = T,
          `enable-transitions` = F,
-         primary = "#1665AC"
+         primary = "#1665AC",
+         "navbar-bg" = "#e9ecef"
   )
