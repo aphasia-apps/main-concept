@@ -26,6 +26,15 @@ img {
   color: #323333;
 }*/
 
+.tab-content {
+  overflow: auto;
+  height: 900px;
+}
+
+.btn-group, .btn-group-vertical {
+    padding: 2px 0px;
+}
+
 .footer{
   position:fixed;
   bottom:0;
@@ -33,6 +42,7 @@ img {
   left:0;
   background:#e9ecef;
   padding-bottom:0px;
+  margin-top: 0px;
   box-sizing:border-box;
 
 }
@@ -45,3 +55,10 @@ a {
   margin-right: 5px;
   z-index: 1000;
 }
+
+h5 {
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+

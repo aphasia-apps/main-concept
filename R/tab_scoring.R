@@ -1,23 +1,25 @@
-scoring_div <-
-  fluidRow(
+get_scoring_div <- function(num){
+  
+  scoring_div<- fluidRow(
     column(width = 10,offset = 1,
-           fluidRow(
+           fluidRow(style = "margin-bottom: 5px;",
+             column(width = 12,
                        htmlOutput("scoring_info")
-             ),
-           fluidRow(
-                       h4("1. Select the sentences that match the concept."),
-                       uiOutput("sentence_buttons"),
+             )
+           ),
+           fluidRow(style = "max-height: 250px; overflow: auto;",
+             column(width = 12, 
+                       h5("Select the sentences that match the concept."), 
+                       uiOutput("sentence_buttons")
+             )
            ),
            fluidRow(
-                       h4("2. Score each concept noted above. The current score is [current score]."),
+             column(width = 12, 
+                       h5("Score each concept noted above."), 
                             uiOutput("score_sentences")
-           ),
-           fluidRow(
-             column(width = 4, offset = 4,
-               align = "center",
-                    actionButton("prev", label = "", icon = icon('arrow-left')),
-                    actionButton("nxt", label = "",  icon = icon('arrow-right'))
-               )
              )
            )
+           )
     )
+  
+}

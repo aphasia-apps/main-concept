@@ -1,7 +1,9 @@
 # broken window
 
+sty = "line-height: 160%;font-size:1.25rem; background-color: #e9ecef; padding: 5px; margin-bottom: 5px; border-radius: 5px;"
+
 bw1 <- 
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 1,
               tags$li(tags$em(tags$sup("1"), tags$strong("The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was"),HTML('&nbsp;'), tags$sup("3"), tags$strong("outside."))),
               tags$ol(style = "padding-bottom:5px;",
@@ -17,7 +19,7 @@ bw1 <-
 
 
 bw2 <- 
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 2,
               tags$li(tags$em(tags$sup("1"), tags$strong("A/The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was"),HTML('&nbsp;'), tags$sup("3"), tags$strong("playing soccer"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -32,7 +34,7 @@ bw2 <-
   )
 
 bw3 <- 
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 3,
               tags$li(tags$em(tags$sup("1"), tags$strong("The ball"),HTML('&nbsp;'), tags$sup("2"), tags$strong("breaks"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the"), "man's/neighbor's", tags$strong("window."))),
               tags$ol(style = "padding-bottom:5px;",
@@ -44,7 +46,7 @@ bw3 <-
 
 
 bw4 <- 
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 4,
               tags$li(tags$em(tags$sup("1"), tags$strong("The man"),HTML('&nbsp;'), tags$sup("2"), tags$strong("is sitting"), "in a chair and/or inside the house.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -58,7 +60,7 @@ bw4 <-
 
 
 bw5 <-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 5,
               tags$li(tags$em(tags$sup("1"), tags$strong("The man"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was startled"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -73,7 +75,7 @@ bw5 <-
 
 
 bw6 <-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 6,
               tags$li(tags$em(tags$sup("1"), tags$strong("The ball"),HTML('&nbsp;'), tags$sup("2"), tags$strong("broke"),HTML('&nbsp;'), tags$sup("3"), tags$strong("a lamp"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -85,7 +87,7 @@ bw6 <-
 
 
 bw7 <-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 7,
               tags$li(tags$em(tags$sup("1"), tags$strong("The man"),HTML('&nbsp;'), tags$sup("2"), tags$strong("picked up"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the ball"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -100,7 +102,7 @@ bw7 <-
 
 
 bw8 <-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 8,
               tags$li(tags$em(tags$sup("1"), tags$strong("The man"),HTML('&nbsp;'), tags$sup("2"), tags$strong("looked"),HTML('&nbsp;'), tags$sup("3"), tags$strong("out of the window"))),
               tags$ol(style = "padding-bottom:5px;",

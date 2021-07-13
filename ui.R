@@ -2,6 +2,7 @@
 shinyUI(
   tagList(
     includeCSS("www/style.css"),
+    useShinyjs(),
     navbarPage(title = "Main Concept, Sequencing & Story Grammar",
                id = "mainpage",
                footer = tags$div(
@@ -9,23 +10,24 @@ shinyUI(
                    class = "footer",
                    footer_div
                ),
+               
                theme = minimal_theme,
                
                ############################ Instructions ############################## 
-               tabPanel(value = "intro", title = "Intro",
+               tabPanelBody(value = "intro",# title = "Intro", 
                             intro_tab_div
                ),
                ############################ Scoring ###################################
-               tabPanel(value = "scoring", title = "Scoring",
-                            scoring_div
+               tabPanelBody(value = "scoring",# title = "Scoring",
+                            uiOutput("scoring_div")
                ),
                ############################ Results ###################################
-               tabPanel(value = "results", title = "Results",
-                            #results_tab_div
-               )
+               tabPanelBody(value = "results",# title = "Results",
+                            results_div
+               )#,
+               #tabPanel(value = "start_over", title = "Start Over")
                ########################################################################
-    ),
-    # adjusting for footer. 
-    br(), br(), br(), br(), br(), 
+              
+    )
   )
 )
