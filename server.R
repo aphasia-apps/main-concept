@@ -192,9 +192,9 @@ shinyServer(function(input, output, session) {
         ))
     })
     # readme modal. probabily will be deleted
-    observeEvent(input$dev, {
+    observeEvent(input$about, {
         showModal(modalDialog(
-            tags$iframe(src="README.html", width = "100%",
+            tags$iframe(src="bio.html", width = "100%",
                         height = "650px", frameBorder = "0"),
             size = "l",
             easyClose = TRUE,
