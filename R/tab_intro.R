@@ -3,18 +3,30 @@ intro_tab_div <-
    column(width = 12,
           tabsetPanel(type="hidden", id = "glide",
                       tabPanelBody(value = "glide1",
-                                   div(align = "center",
+                                   column(width = 8, offset = 2,
+                                          div(
+                                          tags$iframe(src="intro.html", style="border: 0; width: 100%; height: 600px; margin:0;")
+                                          ),
+                                          div(align="center",
+                                              actionButton("glide_next1", "Next"))
+                                   )
+                                   
+                      ),
+                      tabPanelBody(value = "glide2",
+                                    div(align = "center",
                                        div(style="display: inline-block; text-align: left;",
                                            h5("Input participant information"), br(),
                                            textInput("name", "Enter a Name"),
                                            textInput("notes", "Enter any notes"),
                                            fileInput("file1", "Upload previous results", accept = ".csv"),
-                                           div(align="center",
-                                               actionButton("glide_next1", "Next"))
                                        )
+                                   ),
+                                   div(align = "center",
+                                       actionButton("glide_back1", "Back"),
+                                       actionButton("glide_next2", "Next")
                                    )
                       ),
-                      tabPanelBody(value = "glide2",
+                      tabPanelBody(value = "glide3",
                                    div(align = "center",
                                        div(style="display: inline-block; text-align: left;",
                                            h5("These are example inputs"), br(),
@@ -33,30 +45,16 @@ intro_tab_div <-
                                                          height = "260px",
                                                          width = "100%",
                                                          value = transcriptDefault
-                                                       ),
+                                           ),
                                            numericInput("input_duration",
-                                                         "Enter Duration (seconds)",
+                                                        "Enter Duration (seconds)",
                                                         value = 60,
                                                         min = 10,
                                                         max = 720
-                                                         ),
-                                           div(align = "center",
-                                               actionButton("glide_back1", "Back"),
-                                               actionButton("glide_next2", "Next")
                                            )
-                                       )
-                                   )
-                      ),
-                      tabPanelBody(value = "glide3",
-                                   div(align = "center",
-                                       div(style="display: inline-block; text-align: left;",
-                                           tags$ul(
-                                             tags$li("Instruction 1"),
-                                             tags$li("Instruction 2"),
-                                             tags$li("Instruction 3"),
-                                           ),br(),
-                                           # start!
-                                           div(align = "center",
+                                        )
+                                       ),
+                                       div(align = "center",
                                                actionButton("glide_back2", "Back"),
                                                actionButton("start",
                                                             "Get started")
@@ -64,9 +62,7 @@ intro_tab_div <-
                                        )
                                    )
                       )
-          )
-              
-  )
+
 
 
 

@@ -1,6 +1,6 @@
 # cinderella
 c1<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 1,
               tags$li(tags$em(tags$sup("1"), tags$strong("Dad"),HTML('&nbsp;'), tags$sup("2"), tags$strong("remarried"),HTML('&nbsp;'), tags$sup("3"), tags$strong("a woman"), "with two daughters.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -11,7 +11,7 @@ c1<-
   )
 
 c2<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 2,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella"),HTML('&nbsp;'), tags$sup("2"), tags$strong("lives with"),HTML('&nbsp;'), tags$sup("3"), tags$strong("stepmother/stepsisters"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -26,7 +26,7 @@ c2<-
 
 
 c3<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 3,
               tags$li(tags$em(tags$sup("1"), tags$strong("Stepmother/stepsisters"),HTML('&nbsp;'), tags$sup("2"), tags$strong("were mean"),HTML('&nbsp;'), tags$sup("3"), tags$strong("to Cinderella"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -38,7 +38,7 @@ c3<-
 
 
 c4<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 4,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was"),HTML('&nbsp;'), tags$sup("3"), tags$strong("a servant"), "to the stepmother and stepsisters.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -52,7 +52,7 @@ c4<-
 
 
 c5<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 5,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella"),HTML('&nbsp;'), tags$sup("2"), tags$strong("has to do"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the homework."))),
               tags$ol(style = "padding-bottom:5px;",
@@ -64,7 +64,7 @@ c5<-
 
 
 c6<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 6,
               tags$li("The kind thinks", tags$em(tags$sup("1"), tags$strong("the prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("should get married."),HTML('&nbsp;'))),
               tags$ol(style = "padding-bottom:5px;",
@@ -77,7 +77,7 @@ c6<-
 
 
 c7<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 7,
               tags$li("the king announces", tags$em(tags$sup("1"), tags$strong("there is going to be"),HTML('&nbsp;'), tags$sup("2"), tags$strong("a ball"),HTML('&nbsp;'), "in honor of son who needs to find a wife.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -90,7 +90,7 @@ c7<-
 
 
 c8<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 8,
               tags$li(tags$em(tags$sup("1"), tags$strong("They"),HTML('&nbsp;'), tags$sup("2"), tags$strong("got"),HTML('&nbsp;'), tags$sup("3"), tags$strong("an invitation"), "*to the ball.*")),
               tags$ol(style = "padding-bottom:5px;",
@@ -105,7 +105,7 @@ c8<-
 
 
 c9<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 9,
               tags$li(tags$em(tags$sup("1"), tags$strong("They"),HTML('&nbsp;'), tags$sup("2"), tags$strong("are excited"),HTML('&nbsp;'), tags$sup("3"), "*about the ball.*")),
               tags$ol(style = "padding-bottom:5px;",
@@ -120,7 +120,7 @@ c9<-
 
 
 c10<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 10,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella"), "is told by the stepmother she", HTML('&nbsp;'), tags$sup("2"), tags$strong("cannot go"),HTML('&nbsp;'), "*to the ball* unless/because (insert reason).")),
               tags$ol(style = "padding-bottom:5px;",
@@ -135,7 +135,7 @@ c10<-
 
 
 c11<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 11,
               tags$li(tags$em(tags$sup("1"), tags$strong("The stepsisters"),HTML('&nbsp;'), tags$sup("2"), tags$strong("tore"),HTML('&nbsp;'), tags$sup("3"), tags$strong("Cinderella's dress"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -147,7 +147,7 @@ c11<-
 
 
 c12<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 12,
               tags$li(tags$em(tags$sup("1"), tags$strong("Stepmother/Stepsisters"),HTML('&nbsp;'), tags$sup("2"), tags$strong("went"),HTML('&nbsp;'), tags$sup("3"), "*to the ball*")),
               tags$ol(style = "padding-bottom:5px;",
@@ -160,7 +160,7 @@ c12<-
 
 
 c13<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 13,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was"),HTML('&nbsp;'), tags$sup("3"), tags$strong("upset"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -172,7 +172,7 @@ c13<-
 
 
 c14<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 14,
               tags$li(tags$em(tags$sup("1"), tags$strong("A fairy godmother"),HTML('&nbsp;'), tags$sup("2"), tags$strong("appeared"),HTML('&nbsp;'), "to Cinderella.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -186,7 +186,7 @@ c14<-
 
 
 c15<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 15,
               tags$li(tags$em(tags$sup("1"), tags$strong("The fairy godmother"),HTML('&nbsp;'), tags$sup("2"), tags$strong("makes"),HTML('&nbsp;'), tags$sup("3"), tags$strong("{item(s)} turn into {items}."))),
               tags$ol(style = "padding-bottom:5px;",
@@ -206,7 +206,7 @@ c15<-
 
 
 c16<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 16,
               tags$li(tags$em(tags$sup("1"), tags$strong("The fairy godmother"),HTML('&nbsp;'), tags$sup("2"), tags$strong("makes"),HTML('&nbsp;'), tags$sup("3"), tags$strong("Cinderella"), tags$sup("4"), tags$strong("into a beautiful princess"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -221,7 +221,7 @@ c16<-
 
 
 c17<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 17,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella"),HTML('&nbsp;'), tags$sup("2"), tags$strong("went"),HTML('&nbsp;'), tags$sup("3"), tags$strong("to the ball"), "in the coach.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -235,7 +235,7 @@ c17<-
 
 
 c18<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 18,
               tags$li("She knew", tags$em(tags$sup("1"), tags$strong("she"),HTML('&nbsp;'), tags$sup("2"), tags$strong("had to be"),HTML('&nbsp;'), tags$sup("3"), tags$strong("home by midnight"), "because everything will turn back at midnight.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -249,7 +249,7 @@ c18<-
 
 
 c19<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 19,
               tags$li(tags$em(tags$sup("1"), tags$strong("The prince and Cinderella"),HTML('&nbsp;'), tags$sup("2"), tags$strong("danced"),HTML('&nbsp;'), "around the room/all night/with no one else.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -260,7 +260,7 @@ c19<-
 
 
 c20<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 20,
               tags$li(tags$em(tags$sup("1"), tags$strong("Prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("falls in love"),HTML('&nbsp;'), tags$sup("3"), tags$strong("with Cinderella"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -274,7 +274,7 @@ c20<-
 
 
 c21<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 21,
               tags$li("Cinderella realized", tags$em(tags$sup("1"), tags$strong("it"),HTML('&nbsp;'), tags$sup("2"), tags$strong("is"),HTML('&nbsp;'), tags$sup("3"), tags$strong("midnight"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -286,7 +286,7 @@ c21<-
 
 
 c22<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 22,
               tags$li(tags$em(tags$sup("1"), tags$strong("She"),HTML('&nbsp;'), tags$sup("2"), tags$strong("ran"),HTML('&nbsp;'), tags$sup("3"), tags$strong("down the stairs"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -298,7 +298,7 @@ c22<-
 
 
 c23<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 23,
               tags$li("As she was running down the stairs", tags$em(tags$sup("1"), tags$strong("she"),HTML('&nbsp;'), tags$sup("2"), tags$strong("lost one of the"),HTML('&nbsp;'), tags$sup("3"), tags$strong("glass slippers"), "to the stepmother and stepsisters.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -311,7 +311,7 @@ c23<-
 
 
 c24<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 24,
               tags$li(tags$em(tags$sup("1"), tags$strong("Prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("finds"),HTML('&nbsp;'), tags$sup("3"), tags$strong("Cinderella's shoe."))),
               tags$ol(style = "padding-bottom:5px;",
@@ -325,7 +325,7 @@ c24<-
 
 
 c25<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 25,
               tags$li(tags$em(tags$sup("1"), tags$strong("Everything"),HTML('&nbsp;'), tags$sup("2"), tags$strong("turns back"),HTML('&nbsp;'), tags$sup("3"), tags$strong("to its original form"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -339,7 +339,7 @@ c25<-
 
 
 c26<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 26,
               tags$li(tags$em(tags$sup("1"), tags$strong("She"),HTML('&nbsp;'), tags$sup("2"), tags$strong("returned"),HTML('&nbsp;'), tags$sup("3"), tags$strong("home"), "in time.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -353,7 +353,7 @@ c26<-
 
 
 c27<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 27,
               tags$li(tags$em(tags$sup("1"), tags$strong("The prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("searched"),HTML('&nbsp;'),"door to door", tags$sup("3"), tags$strong("for Cinderella"), "to the stepmother and stepsisters.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -367,7 +367,7 @@ c27<-
 
 
 c28<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 28,
               tags$li(tags$em(tags$sup("1"), tags$strong("Prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("comes"),HTML('&nbsp;'), tags$sup("3"), tags$strong("to Cinderella's house"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -381,7 +381,7 @@ c28<-
 
 
 c29<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 29,
               tags$li(tags$em(tags$sup("1"), tags$strong("The stepsisters"),HTML('&nbsp;'), tags$sup("2"), tags$strong("try on"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the glass slipper"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -393,7 +393,7 @@ c29<-
 
 
 c30<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 30,
               tags$li(tags$em(tags$sup("1"), tags$strong("The slipper"),HTML('&nbsp;'), tags$sup("2"), tags$strong("didn't fit"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the stepsisters"), "to the stepmother and stepsisters.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -405,7 +405,7 @@ c30<-
 
 
 c31<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 31,
               tags$li(tags$em(tags$sup("1"), tags$strong("He"),HTML('&nbsp;'), tags$sup("2"), tags$strong("put"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the slipper on"), "Cinderella's foot")),
               tags$ol(style = "padding-bottom:5px;",
@@ -420,7 +420,7 @@ c31<-
 
 
 c32<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 32,
               tags$li(tags$em(tags$sup("1"), tags$strong("The slipper"),HTML('&nbsp;'), tags$sup("2"), tags$strong("fits"),HTML('&nbsp;'), tags$sup("3"), tags$strong("Cinderella perfectly"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -433,7 +433,7 @@ c32<-
 
 
 c33<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 33,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella and the prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("were married"),HTML('&nbsp;'))),
               tags$ol(style = "padding-bottom:5px;",
@@ -446,7 +446,7 @@ c33<-
 
 
 c34<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 34,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cinderella and the prince"),HTML('&nbsp;'), tags$sup("2"), tags$strong("lived happily ever after"))),
               tags$ol(style = "padding-bottom:5px;",

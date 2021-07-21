@@ -5,6 +5,7 @@ library(bslib)
 library(tidyverse)
 library(tokenizers)
 library(shinyWidgets)
+library(shinipsum)
 
 scoring_mca = tibble(
   Result = c("AC", "AI", "IC", "II", "Absent"),
@@ -25,3 +26,6 @@ main_concepts <- read_csv("www/main_concepts.csv") %>%
   group_by(task) %>% mutate(id = row_number())
 
 main_concepts$concept_length = 4-rowSums(is.na(main_concepts))
+
+# global variable for styling html scoring info
+sty = "line-height: 160%;font-size:1.25rem; background-color: #e9ecef; padding: 5px; margin-bottom: 5px; border-radius: 5px;"

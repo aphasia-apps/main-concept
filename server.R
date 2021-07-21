@@ -79,10 +79,30 @@ shinyServer(function(input, output, session) {
     #############################START OVER#########################################
     # if start over is hit, go to home page
     # start assessment button then resets everything
-    observeEvent(input$mainpage,{
+    # observeEvent(input$mainpage,{
+    #     
+    #     if (input$mainpage == "start_over") {
+    # 
+    #         shinyjs::reset("intro_tab")
+    #         updateTabsetPanel(session, "glide", "glide1")
+    #         
+    #         # immediately navigate back to previous tab
+    #         updateTabsetPanel(session, "mainpage",
+    #                           selected = "intro")
+    #         
+    #         values$datetime <- Sys.time() # reestablishes datetime
+    #         values$i=0
+    #         values$concept = list()
+    #         values$selected_sentences = list()
+    #         values$concept_accuracy = list()
+    #         
+    #        
+    #     }
+    #     
+    # })
+    
+    observeEvent(input$start_over,{
         
-        if (input$mainpage == "start_over") {
-
             shinyjs::reset("intro_tab")
             updateTabsetPanel(session, "glide", "glide1")
             
@@ -95,9 +115,6 @@ shinyServer(function(input, output, session) {
             values$concept = list()
             values$selected_sentences = list()
             values$concept_accuracy = list()
-            
-           
-        }
         
     })
     
@@ -167,7 +184,7 @@ shinyServer(function(input, output, session) {
     # More information modal
     observeEvent(input$info, {
         showModal(modalDialog(
-            tags$iframe(src="README.html", width = "100%",
+            tags$iframe(src="Scoring.html", width = "100%",
                         height = "650px", frameBorder = "0"),
             easyClose = TRUE,
             footer = NULL,
@@ -299,10 +316,7 @@ shinyServer(function(input, output, session) {
                 inputId = "accuracy1",
                 label = concept_labels()[values$i, 2], 
                 choices = c("Accurate", "Inaccurate", "Absent"),
-                #status = "primary",
                 direction = "vertical",
-                #checkbox = TRUE,
-                #fill = TRUE,
                 selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
                     values$concept_accuracy[[values$i]][1,1]
                 } else {test_var}
@@ -318,9 +332,7 @@ shinyServer(function(input, output, session) {
                 inputId = "accuracy2",
                 label = concept_labels()[values$i, 3], 
                 choices = c("Accurate", "Inaccurate", "Absent"),
-                #status = "primary",
                 direction = "vertical",
-                #checkbox = TRUE,
                 selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
                     values$concept_accuracy[[values$i]][2,1]
                 } else {test_var}
@@ -338,8 +350,6 @@ shinyServer(function(input, output, session) {
                     label = concept_labels()[values$i, 4], 
                     choices = c("Accurate", "Inaccurate", "Absent"),
                     direction = "vertical",
-                    #status = "primary",
-                    #checkbox = TRUE,
                     selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
                         values$concept_accuracy[[values$i]][3,1]
                     } else {test_var}
@@ -355,9 +365,7 @@ shinyServer(function(input, output, session) {
             inputId = "accuracy4",
             label = concept_labels()[values$i, 5], 
             choices = c("Accurate", "Inaccurate", "Absent"),
-            status = "primary",
             direction = "vertical",
-           # checkbox = TRUE,
             selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
                 values$concept_accuracy[[values$i]][4,1]
             } else {test_var}
@@ -472,7 +480,7 @@ shinyServer(function(input, output, session) {
     })
     
     output$random_plot <- renderPlot({
-        shinipsum::random_ggplot()
+        shinipsum::random_ggplot(type = "dotplot")
     }, height = 250 )
     
     

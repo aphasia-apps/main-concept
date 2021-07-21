@@ -1,6 +1,6 @@
 # sandwich
 s1<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 1,
               tags$li(tags$em(tags$sup("1"), tags$strong("Get"),HTML('&nbsp;'), tags$sup("2"), tags$strong("bread"),HTML('&nbsp;'), tags$sup("3"), tags$strong("out"), "of the pantry/cupboard/refrigerator/freezer/etc.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -13,7 +13,7 @@ s1<-
   )
 
 s2<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 2,
               tags$li(tags$em(tags$sup("1"), tags$strong("Get"),HTML('&nbsp;'), tags$sup("2"), tags$strong("two slices"),HTML('&nbsp;'), tags$sup("3"), tags$strong("of bread"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -26,7 +26,7 @@ s2<-
   )
 
 s3<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 3,
               tags$li(tags$em(tags$sup("1"), tags$strong("Get"),HTML('&nbsp;'), tags$sup("2"), tags$strong("the peanut butter"),HTML('&nbsp;'))),
               tags$ol(style = "padding-bottom:5px;",
@@ -38,7 +38,7 @@ s3<-
   )
 
 s4<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 4,
               tags$li(tags$em(tags$sup("1"), tags$strong("Get"),HTML('&nbsp;'), tags$sup("2"), tags$strong("the jelly"),HTML('&nbsp;'))),
               tags$ol(style = "padding-bottom:5px;",
@@ -50,7 +50,7 @@ s4<-
   )
 
 s5<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 5,
               tags$li(tags$em(tags$sup("1"), tags$strong("Get"),HTML('&nbsp;'), tags$sup("2"), tags$strong("a knife"),HTML('&nbsp;'))),
               tags$ol(style = "padding-bottom:5px;",
@@ -60,7 +60,7 @@ s5<-
   )
 
 s6<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 6,
               tags$li(tags$em(tags$sup("1"), tags$strong("Put"),HTML('&nbsp;'), tags$sup("2"), tags$strong("the bread"),HTML('&nbsp;'), tags$sup("3"), tags$strong("on a plate"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -71,7 +71,7 @@ s6<-
   )
 
 s7<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 7,
               tags$li(tags$em(tags$sup("1"), tags$strong("Put"),HTML('&nbsp;'), tags$sup("2"), tags$strong("peanut butter"),HTML('&nbsp;'), tags$sup("3"), tags$strong("on bread"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -82,7 +82,7 @@ s7<-
   )
 
 s8<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 8,
               tags$li(tags$em(tags$sup("1"), tags$strong("Put"),HTML('&nbsp;'), tags$sup("2"), tags$strong("jelly"),HTML('&nbsp;'), tags$sup("3"), tags$strong("on bread"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -93,7 +93,7 @@ s8<-
   )
 
 s9<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 9,
               tags$li(tags$em(tags$sup("1"), tags$strong("Put"),HTML('&nbsp;'), tags$sup("2"), tags$strong("the two pieces"),HTML('&nbsp;'), tags$sup("3"), tags$strong("together"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -106,7 +106,7 @@ s9<-
   )
 
 s10<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 2,
               tags$li(tags$em(tags$sup("1"), tags$strong("Cut"),HTML('&nbsp;'), tags$sup("2"), tags$strong("the sandwich"),HTML('&nbsp;'), tags$sup("3"), tags$strong("in pieces"))),
               tags$ol(style = "padding-bottom:5px;",

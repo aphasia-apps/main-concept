@@ -1,6 +1,6 @@
 # cat rescue
 cr1 <-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 1,
               tags$li(tags$em(tags$sup("1"), tags$strong("The little girl"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was riding"),HTML('&nbsp;'), tags$sup("3"), tags$strong("her bicycle"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -12,7 +12,7 @@ cr1 <-
 
 
 cr2<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 2,
               tags$li(tags$em(tags$sup("1"), tags$strong("The cat"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was in"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the tree"), "because the dog chased it.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -28,7 +28,7 @@ cr2<-
 
 
 cr3<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 3,
               tags$li(tags$em(tags$sup("1"), tags$strong("The dog"),HTML('&nbsp;'), tags$sup("2"), tags$strong("was barking"),HTML('&nbsp;'), tags$sup("3"), "up the tree")),
               tags$ol(style = "padding-bottom:5px;",
@@ -42,7 +42,7 @@ cr3<-
 
 
 cr4<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 4,
               tags$li(tags$em(tags$sup("1"), tags$strong("The man"),HTML('&nbsp;'), tags$sup("2"), tags$strong("climbed up"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the tree"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -55,7 +55,7 @@ cr4<-
 
 
 cr5<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 5,
               tags$li(tags$em(tags$sup("1"), tags$strong("The man"),HTML('&nbsp;'), tags$sup("2"), tags$strong("tries to rescue"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the cat"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -70,7 +70,7 @@ cr5<-
 
 
 cr6<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 6,
               tags$li(tags$em(tags$sup("1"), tags$strong("The ladder"),HTML('&nbsp;'), tags$sup("2"), tags$strong("fell down"),HTML('&nbsp;'))),
               tags$ol(style = "padding-bottom:5px;",
@@ -84,7 +84,7 @@ cr6<-
 
 
 cr7<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 7,
               tags$li(tags$em(tags$sup("1"), tags$strong("The father"),HTML('&nbsp;'), tags$sup("2"), tags$strong("is stuck"),HTML('&nbsp;'), tags$sup("3"), tags$strong("in the tree"), "with the cat.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -97,7 +97,7 @@ cr7<-
   )
 
 cr8<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 8,
               tags$li(tags$em(tags$sup("1"), tags$strong("Someone"),HTML('&nbsp;'), tags$sup("2"), tags$strong("called"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the fire department"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -112,7 +112,7 @@ cr8<-
 
 
 cr9<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 9,
               tags$li(tags$em(tags$sup("1"), tags$strong("The fire department"),HTML('&nbsp;'), tags$sup("2"), tags$strong("comes"),HTML('&nbsp;'), tags$sup("3"), tags$strong("with a ladder"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -127,7 +127,7 @@ cr9<-
 
 
 cr10<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style = sty,
       tags$ol(start = 10,
               tags$li(tags$em(tags$sup("1"), tags$strong("The fire department"),HTML('&nbsp;'), tags$sup("2"), tags$strong("rescues"),HTML('&nbsp;'), tags$sup("3"), tags$strong("them"))),
               tags$ol(style = "padding-bottom:5px;",

@@ -1,6 +1,6 @@
 # umbrella
 u1<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 1,
               tags$li("The mother says", tags$em(tags$sup("1"), tags$strong("It's going to"),HTML('&nbsp;'), tags$sup("2"), tags$strong("rain"), HTML('&nbsp;'), "today.")),
               tags$ol(style = "padding-bottom:5px;",
@@ -14,7 +14,7 @@ u1<-
   )
 
 u2<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 2,
               tags$li("The mother says", tags$em(tags$sup("1"), tags$strong("you"),HTML('&nbsp;'), tags$sup("2"), tags$strong("need to take"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the umbrella"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -29,7 +29,7 @@ u2<-
   )
 
 u3<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 3,
               tags$li(tags$em(tags$sup("1"), tags$strong("The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("(does something to refuse)"),HTML('&nbsp;'), tags$sup("3"), tags$strong("the umbrella"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -42,7 +42,7 @@ u3<-
   )
 
 u4<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 4,
               tags$li(tags$em(tags$sup("1"), tags$strong("The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("walks"),HTML('&nbsp;'), tags$sup("3"), tags$strong("to school"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -56,7 +56,7 @@ u4<-
   )
 
 u5<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 5,
               tags$li(tags$em(tags$sup("1"), tags$strong("It"),HTML('&nbsp;'), tags$sup("2"), tags$strong("is raining"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -70,7 +70,7 @@ u5<-
   )
 
 u6<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 6,
               tags$li(tags$em(tags$sup("1"), tags$strong("The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("gets"),HTML('&nbsp;'), tags$sup("3"), tags$strong("soaking wet"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -83,7 +83,7 @@ u6<-
   )
 
 u7<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 7,
               tags$li(tags$em(tags$sup("1"), tags$strong("The fboy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("runs"),HTML('&nbsp;'), tags$sup("3"), tags$strong("back"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -96,7 +96,7 @@ u7<-
   )
 
 u8<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 8,
               tags$li(tags$em(tags$sup("1"), tags$strong("The mother"),HTML('&nbsp;'), tags$sup("2"), tags$strong("is"),HTML('&nbsp;'), tags$sup("3"), tags$strong("(negative emotional state"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -112,7 +112,7 @@ u8<-
 
 
 u9<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 9,
               tags$li(tags$em(tags$sup("1"), tags$strong("The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("gets"),HTML('&nbsp;'), tags$sup("3"), tags$strong("an umbrella"))),
               tags$ol(style = "padding-bottom:5px;",
@@ -125,7 +125,7 @@ u9<-
   )
 
 u10<-
-  div(style = "line-height: 160%;font-size:1.25rem;",
+  div(style  = sty,
       tags$ol(start = 10,
               tags$li(tags$em(tags$sup("1"), tags$strong("The boy"),HTML('&nbsp;'), tags$sup("2"), tags$strong("goes back"),HTML('&nbsp;'), tags$sup("3"), tags$strong("to school"))),
               tags$ol(style = "padding-bottom:5px;",

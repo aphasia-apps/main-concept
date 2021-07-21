@@ -1,6 +1,5 @@
 # broken window
 
-sty = "line-height: 160%;font-size:1.25rem; background-color: #e9ecef; padding: 5px; margin-bottom: 5px; border-radius: 5px;"
 
 bw1 <- 
   div(style = sty,

@@ -1,0 +1,13 @@
+name: mssg
+title: mssg
+username:
+account: rb-cavanaugh
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4381138
+bundleId: 4815304
+url: https://rb-cavanaugh.shinyapps.io/mssg/
+when: 1626186807.99286
+lastSyncTime: 1626186807.99288
+asMultiple: FALSE
+asStatic: FALSE

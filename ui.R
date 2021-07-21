@@ -3,7 +3,7 @@ shinyUI(
   tagList(
     includeCSS("www/style.css"),
     useShinyjs(),
-    navbarPage(title = "Main Concept, Sequencing & Story Grammar",
+    navbarPage(title = "Main Concept Analysis",
                id = "mainpage",
                footer = tags$div(
                    id = "footer_id",

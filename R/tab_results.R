@@ -27,7 +27,7 @@ results_div <-
                   downloadButton("downloadData", "Download Summary Data"),
                   downloadButton("downloadData_raw", "Download Concept Data"),
                   downloadButton("downloadData_rawsen", "Download Sentence Data")
-        ), br(), br(),
+        ), br(), br(), br(), 
         column(align = "center", width = 12,
                actionButton("start_over", "Start Over", icon = icon("undo")))
       )
