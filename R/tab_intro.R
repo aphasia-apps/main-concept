@@ -5,7 +5,7 @@ intro_tab_div <-
                       tabPanelBody(value = "glide1",
                                    column(width = 8, offset = 2,
                                           div(
-                                          tags$iframe(src="intro.html", frameBorder = "0", width = "100%", height = "600px")
+                                            includeMarkdown(here("www", "intro.md"))
                                           ),
                                           div(align="center",
                                               actionButton("glide_next1", "Next"))

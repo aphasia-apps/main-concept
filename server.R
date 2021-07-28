@@ -255,7 +255,9 @@ shinyServer(function(input, output, session) {
         } else if(input$input_stimulus == 'sandwich'){'s'
         } else {}
         if(img_val>0 && img_val < stim_task()$num_slides+1){
-            return(get(paste0(paste_val, img_val)))
+            return(div(style = sty,
+                       markdown(get(paste0(paste_val, img_val))))
+            )
         } else {}
     })
     
