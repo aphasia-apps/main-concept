@@ -5,6 +5,8 @@ output:
     split_by: chapter
     number_sections: true
     toc_depth: 1
+    config:
+      search: true
 ---
 
 # **Introduction**
