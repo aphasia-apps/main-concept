@@ -64,6 +64,14 @@ shinyServer(function(input, output, session) {
         updateTabsetPanel(session, "glide", "glide2")
     })
     
+    observeEvent(input$glide_next3,{
+        updateTabsetPanel(session, "glide", "glide4")
+    })
+    
+    observeEvent(input$glide_back3,{
+        updateTabsetPanel(session, "glide", "glide3")
+    })
+    
     ################################## START ASSESSMENT ############################
     # start button. sets the i value to 1 corresponding to the first slide
     # switches to the assessment tab
@@ -184,7 +192,7 @@ shinyServer(function(input, output, session) {
     # More information modal
     observeEvent(input$info, {
         showModal(modalDialog(
-            tags$iframe(src="Scoring.html", width = "100%",
+            tags$iframe(src="https://docs.google.com/document/d/1EzueO8JeMhwKfFC-G7lSAfqiR5jflas5El1B7YAoOmM/edit?usp=sharing", width = "100%",
                         height = "650px", frameBorder = "0"),
             easyClose = TRUE,
             footer = NULL,
@@ -194,13 +202,26 @@ shinyServer(function(input, output, session) {
     # readme modal. probabily will be deleted
     observeEvent(input$about, {
         showModal(modalDialog(
-            tags$iframe(src="bio.html", width = "100%",
-                        height = "650px", frameBorder = "0"),
+            div(
+                includeMarkdown(here("www", "bio.md"))
+            ),
             size = "l",
             easyClose = TRUE,
             footer = NULL
         ))
     })
+    
+    observeEvent(input$references, {
+        showModal(modalDialog(
+            div(
+                includeMarkdown(here("www", "references.md"))
+            ),
+            size = "l",
+            easyClose = TRUE,
+            footer = NULL
+        ))
+    })
+    
     
     observe(
         if(input$mainpage == "scoring"){

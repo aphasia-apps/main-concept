@@ -27,6 +27,12 @@ footer_div <-
                  label = "About Us",
                  icon = icon("user-friends"),
                  style = "background:transparent; border:none;"
+               ),
+               actionButton(
+                 inputId = "references",
+                 label = "References",
+                 icon = icon("book"),
+                 style = "background:transparent; border:none;"
                )
             )
       )

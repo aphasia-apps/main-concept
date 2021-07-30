@@ -3,7 +3,7 @@ intro_tab_div <-
    column(width = 12,
           tabsetPanel(type="hidden", id = "glide",
                       tabPanelBody(value = "glide1",
-                                   column(width = 8, offset = 2,
+                                   column(width = 10, offset = 1,
                                           div(
                                             includeMarkdown(here("www", "intro.md"))
                                           ),
@@ -13,6 +13,17 @@ intro_tab_div <-
                                    
                       ),
                       tabPanelBody(value = "glide2",
+                                   column(width = 10, offset = 1,
+                                          div(class="ox-hugo-table basic-styling",
+                                            includeMarkdown(here("www", "scoring.md"))
+                                          ),
+                                          div(align="center",
+                                              actionButton("glide_back1", "Back"),
+                                              actionButton("glide_next2", "Next"))
+                                   )
+                                   
+                      ),
+                      tabPanelBody(value = "glide3",
                                     div(align = "center",
                                        div(style="display: inline-block; text-align: left;",
                                            h5("Input participant information"), br(),
@@ -22,11 +33,11 @@ intro_tab_div <-
                                        )
                                    ),
                                    div(align = "center",
-                                       actionButton("glide_back1", "Back"),
-                                       actionButton("glide_next2", "Next")
+                                       actionButton("glide_back2", "Back"),
+                                       actionButton("glide_next3", "Next")
                                    )
                       ),
-                      tabPanelBody(value = "glide3",
+                      tabPanelBody(value = "glide4",
                                    div(align = "center",
                                        div(style="display: inline-block; text-align: left;",
                                            h5("These are example inputs"), br(),
@@ -40,6 +51,7 @@ intro_tab_div <-
                                                           "Sandwich" = 'sandwich'),
                                                         selected = "broken_window", 
                                                         inline = T),
+                                           includeMarkdown(here("www", "transcribing.md")),
                                            textAreaInput("input_transcript",
                                                          "Enter transcript (separate utterances with a period)",
                                                          height = "260px",
@@ -55,7 +67,7 @@ intro_tab_div <-
                                         )
                                        ),
                                        div(align = "center",
-                                               actionButton("glide_back2", "Back"),
+                                               actionButton("glide_back3", "Back"),
                                                actionButton("start",
                                                             "Get started")
                                            )

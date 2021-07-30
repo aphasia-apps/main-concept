@@ -24,10 +24,10 @@ shinyUI(
                ############################ Results ###################################
                tabPanelBody(value = "results",# title = "Results",
                             results_div
-               )#,
+               ),#,
                #tabPanel(value = "start_over", title = "Start Over")
                ########################################################################
-              
+         br(),br(),br(),br()     
     )
   )
 )
