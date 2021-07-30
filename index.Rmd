@@ -1,10 +1,10 @@
 ---
 title: Main Concept Analysis
 output:
-    bookdown::gitbook:
-        config:
-    toc:
-      scroll_highlight: yes
+  bookdown::gitbook:
+    split_by: chapter
+    number_sections: true
+    toc_depth: 1
 ---
 
 # **Introduction**
@@ -1981,7 +1981,7 @@ TO BE ANSWERED
 # **Scoring Examples**
 
 ![Text Description automatically
-generated](./MCAMedia/media/image1.png){width="6.5in"
+generated](./docs/MCAMedia/media/image1.png){width="6.5in"
 height="2.410416666666667in"}
 
 [Taken from Appendix 4 of:]{.ul}
