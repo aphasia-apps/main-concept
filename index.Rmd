@@ -9,7 +9,7 @@ output:
       search: true
 ---
 
-# **Introduction**
+# Introduction
 
 Main Concept Analysis (MCA) is a discourse assessment originally
 developed by Nicholas and Brookshire (1995) that measures the
@@ -62,20 +62,17 @@ of the production.
 
 [Scoring\*:]{.ul}
 
-Richardson and Dalton, 2016 Kong, 2009
+<center>
 
-*Accurate & Complete (AC):* 3 Points *Accurate & Complete (AC):* 3
-Points
-
-*Accurate & Incomplete (AI):* 2 Points *Accurate & Incomplete (AI):* 2
-Point
-
-*Inaccurate & Complete (IC):* 2 Points *Inaccurate (I, IC and II):* 1
-Point
-
-*Inaccurate & Incomplete (II):* 1 Point *Absent (AB):* 0 Points
-
-*Absent (AB):* 0 Points
+ Code                         | **Richardson and Dalton, 2016**   | **Kong, 2009**                         
+------------------------------|:---------------------------------:|:-------------:
+ Accurate & Complete (AC)     | 3 Points                          | 3 Points  
+ Accurate & Incomplete (AI)   | 2 Points                          | 2 Point 
+ Inaccurate & Complete (IC)   | 2 Points	                        | 1 Point  
+ Inaccurate & Incomplete (II) | 1 Point                           | 1 Point                              
+ Absent (AB)                  | 0 Points                          | 0 Points 
+ 
+ </center>
 
 *\*To our knowledge, norms for AphasiaBank stimuli are only available
 for the Richardson & Dalton 2016 scoring system. If using the Kong, 2009
@@ -94,8 +91,7 @@ that is not in the checklist.
 
 Note to Remember:
 
--   Main concepts do not have to be given in the transcript in the same
-    > order they are shown in the main concept list.
+-   Main concepts do not have to be given in the transcript in the same order they are shown in the main concept list.
 
     -   [Cinderella Example]{.ul}
 
@@ -120,33 +116,33 @@ Note to Remember:
 
 -   Essential elements can be produced across multiple utterances.
 
-# **Required Readings/Resources:**
+# Required Readings/Resources:
 
 The following background readings and resources are needed to accurately
 and reliably implement main concept analysis:
 
-> Nicholas, L. E., & Brookshire, R. H. (1995). Presence, completeness,
-> and accuracy of main concepts in the connected speech of
-> non-brain-damaged adults and adults with aphasia. *Journal of Speech,
-> Language, and Hearing Research*, *38*(1), 145-156.
->
-> Richardson, J. D., & Dalton, S. G. (2016). Main concepts for three
-> different discourse tasks in a large non-clinical sample.
-> *Aphasiology*, *30*(1), 45-73.
->
-> Richardson, J. D., & Dalton, S. G. H. (2020). Main concepts for two
-> picture description tasks: an addition to Richardson and Dalton, 2016.
-> *Aphasiology*, *34*(1), 119-136.
->
-> Dalton, S. G. H., & Richardson, J. D. (2019). A large-scale comparison
-> of main concept production between persons with aphasia and persons
-> without brain injury. *American journal of speech-language pathology*,
-> *28*(1S), 293-320.
->
-> Richardson and Dalton Lab "Living" Rules for Determining Accuracy and
-> Completeness of Main Concepts with Examples (this manual)
+ - Nicholas, L. E., & Brookshire, R. H. (1995). Presence, completeness,
+ and accuracy of main concepts in the connected speech of
+ non-brain-damaged adults and adults with aphasia. *Journal of Speech,
+ Language, and Hearing Research*, *38*(1), 145-156.
 
-# **Links to Picture Stimuli**
+ - Richardson, J. D., & Dalton, S. G. (2016). Main concepts for three
+ different discourse tasks in a large non-clinical sample.
+ *Aphasiology*, *30*(1), 45-73.
+
+ - Richardson, J. D., & Dalton, S. G. H. (2020). Main concepts for two
+ picture description tasks: an addition to Richardson and Dalton, 2016.
+ *Aphasiology*, *34*(1), 119-136.
+
+ - Dalton, S. G. H., & Richardson, J. D. (2019). A large-scale comparison
+ of main concept production between persons with aphasia and persons
+ without brain injury. *American journal of speech-language pathology*,
+ *28*(1S), 293-320.
+
+ - Richardson and Dalton Lab "Living" Rules for Determining Accuracy and
+ Completeness of Main Concepts with Examples (this manual)
+
+# Links to Picture Stimuli
 
 AphasiaBank Protocol Pictures -
 [[https://aphasia.talkbank.org/protocol/pictures/]{.ul}](https://aphasia.talkbank.org/protocol/pictures/)
@@ -166,7 +162,7 @@ AphasiaBank Protocol Pictures -
 -   Refused Umbrella -
     > [[https://aphasia.talkbank.org/protocol/pictures/umbrella.jpg]{.ul}](https://aphasia.talkbank.org/protocol/pictures/umbrella.jpg)
 
-# **Broken Window Elicitation Script**
+# Broken Window Elicitation Script
 
 AphasiaBank Instructions -
 [[https://aphasia.talkbank.org/protocol/instructions.pdf]{.ul}](https://aphasia.talkbank.org/protocol/instructions.pdf)
@@ -194,7 +190,7 @@ anything about this picture?"
 If no response, point to the picture and ask: "Is the boy kicking the
 ball through the window?"
 
-# **Broken Window Main Concept Checklist**
+# Broken Window Main Concept Checklist
 
 Essential information is *italicized* and **bolded**. Each essential
 segment is numbered (superscript) with alternative productions (if any
@@ -206,95 +202,31 @@ complete the main concept is in normal font. If multiple utterances can
 correspond with an MC, select the best utterance presented for the
 purposes of coding/scoring.
 
-1)  ***^1^A/The boy ^2^was ^3^outside*.**
+<!-- 1)  ***^1^A/The boy ^2^was ^3^outside*.** -->
 
-    a.  *He, any name (e.g., Johnny, Mark)*
+<!--     a.  *He, any name (e.g., Johnny, Mark)* -->
 
-    b.  *Is, decided to go*
+<!--     b.  *Is, decided to go* -->
 
-    c.  *In his yard, on the lawn, out of the house, etc.*
+<!--     c.  *In his yard, on the lawn, out of the house, etc.* -->
 
-> Note: Sometimes combined with MC2 in a statement such as "The boy was
-> playing soccer outside" or "The boy was kicking the ball in the yard".
-> These statements would receive AC codes for MC1 and MC2.
+<!-- > Note: Sometimes combined with MC2 in a statement such as "The boy was -->
+<!-- > playing soccer outside" or "The boy was kicking the ball in the yard". -->
+<!-- > These statements would receive AC codes for MC1 and MC2. -->
 
-2)  ***^1^A/The boy ^2^was playing ^3^soccer.***
+```{r, echo = F, results = 'asis'}
+source(here::here("R", "stim_broken-window.R"))
 
-    a.  *See 1.1 above*
+for(i in ls(pattern = "bw")){
+  print(shiny::markdown(get(i)))
+}
+```
 
-    b.  *Plays, kicks, practices*
+```{r, include = F}
+rm("stim_broken-window.R")
+```
 
-    c.  *With the soccer ball, with the ball, with the football\* (\*if
-        > dialectically appropriate)*
-
-> Note: "He has a ball" or "He has a soccer ball" did not count towards
-> this concept because it does not imply any kind of action with the
-> soccer ball, and boy-action-ball was the concept that met criterion.
-
-3)  ***^1^The ball ^2^breaks ^3^the*** man's/neighbor's ***window.***
-
-    a.  *Soccer ball, football\* (see 2.3)*
-
-    b.  *Goes through, crashes through/into, flies through, sails
-        > through/into, shatters, is kicked through*
-
-    c.  *glass*
-
-4)  ***^1^The man ^2^is sitting*** in a chair and/or inside the house.
-
-    a.  *The dad, the father, the neighbor, the guy, any name*
-
-    b.  *Lounging, resting, relaxing, inside*
-
-> Note: Most common were "The man is sitting," "The man is inside," and
-> "The man is sitting inside."
->
-> Note: "The man is watching TV" or something similar did not count for
-> this concept; that was a separate relevant concept that did not meet
-> the criterion.
-
-5)  ***^1^The man ^2^was startled.***
-
-    a.  *See 4.1*
-
-    b.  *Surprised, amazed, afraid, astonished, freaked out, stunned,
-        > shocked, angry, upset, not happy, mad*
-
-> Note: Occasionally, this concept was combined with MC3 in a statement
-> such as, "The ball crashed through the window and startled the man" or
-> with MC4 in a statement such as "The man sitting there was startled"
-> or "The startled man was sitting in the living room".
-
-6)  ***^1^The ball ^2^breaks ^3^a lamp.***
-
-    a.  *See 3.1*
-
-    b.  *Knocks down, knocks over, smashes into, hits*
-
-7)  ***^1^The man ^2^picks up ^3^the ball.***
-
-    a.  *See 4.1*
-
-    b.  *Grabs, gets, holds, catches, captures, has*
-
-    c.  *See 3.1*
-
-> Note: Occasionally, "The man stands up with the ball" or "The man
-> jumps up with the ball" were used to express this concept.
-
-8)  ***^1^The man ^2^looked ^3^out of the window.***
-
-    a.  *See 4.1*
-
-    b.  *Looks*
-
-    c.  *Outside, out, out of the glass*
-
-> Note: "The man goes to the window," or "The man goes outside" do not
-> count towards this concept. These were separate relevant concepts that
-> did not meet criterion.
-
-# **Cat Rescue Elicitation Script**
+# Cat Rescue Elicitation Script
 
 AphasiaBank Instructions -
 [[https://aphasia.talkbank.org/protocol/instructions.pdf]{.ul}](https://aphasia.talkbank.org/protocol/instructions.pdf)
@@ -315,7 +247,7 @@ tell me about the story?"
 
 If no response at all, go to Troubleshooting questions.
 
-# **Cat Rescue Main Concepts** 
+# Cat Rescue Main Concepts
 
 Essential information is ***italicized and bolded***. Each essential
 segment is numbered (superscript) with alternative productions (if any
@@ -325,148 +257,19 @@ common productions of the normative sample and are included to aid in
 scoring. Additional, but non-essential, information often spoken to
 complete the main concept is in normal font.
 
-> 1\. **^1^*The little girl* ^2^*was riding* ^3^*her bicycle***.
->
-> 1.1. She (if appropriate referent), the girl, the child, any girl's
-> name
->
-> 1.2. Rode, rides, was on, is playing on, stopped riding, got off, was
-> beside, has
->
-> 1.3. Bike, tricycle, trike, it (if appropriate referent)
->
-> 2\. **^1^*The cat* ^2^*was in* *^3^the tree ***because the dog chased
-> it. ††
->
-> 2.1. Kitty, kitten, it (if appropriate referent), any cat name
->
-> 2.2. Was up, was stuck in, got stuck in, climbed up, ran up, goes up,
-> gets in, was caught in, ends up in, was on, was chased up, was scared
-> up
->
-> 2.3. The tree limb, limb
->
-> Note: Sometimes expressed as "The dog **^2^*chased* ^1^*the cat*
-> ^3^*up the tree.***" or "The girl **^2^*saw* ^1^*the cat* ^3^*in the
-> tree***."
->
-> 3\. **^1^*The dog* ^2^*was barking ***up the tree. †
->
-> 3.1. It (if appropriate referent), puppy, pup, any dog name
->
-> 3.2. Barks, is barking, barked, is yelping
->
-> Note: "The dog chased the cat" should not apply to this statement as
-> it was a separate relevant concept that did not meet threshold but was
-> occasionally combined with additional elements that could apply to MC2
-> above OR could be used (for partial credit) according to N&B rules if
-> introducing a character (i.e., dog).
->
-> 4\. **^1^*The man* ^2^*climbed up*** **^3^*the tree***. ††
->
-> 4.1. The neighbor, the father, dad, daddy, someone older, big brother,
-> he (if appropriate referent), any man's name
->
-> 4.2. Was climbing, climbed, climbs, ran up, goes up into, got up on,
-> crawls in/on
->
-> 4.3. The branch, the limb, the ladder, it (if appropriate referent),
-> there
->
-> 5\. **^1^*The man* ^2^*tries to rescue* ^3^*the cat***. †
->
-> 5.1. See 4.1
->
-> 5.2. Wants to help, wants to rescue, tries to get, attempts to get,
-> tries to reach, goes to get, tries to retrieve, went up after, comes
-> to rescue
->
-> 5.3. See 2.1
->
-> Note 1: Frequently combined with MC 4 as in "The man climbed up the
-> tree to get the cat."; a person who says this should receive full
-> credit for MCs 4 and 5.
->
-> Note 2: Occasionally combined with MC 7 as in "He's stuck in the tree
-> trying to get the cat."; a person who says this should receive full
-> credit for MCs 5 and 7.
->
-> 6\. **^1^*The ladder* ^2^*fell down***. †
->
-> 6.1. It (if appropriate referent)
->
-> 6.2. Is down, falls, fell, has fallen, has fallen down, got away from
-> him, is on the ground, has slipped away, has dropped away, fell off,
-> has been knocked down
->
-> Note: Sometimes expressed with an agent that caused the ladder to
-> fall, such as the wind or dog (e.g., "the dog knocked the ladder
-> down").
->
-> 7\. **^1^*The father* ^2^*is stuck* ^3^*in the tree ***with the cat. †
->
-> 7.1. See 4.1, the man and the cat, they (if appropriate referents)
->
-> 7.2. Is up, is, is stranded, is caught, ended up, is marooned, is
-> sitting
->
-> 7.3. On the branch, on the limb, up there
+```{r, echo = F, results = 'asis'}
+source(here::here("R", "stim_cat-rescue.R"))
 
-Note: Sometimes expressed as: "**^1^*The man* ^2^*couldn't*** **^3^*get
-down***."
+for(i in ls(pattern = "cr")){
+  print(shiny::markdown(get(i)))
+}
+```
 
-> 8\. **^1^*Someone*** **^2^*called*** **^3^*the fire department***. ††
->
-> 8.1. The mother, the neighbor, the lady next door, the girl, the
-> father, a passerby, an onlooker, he/she/they
->
-> 8.2. Notifies, alerts, got
->
-> 8.3. The firemen, 911
->
-> Note 1: Sometimes expressed as a passive such as: "**^3^*The fire
-> department* ^2^*has been called***."
->
-> Note 2: For this concept, a pronoun without a preceding referent is
-> scored as AC since this action is not depicted in the picture stimuli.
->
-> 9\. **^1^*The fire department* ^2^*comes*** **^3^*with a ladder***. ††
->
-> 9.1. The firefighters, the firemen, the fire truck, they (if
-> appropriate referent or if includes ladder or other context so that
-> the referent is not ambiguous)
->
-> 9.2. Is on the way, is/are coming, came, have arrived, rushes out,
-> brings
->
-> Note 1: Sometimes combined with MC 8 as in "The mother called the fire
-> department to come with their ladder." A person who says this should
-> receive full credit for MCs 8 and 9.
->
-> Note 2: While the first two essential elements met 66% threshold, the
-> final element "with a ladder" was only produced by 33% of the sample.
->
-> 10\. **^1^*The fire department* ^2^*rescues*** **^3^*them***. ††
->
-> 10.1 See 9.1 (but not fire truck)
->
-> 10.2 Saves, is going to get, helps, gets, will take
->
-> 10.3 The man, the cat, the man and the cat
->
-> Note 1: Often combined with MC 9 as in "The fire department comes with
-> a ladder to rescue them." A person who says this should receive full
-> credit for MCs 9 and 10.
->
-> Note 2: Sometimes combined with MC 8 and MC 9 as in "The mother called
-> the fire department to come and rescue the father with a ladder." A
-> person who says this should receive full credit for MCs 8, 9, and 10.
+```{r, include = F}
+rm("stim_cat-rescue.R")
+```
 
-† Indicates concepts produced by 50% of the normative sample
-
-†† Indicates concepts produced by 66% of the normative sample
-
-# **Cinderella Elicitation Script** 
+# Cinderella Elicitation Script
 
 AphasiaBank Instructions -
 [[https://aphasia.talkbank.org/protocol/instructions.pdf]{.ul}](https://aphasia.talkbank.org/protocol/instructions.pdf)
@@ -500,7 +303,7 @@ finished.
 
 If no response, go to Troubleshooting questions.
 
-# **Cinderella Main Concepts** 
+# Cinderella Main Concepts
 
 Essential information is ***italicized and bolded***. Each essential
 segment is numbered (superscript), with alternative productions (if any
@@ -510,417 +313,19 @@ common productions of the normative sample and are included to aid in
 scoring. Additional, but non-essential, information often spoken to
 complete the main concept is in normal font.
 
-> 1\) ***^1^Dad ^2^remarried ^3^a woman*** with two daughters. †
->
-> 1\. *Daddy/Father*
->
-> 2\. *Got married to, got remarried, married again*
->
-> 3\. *A lady*
->
-> 2\) ***^1^Cinderella ^2^lives with ^3^stepmother/stepsisters**.*
->
-> 1\. *She\**
->
-> 2*. Is left with, moves in with, grows up with, has*
->
-> 3*. Stepfamily, new family, the women, they*
-
-i.*If they do not mention the word "step", there must be a clear
-indication that the*
-
-> *stepmother and stepsisters (the lady and her two daughters, the mean
-> woman and her beautiful daughters) are a unit separate from
-> Cinderella.*
->
-> Note 1: After Cinderella has been introduced into the story "she" is
-> an acceptable alternative as long as there is a clear pronoun
-> referent.
->
-> Note 2: After the stepmother and stepsisters have been introduced into
-> the story "they" is an acceptable alternative as long as there is a
-> clear pronoun referent.
->
-> 3\) ***^1^Stepmother/stepsisters ^2^were mean ^3^to Cinderella.*** †
-
-1\. *See 2.3*
-
-2\. *Were cruel, were wicked, treated Cinderella poorly, were awful,
-hated*
-
-> 4\) ***^1^Cinderella ^2^was ^3^a servant*** to the stepmother and
-> stepsisters.
->
-> 1\. *She*
->
-> 2*. Was forced to be, had to be*
->
-> 3*. Maid, slave, domestic*
->
-> Note: If they say the sentence in another way that expresses
-> servitude, for example "had to wait on", they must include stepmother
-> and/or stepsisters, because the verb requires an object. This would be
-> the only time they are essential for this concept.
->
-> 5\) ***^1^Cinderella ^2^has to do* ^3^*the housework****.* †
->
-> 1\. *She*
->
-> 2*. Is forced to do, must do, has to take care of*
->
-> 3*. Chores, cleaning, taking care of the house, everything*
->
-> 6\) The king thinks ***^1^the prince ^2^should get married**.*
->
-> 1\. *He\**
->
-> 2\. *Needs to get married/find a wife, must get married, has to get
-> married*
->
-> Note: After the prince has been introduced into the story "he" is an
-> acceptable alternative as long as there is a clear pronoun referent.
->
-> 7\) King announces ***^1^there is going to be ^2^a ball*** in honor of
-> son who needs to find a wife. †
-
-1\. *Will be, is to be, is*
-
-2\. *Dance, big party, celebration, gala*
-
-> Note: Occasionally this concept was combined with number 8 in a
-> statement like, "They got an invitation to the ball the king was
-> hosting for his son." This should receive full credit for concepts 7
-> and 8.
->
-> 8\) ***^1^They ^2^got ^3^an invitation** \**to the ball\*.
->
-> 1\. *The women, the stepmothers and/or stepsisters and/or Cinderella,
-> everyone in the household, the household*
->
-> 2\. *Received, was delivered (if word order altered so that the
-> invitation is delivered to the women)*
->
-> 3\. *No alternatives were produced for "invitation"*
->
-> Note 1: \*Not essential if clear from context or previously stated;
-> otherwise see note for number 7.
->
-> Note 2: Alternatively, the speaker could say "They were invited to the
-> ball" or something similar.
->
-> 9\) ***^1^They ^2^are excited*** \*about the ball\*.
-
-1\. *See 8.1*
-
-2\. *Are happy, are pleased*
-
-> Note 1: \*See number 8.
->
-> Note 2: If they say something like "They are looking forward to", they
-> must include "the ball" because an object is required.
->
-> 10\) ***^1^Cinderella*** is told by the stepmother she ***^2^cannot
-> go*** \*to the ball\* unless/because (insert
->
-> reason). †
->
-> 1\. *She*
->
-> *2. Could not go, has to stay home, is not allowed to go*
->
-> Note 1: \*See number 8.
-
-Note 2: An alternative is "If Cinderella could get all of her chores
-done, she could go to
-
-> the ball"
->
-> 11\) ***^1^The stepsisters ^2^tore ^3^Cinderella's dress**.*
->
-> 1\. *They*
->
-> 2\. *Ruined, destroyed, ripped up, shredded*
->
-> 3\. *Her dress*
->
-> 12\) ***^1^Stepmother/stepsisters ^2^went*** \*to the ball\*.
-
-1\. *Everyone but Cinderella*
-
-i\. *If "They went to the ball" is the sentence, the "they" must clearly
-exclude*
-
-> *Cinderella in the context*
-
-2\. *Go, left, departed*
-
-> Note: \*See number 8.
->
-> 13\) ***^1^Cinderella ^2^was ^3^upset.***
->
-> 1\. *She*
->
-> 2\. *Is*
->
-> 3\. *Crying, sad, disappointed*
->
-> 14\) ***^1^A fairy godmother ^2^appeared*** to Cinderella. ††
->
-> 1\. *No alternative for "fairy godmother" was produced*
->
-> 2\. *Shows up, appears, surprises, comes*
-
-i\. *Some may say "Cinderella sees" or "meets" or "finds", in which
-case*
-
-> *Cinderella then becomes an essential element*
->
-> Note: Another popular way of expressing this is "Along came a fairy
-> godmother" (which is basically "appeared a fairy godmother")
->
-> 15\) ***^1^The fairy godmother ^2^makes ^3^{item(s)} turn into
-> {items}**.* †
->
-> 1\. *See 14.1*
->
-> 2\. *Turns, creates, changes, any other verb indicating
-> transformation/creation*
-
-i\. *Must be a verb that indicates some kind of transformation or
-creation*
-
-> *3.* *Pumpkin and mice OR carriage/coach and horses*
->
-> i\. *When producing this concept, only one pair needs to be
-> mentioned,*
->
-> *however, it must be correctly paired to receive full credit*
->
-> *a.* *Pumpkin carriage/coach (and horses)*
->
-> *b.* *Mice horses (and carriage)*
->
-> *c.* *If they initially mention both pumpkin and mice, they do not
-> necessarily have to mention both after the transformation occurs in
-> order to receive full credit, and only one needs to be accurate*
->
-> *d.* *Do not take points off for mentioning other transformations,
-> such as dog coachman as these are not incorrect, they simply did not
-> reach significance.*
->
-> 16\) ***^1^The fairy godmother ^2^makes ^3^Cinderella ^4^into a
-> beautiful princess**.* ††
->
-> 1\. *See 14.1*
->
-> 2\. *Turns, creates, changes, gives*
->
-> 3\. *The regular girl, her regular clothes*
-
-4\. *Dress/shoes into gown/slippers, beautiful*
-
-> 17\) ***^1^Cinderella ^2^went ^3^to the ball*** in the coach. ††
->
-> 1\. *She*
->
-> 2\. *Goes, arrives, reaches*
->
-> 3\. *See 7.2*
->
-> 18\) She knew **^1^*she ^2^had to be ^3^home by midnight*** because
-> everything will turn back at
->
-> midnight.. ††
-
-1\. *Cinderella*
-
-2\. *Must be, needs to be, must return*
-
-3\. *Leave by midnight*
-
-> Note: An alternative could be "The fairy godmother told her that if
-> she wasn't home by midnight, XXX would happen" or something similar.
->
-> 19\) ***^1^The prince and Cinderella ^2^danced*** around the room/all
-> night/with no one else. ††
-
-1\. *They*
-
-2\. *Were dancing, kept dancing*
-
-> 20\) ***^1^Prince ^2^falls in love ^3^with Cinderella**.* †
-
-1\. *He*
-
-2\. *Is enamored with, is delighted with, is awestruck by, likes, is
-hooked on*
-
-3\. *Her*
-
-> Note: If someone says "Prince/They fall in love at first sight" that
-> individual can receive credit only if Cinderella has been mentioned
-> before or it is clearly indicated who "they" are.
->
-> 21\) Cinderella realized ***^1^it ^2^is ^3^midnight**.* †
-
-1\. *Clock, something indicates that it is*
-
-2\. *Is, gets to be, rings, strikes*
-
-3\. *Twelve o'clock, twelve midnight, almost midnight*
-
-> 22\) ***^1^She ^2^ran ^3^down the stairs**.* ††
-
-1\. *See 18.1*
-
-2\. *Was running, flew, rushed, sprinted, left, was leaving*
-
-3\. *Out of the ball/castle, away from the ball/castle/prince, out,
-away*
-
-> 23\) As she was running down the stairs ***^1^she ^2^lost one of the
-> ^3^glass slippers**.* ††
-
-1\. *See 18.1*
-
-2\. *Leaves, steps out of*
-
-3\. *Shoes, glass shoe*
-
-> 24\) ***^1^Prince ^2^finds ^3^Cinderella's shoe**.*
-
-1\. *Any other royal figure, king, servant, duke, prime minister,
-chamberlain*
-
-2\. *Had, got, retrieved, was brought*
-
-3\. *See 23.3*
-
-> Note: An alternative way to say this is "The servant brings the
-> slipper to the prince."
->
-> 25\) ***^1^Everything ^2^turns back ^3^to its original form**.*
-
-1\. *Pumpkin, mice, and/or clothes/dress*
-
-2\. *Goes back, returns, disappears*
-
-> i\. *If the speaker uses "disappears" they do not have to specify what
-> disappears, for example, "Everything disappears."*
-
-3\. *To normal (can specify what it turns back into)*
-
-> Note: The addition of "again" at the end of the sentence paired with a
-> verb that does not indicate change is acceptable because it implies a
-> return to the original state (e.g.,"she got home and the dress was old
-> again."
->
-> 26\) ***^1^She ^2^returned ^3^home*** in time.
->
-> 1\. *See 18.1*
->
-> 2\. *Gets, makes it, goes*
->
-> 3\. *to the house*
->
-> 27\) ***^1^The prince ^2^searched*** door to door **^3^*for
-> Cinderella****.* ††
-
-1\. *See 24.1, the servant*
-
-2\. *Was trying to find, looked for*
-
-3\. *For the person who would fit into the glass slipper, for the girl
-from the ball*
-
-> Note: Alternatively, this could be stated as "The prince/his servant
-> was trying the slipper on all the girls."
->
-> 28\) ***^1^Prince ^2^comes ^3^to Cinderella's house**.*
-
-1\. *See 27.1*
-
-2\. *Arrives at, went, found, shows up at*
-
-3\. *Her*
-
-> 29\) ***^1^The stepsisters ^2^try on ^3^the glass slipper**.*
-
-1\. *The stepsisters and stepmother, the other girls (if the reference
-to the stepsisters is*
-
-> *clear), etc.*
->
-> i\. *For this concept, speakers may include the stepmother. However,
-> the stepmother alone is not sufficient.*
-
-2\. *Attempt to put on, cram, try to fit into, try* *their foot in*
-
-3\. *See 23.3*
-
-> 30\) ***^1^The slipper ^2^didn't fit ^3^the stepsisters**.* †
-
-1\. *See 23.3*
-
-2\. *Would not go on the feet of, did not work for, couldn't fit on*
-
-3\. *See 29.1*
-
-> 31\) ***^1^He ^2^put ^3^the slipper on*** Cinderella's foot.
-
-1\. *See 27.1*
-
-2\. *Tried, slid, slipped, placed*
-
-3\. *See 23.3*
-
-> Note 1: Though most did not specifically mention Cinderella in these
-> concepts (31, 32), it was clear that at this point in the story, they
-> were referring to Cinderella.
-
-Note 2: An alternate way to say this is "Cinderella tried on the
-slipper."
-
-> 32\) ***^1^The slipper ^2^fits*** Cinderella perfectly. ††
-
-1\. *See 23.3*
-
-2\. *Belonged to*
-
-> Note: An alternate way to say this is "The shoe slid easily onto her
-> foot" or "The slipper was Cinderella's"
->
-> 33\) ***^1^Cinderella and the prince ^2^were married**.*
-
-1\. *See 19.1*
-
-2\. *Got married, were wed, had a wedding, had a marriage celebration*
-
-> Note: An alternate way to say this is, "The prince took Cinderella as
-> his bride."
->
-> 34\) ***^1^Cinderella and the prince ^2^lived happily ever after**.*
-> ††
-
-1\. *See 19.1*
-
-> i\. *The speaker must include or refer to both Cinderella and the
-> prince in order to receive an accurate and complete score*
-
-2\. *Lived forever, lived a long time, were happy for life.*
-
-> i\. *The speaker must indicate an extended length of time in order to
-> receive an accurate and complete score. For example, "ever after,"
-> "forever," "a long time," "life"*
->
-> Note: Variations can include "They lived happily ever after", "They
-> were together forever", "They had a wonderful life"
-
-† Indicates concepts produced by 50% of the normative sample
-
-†† Indicates concepts produced by 66% of the normative sample
-
-# **Peanut Butter and Jelly Elicitation Script** 
+```{r, echo = F, results = 'asis'}
+source(here::here("R", "stim_cinderella.R"))
+
+for(i in ls(pattern = "c")){
+  print(shiny::markdown(get(i)))
+}
+```
+
+```{r, include = F}
+rm("stim_cinderella.R")
+```
+
+# Peanut Butter and Jelly Elicitation Script
 
 AphasiaBank Instructions -
 [[https://aphasia.talkbank.org/protocol/instructions.pdf]{.ul}](https://aphasia.talkbank.org/protocol/instructions.pdf)
@@ -941,7 +346,7 @@ hungry for a peanut butter and jelly sandwich, how would you make it?"
 
 If no response, go to Troubleshooting questions.
 
-# **Peanut Butter Main Concepts** 
+# Peanut Butter Main Concepts
 
 Essential information is ***italicized and bolded***. Each essential
 segment is numbered (superscript) with alternative productions (if any
@@ -951,123 +356,17 @@ common productions of the normative sample and are included to aid in
 scoring. Additional, but non-essential, information often spoken to
 complete the main concept is in normal font.
 
-> 1\) ***^1^Get ^2^bread ^3^out*** of the
-> pantry/cupboard/refrigerator/freezer/etc.
+```{r, echo = F, results = 'asis'}
+source(here::here("R", "stim_sandwich.R"))
 
-1\. *Take out, remove, grab, find, pull out*
+for(i in ls(pattern = "s")){
+  print(shiny::markdown(get(i)))
+}
+```
 
-2\. *Loaf, bread loaf, bread bag*
-
-3\. *From (which if used, must be followed by a location from the
-speaker)*
-
-> 2\) ***^1^Get ^2^two slices ^3^of bread.*** ††
-
-1\. *See 1.1*
-
-2\. *A couple of slices, two pieces*
-
-> *i.* *Most speakers indicated more than one piece of bread. However,
-> if the*
->
-> *speaker uses one piece of bread throughout the story, and for #8 uses
-> "fold" or "close", or indicates in some way that they made a half
-> sandwich, then one slice/piece of bread is allowed. Speakers must be
-> consistent throughout the telling for this to be counted as correct.*
->
-> 3\. *If the speaker received full credit for the first concept, they
-> do not necessarily have to repeat "of bread" to be counted
-> correct/complete for this concept. For example a speaker could say
-> "You take the bread out of the pantry and get two slices."*
->
-> 3\) ***^1^Get* ^2^*the peanut butter. ***†
-
-1\. *See 1.1*
-
-2\. *A jar of peanut butter*
-
-> Note: A concept like "take off the lid on the peanut butter" or "open
-> the peanut butter" cannot be used for this concept. This was a
-> relevant concept that did not reach significance.
->
-> 4\) ***^1^Get ^2^the jelly.***
-
-1\. *See 1.1*
-
-2\. *A jar of jelly, jam, preserves, honey*
-
-> Note: See note for number 3.
->
-> 5\) ***^1^Get ^2^a knife.***
-
-1\. *See 1.1*
-
-2\. *Spatula*
-
-> 6\) ***^1^Put ^2^the bread ^3^on the plate.***
-
-1\. *Place, set, lay*
-
-2\. *The slices, the pieces, it, them*
-
-> *i.* *It must be clear that the individual is referring only to the
-> bread, not the*
->
-> *jelly, peanut butter, or knife*
-
-3\. *Counter, breadboard, cutting board, napkin, down (on a surface)*
-
-> 7\) ***^1^Put ^2^peanut butter ^3^on bread.*** ††
-
-1\. *Place, smear, spread, slap, slather, spoon out, cover*
-
-2\. *No alternative for "peanut butter was produced*
-
-> 3\. *On top of jelly, on the other piece of bread, on one slice, on
-> one side, on one half*
->
-> 8\) ***^1^Put ^2^jelly ^3^on bread.*** ††
-
-1\. *See 7.1*
-
-2\. *See 4.2*
-
-3\. *See 7.3*
-
-> 9\) ***^1^Put ^2^the two pieces ^3^together*.** ††
-
-1\. *Place, smash, slap, smack, stick*
-
-2\. *The bread, the two slices of bread, the two sides, the peanut
-butter and jelly, the two,*
-
-> *the two halves, them*
-
-3\. *If the speaker does not say "together" they must give some
-indication that the two*
-
-> *pieces become one (i.e., "Put one piece on top of the other",
-> "Combine the pieces of bread", "Put the second piece of bread on
-> top.")*
->
-> *i.* *The verbs "fold" and "close" cannot be used for this concept,
-> unless the*
->
-> *speaker tells the entire story with one piece of bread as if making
-> half of*
->
-> *a sandwich, see 2.2.i.*
->
-> 10\) ***^1^Cut ^2^the sandwich ^3^in pieces.***
-
-1\. *Slice*
-
-2\. *The bread, it*
-
-3\. *In half, in quarters, in two, diagonally, across, on the bias, down
-the middle, with an*
-
-> *x, however you like*
+```{r, include = F}
+rm("stim_sandwich.R")
+```
 
 Note: For concepts 1-5, "put" is not an acceptable verb. For each of
 those concepts there was a similar relevant concept (i.e., "put the
@@ -1082,7 +381,7 @@ information***)
 
 †† Indicates concepts produced by 66% of the normative sample
 
-# **Refused Umbrella Elicitation Script** 
+# Refused Umbrella Elicitation Script
 
 AphasiaBank Instructions -
 [[https://aphasia.talkbank.org/protocol/instructions.pdf]{.ul}](https://aphasia.talkbank.org/protocol/instructions.pdf)
@@ -1108,7 +407,7 @@ anything about this picture?"
 
 If no response, go to Troubleshooting questions.
 
-# **Refused Umbrella Main Concepts** 
+# Refused Umbrella Main Concepts
 
 Essential information is ***italicized and bolded***. Each essential
 segment is numbered (superscript) with alternative productions (if any
@@ -1126,182 +425,19 @@ be stated in a different format than that reported below. Additionally,
 during interactions between the mother and boy, main concepts were often
 expressed from either character's perspective.
 
-> 1\. The mother says **^1^*it's going to* ^2^*rain*** today. †
+```{r, echo = F, results = 'asis'}
+source(here::here("R", "stim_umbrella.R"))
 
-1.1. It's supposed to, it might, it's predicted, it looks like, there's
-a chance
+for(i in ls(pattern = "u")){
+  print(shiny::markdown(get(i)))
+}
+```
 
-1.2. Sprinkle, drizzle, storm
+```{r, include = F}
+rm("stim_umbrella.R")
+```
 
-> Note 1: Occasionally produced as "**^2^*Rain* ^1^*is in the
-> forecast***."
->
-> Note 2: Statements that implied bad weather was on the way e.g. "the
-> weather was
->
-> looking gray and cloudy outside" do not count towards this MC as it
-> was another relevant concept that did not meet threshold.
->
-> Note 3: The statement "It is raining." does not apply to this MC; see
-> MC 5.
->
-> 2\. The mother says **^1^*you* ^2^*need to take* ^3^*the*
-> *umbrella****.* ††
-
-2.1. He (if appropriate referent), the boy, (male name)
-
-2.2. Carry, take, have, need, should have, might need, might want
-
-> Note 1: Sometimes produced as a command with the subject implied,
-> e.g., "take this
->
-> umbrella" these statements were considered AC since English allows the
-> subject to be dropped in a command.
->
-> Note 2: Sometimes produced as "**^1^*his mother* ^2^*offers*** him
-> **^3^*an umbrella***." or similar.
->
-> Note 3: Occasionally produced as a question "don\'t **^1^*you***
-> **^2^*want to take*** **^3^*this umbrella***?"
->
-> Note 4: Sometimes produced "**^2^*here is*** **^1^*your***
-> **^3^*umbrella***."
->
-> 3\. **^1^*The boy* ^2^*(does something to refuse)*** **^3^*the
-> umbrella*.** ††
->
-> 3.1. He (if appropriate referent), the boy, (male name), I (if
-> reported speech)
->
-> 3.2. Doesn't want, refuses, won't/is not going to take, declines, says
-> no, says he'll be ok without
->
-> 3.3. It (if appropriate referent)
->
-> Note: Occasionally this concept was stated as "He won't do it." in
-> reference to the mother trying to make him take the umbrella, so the
-> action he "won't do" is "take the umbrella" and this should receive an
-> AC as long as the referent is produced.
->
-> 4\. **^1^*The boy* ^2^*walks* ^3^*to school*.** ††
->
-> 4.1. See 3.1, a child
->
-> 4.2. Goes, leaves, heads, takes off, starts, sets
->
-> 4.3. Outside, out of the house, out, to/for/towards \[location\], down
-> the road, off, out of the door, further, forth, down, in the rain
->
-> Note: Sometimes the order of elements was switched, e.g. "***^3^Off to
-> school ^1^he ^2^goes***"
->
-> 5\. **^1^*It* ^2^*is raining. ***††
->
-> 5.1. The rain, the deluge
->
-> 5.2. Starts to pour, starts coming down, is falling, is sprinkling,
-> gets harder, gets heavier, is raining, begins to rain, starts to rain,
-> starts falling, comes, is coming down, starts raining, started
-> sprinkling, started, rained
->
-> Note 1: Sometimes produced as a colloquialism, "The sky opens up" or
-> "We have a
-
-downpour."
-
-> Note 2: Occasionally produced as "Here **^2^*comes* ^1^*the rain***."
->
-> Note 3: Do not count utterances about rain "increasing" in severity
-> (e.g., "It starts to rain harder.").
->
-> 6\. **^1^*The boy* ^2^*gets* ^3^*soaking wet***. ††
->
-> 6.1. See 3.1
->
-> 6.2. Is, looks, stands there
->
-> 6.3. Soaked, drenched, dripping, very wet
->
-> Note: Sometimes speakers would use first person (e.g. "***^1^I ^2^am
-> ^3^all wet***")
->
-> 7\. **^1^*The boy* ^2^*runs* ^3^*back***. ††
->
-> 7.1. See 3.1
->
-> 7.2. Goes, heads, returns, turns around, races, rushes, comes, gets,
-> arrives, shows
->
-> 7.3. Home, inside
-
-Note: Occasionally combined with MC 6 as in, "The boy runs back soaking
-wet." A
-
-person who says this should receive full credit for MCs 6 and 7.
-
-> 8\. **^1^*The mother*** **^2^*is*** **^3^*(negative emotional
-> state).***
->
-> 8.1. The woman, she, the lady, mom
->
-> 8.2. looks, feels
->
-> 8.3. unhappy, mad, angry, upset, annoyed, frustrated, concerned,
-> cross, disappointed
->
-> Note 1: Sometimes reported as "his mother doesn't look happy."
-
-Note 2: Statements about physical stance/nonverbal expression do not
-count, e.g., "She's
-
-> scowling."
->
-> Note 3: Occasionally combined with MC 6 and MC 7 as in "When the boy
-> came back
->
-> home, mom was mad because he was all wet." A person who says this
-> should receive full
->
-> credit for MCs 6, 7, and 8.
->
-> 9\. ***^1^The boy** **^2^gets*** **^3^*an*** ***umbrella.*** ††
->
-> 9.1. see 3.1
->
-> 9.2. takes, receives, has, asks for, carries, retrieves, picks up,
-> holds
->
-> 9.3. it (if appropriate referent)
->
-> Note: Sometimes produced as "The mother ^2^**g*ives*** ^1^***the
-> boy*** ^3^***an* *umbrella*.**" Or "she ***^2^gave***
->
-> ***^3^it to ^1^him.***" (if appropriate referents).
->
-> 10\. ***^1^The boy** **^2^goes*** **^3^*back to school***. ††
-
-10.1. see 3.1
-
-10.2. walks, leaves, heads, starts, takes, is, sets forth, proceeds
-
-10.3. out, again, along, back, in the rain, off, on his way, with the
-umbrella, (leaves) the
-
-house, the school bus
-
-> Note 1: Sometimes produced as "^3^***Off*** ^1^***he*** ^2^***goes***
-> again."
->
-> Note 2: Occasionally combined with MC 9, as in "He goes out with the
-> umbrella." A
->
-> person who says this should receive full credit for MCs 9 and 10.
-
-† Indicates concepts produced by 50% of the normative sample
-
-†† Indicates concepts produced by 66% of the normative sample
-
-# **Nicholas & Brookshire Coding Rules with Examples from Richardson & Dalton**
+# Nicholas & Brookshire Coding Rules with Examples from Richardson & Dalton
 
 ## **[Accuracy]{.ul}**
 
@@ -1980,7 +1116,7 @@ TO BE ANSWERED
         > being made by the participant and it doesn\'t really
         > add/contribute to the main concept?
 
-# **Scoring Examples**
+# Scoring Examples
 
 ![Text Description automatically
 generated](./docs/MCAMedia/media/image1.png){width="6.5in"
@@ -2085,7 +1221,7 @@ Richardson, J. D., & Dalton, S. G. (2019). Main concepts for two picture
 description tasks: an addition to Richardson and Dalton, 2016.
 *Aphasiology*.
 
-# **Broken Window Scoring Sheet**
+# Broken Window Scoring Sheet
 
 +--------+---------------+--------------------+---------------+-------+
 |        | **Essential   | **Essential        | **Essential   | **MC  |
@@ -2171,7 +1307,7 @@ description tasks: an addition to Richardson and Dalton, 2016.
 |        |               |                    |               |       |
 +--------+---------------+--------------------+---------------+-------+
 
-# **References**
+# References
 
 Albright, E., & Purves, B. (2008). Exploring SentenceShaperTM: Treatment
 and augmentative possibilities. *Aphasiology*, *22*(7-8), 741-752.
