@@ -1,6 +1,10 @@
 ---
 title: Main Concept Analysis
-output: bookdown::gitbook
+output:
+    bookdown::gitbook:
+        config:
+    toc:
+      scroll_highlight: yes
 ---
 
 # **Introduction**
