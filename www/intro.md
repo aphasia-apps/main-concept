@@ -1,10 +1,3 @@
----
-title: ""
-output:
-  html_document:
-    keep_md: yes
----
-
 ## Welcome to the Main Concept Analysis Web-app
 
 Main Concept Analysis (MCA) is a discourse assessment originally developed by Nicholas and Brookshire (1995) that measures the informativeness of a discourse sample on a given topic. Main concept checklists for several widely used tasks (including picture description, picture sequence, story retell, and procedural stimuli) have been developed based on discourse samples of control speakers (Richardson & Dalton, 2016; 2020). MCA is a hybrid discourse measure that provides some information on micro-linguistic features of the discourse sample as well as more macro-linguistic features about the overall adequacy of the discourse sample to communicate an intended message.

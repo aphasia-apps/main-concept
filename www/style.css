@@ -22,9 +22,9 @@ li {
   padding: 0.5rem;
 }
 
-.navbar {
+/*.navbar {
     margin-bottom: 1px;
-}
+}*/
 /*p {
   margin-bottom:1px;
 }*/
@@ -47,10 +47,10 @@ li {
   color: #323333;
 }*/
 
-.tab-content {
+/*.tab-content {
   overflow: auto;
   height: 700px;
-}
+}*/
 
 .btn-group, .btn-group-vertical {
     padding: 2px 0px;

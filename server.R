@@ -47,6 +47,12 @@ shinyServer(function(input, output, session) {
     #     }
     # }, priority = 1000)
     
+    observe({
+        if(input$mainpage=="intro" || input$mainpage == "scoring"){
+            shinyjs::hide(selector = "#mainpage li a[data-value=results]")
+        }
+    })
+    
     ###########################Intro tab next and back############################
     observeEvent(input$glide_next1,{
         updateTabsetPanel(session, "glide", "glide2")
@@ -72,13 +78,29 @@ shinyServer(function(input, output, session) {
         updateTabsetPanel(session, "glide", "glide3")
     })
     
+    # buttons to advanc scoring. dont delete you bozo. 
+    observe(
+        if(input$mainpage == "scoring"){
+            shinyjs::show("footer_buttons")
+        } else {
+            shinyjs:: hide("footer_buttons")
+        }
+    )
+    
+    observe(
+        if(values$i == 1){
+            shinyjs::disable("prev")
+        } else {
+            shinyjs::enable("prev")
+        }
+    )
+    
     ################################## START ASSESSMENT ############################
     # start button. sets the i value to 1 corresponding to the first slide
     # switches to the assessment tab
-    # initialize values in here so that they reset whever someone hits start. 
     observeEvent(input$start, {
-        # dataframe of items, difficulty, discrimination; NA column for responses 
-        values$i = 0
+        values$i = 1
+       # values$i <- values$i + 1
         # got to slides
         updateNavbarPage(session, "mainpage", selected = "scoring")
         
@@ -86,28 +108,6 @@ shinyServer(function(input, output, session) {
     
     #############################START OVER#########################################
     # if start over is hit, go to home page
-    # start assessment button then resets everything
-    # observeEvent(input$mainpage,{
-    #     
-    #     if (input$mainpage == "start_over") {
-    # 
-    #         shinyjs::reset("intro_tab")
-    #         updateTabsetPanel(session, "glide", "glide1")
-    #         
-    #         # immediately navigate back to previous tab
-    #         updateTabsetPanel(session, "mainpage",
-    #                           selected = "intro")
-    #         
-    #         values$datetime <- Sys.time() # reestablishes datetime
-    #         values$i=0
-    #         values$concept = list()
-    #         values$selected_sentences = list()
-    #         values$concept_accuracy = list()
-    #         
-    #        
-    #     }
-    #     
-    # })
     
     observeEvent(input$start_over,{
         
@@ -172,12 +172,12 @@ shinyServer(function(input, output, session) {
 
     })
     #counter up getting started
-    observeEvent(input$start,{
-        #input$start
-        #isolate({
-        values$i <- values$i + 1
-        #})
-    })
+    # observeEvent(input$start,{
+    #     #input$start
+    #     #isolate({
+    #     values$i <- values$i + 1
+    #     #})
+    # })
     observeEvent(input$goback,{
         #input$prev
         #isolate({
@@ -192,7 +192,7 @@ shinyServer(function(input, output, session) {
     # More information modal
     observeEvent(input$info, {
         showModal(modalDialog(
-            tags$iframe(src="https://docs.google.com/document/d/1EzueO8JeMhwKfFC-G7lSAfqiR5jflas5El1B7YAoOmM/edit?usp=sharing", width = "100%",
+            tags$iframe(src="https://docs.google.com/document/d/e/2PACX-1vR0_QBT5Ra5nDj5781RtlJcvSvEr8JJ9AwAJ9-xVbs_05c3khjw9Zj8__hA0CnrLQ/pub?embedded=true", width = "100%",
                         height = "650px", frameBorder = "0"),
             easyClose = TRUE,
             footer = NULL,
@@ -202,9 +202,11 @@ shinyServer(function(input, output, session) {
     # readme modal. probabily will be deleted
     observeEvent(input$about, {
         showModal(modalDialog(
-            div(
-                includeMarkdown(here("www", "bio.md"))
-            ),
+            tags$iframe(src="https://aphasia-apps.github.io/main-concept/", width = "100%",
+                        height = "650px", frameBorder = "0"),
+            # div(
+            #     includeMarkdown(here("www", "bio.md"))
+            # ),
             size = "l",
             easyClose = TRUE,
             footer = NULL
@@ -222,15 +224,7 @@ shinyServer(function(input, output, session) {
         ))
     })
     
-    
-    observe(
-        if(input$mainpage == "scoring"){
-            shinyjs::show("footer_buttons")
-        } else {
-            shinyjs:: hide("footer_buttons")
-        }
-    )
-    
+
     ################################## REACTIVE DATA ###############################
     # ------------------------------------------------------------------------------
     ################################################################################
