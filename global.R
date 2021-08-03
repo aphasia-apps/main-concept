@@ -6,6 +6,8 @@ library(tidyverse)
 library(tokenizers)
 library(shinyWidgets)
 library(shinipsum)
+library(googlesheets4)
+library(openxlsx)
 
 scoring_mca = tibble(
   Result = c("AC", "AI", "IC", "II", "Absent"),
@@ -30,3 +32,5 @@ main_concepts$concept_length = 4-rowSums(is.na(main_concepts))
 # global variable for styling html scoring info
 sty = "background-color: #e9ecef; padding: 5px; margin-bottom: 5px; border-radius: 5px;font-size:1.25rem;"
 #line-height: 160%;font-size:1.25rem; 
+
+ecdf_fun <- function(x,perc) scales::label_percent()(ecdf(x)(perc))

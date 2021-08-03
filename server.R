@@ -81,6 +81,8 @@ shinyServer(function(input, output, session) {
     
     observeEvent(input$glide_next3,{
         updateTabsetPanel(session, "glide", "glide4")
+        values$norms = get_norms(stimulus = input$input_stimulus)
+        print(head(values$norms))
     })
     
     observeEvent(input$glide_back3,{
@@ -111,7 +113,9 @@ shinyServer(function(input, output, session) {
         values$i = 1
        # values$i <- values$i + 1
         # got to slides
+
         updateNavbarPage(session, "mainpage", selected = "scoring")
+        values$transcript = input$input_transcript
         
     })
     
@@ -312,6 +316,9 @@ shinyServer(function(input, output, session) {
     sel = eventReactive(values$i,{
         sel = NULL
         sel
+ 
+        print(values$concept_accuracy)
+
     })
     
     ######################### MAIN CONCEPT SCORING STUFF #######################
@@ -482,7 +489,7 @@ shinyServer(function(input, output, session) {
     })
     
     results_mca_tab <- reactive({
-        results_mca() %>%
+        df = results_mca() %>%
             select(Concept = concept, Code = Result, Score = score) %>%
             summarize(`Accurate Complete` = sum(Code == 'AC'),
                       `Accurate Incomplete` = sum(Code == 'AI'),
@@ -493,13 +500,47 @@ shinyServer(function(input, output, session) {
                                                         'II'),
                       `Composite Score` = sum(Score)
             ) %>% 
-            pivot_longer(cols = everything(), names_to = 'Variable', values_to = 'Score') %>%
-            mutate(Score = as.character(Score))
+            pivot_longer(cols = everything(), names_to = 'Variable', values_to = 'Count') %>%
+            mutate(Count = as.character(Count))
+        
+        df$Points = NA
+        df[[1,3]] = as.numeric(df[1,2])*3
+        df[[2,3]] = as.numeric(df[2,2])*2
+        df[[3,3]] = as.numeric(df[3,2])*2
+        df[[4,3]] = as.numeric(df[4,2])*1
+        df[[5,3]] = as.numeric(df[6,2])*0
+        #df[[6,3]] = NA
+        df[[7,3]] = as.numeric(df[7,2])
+        df[[7,2]] = NA
+        
+            
+        df$`Percentile (Aphasia)` = NA
+        df[[1,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$AC, as.numeric(df[1,2]))
+        df[[2,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$AI, as.numeric(df[2,2]))
+        df[[3,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$IC, as.numeric(df[3,2]))
+        df[[4,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$II, as.numeric(df[4,2]))
+        df[[5,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$AB, as.numeric(df[5,2]))
+        df[[6,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$`MC Attempts`, as.numeric(df[6,2]))
+        df[[7,4]] = ecdf_fun(subset(values$norms, Aphasia==1)$`MC COMPOSITE`, as.numeric(df[7,3]))
+        
+        df$`Percentile (Control)` = NA
+        df[[1,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$AC, as.numeric(df[1,2]))
+        df[[2,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$AI, as.numeric(df[2,2]))
+        df[[3,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$IC, as.numeric(df[3,2]))
+        df[[4,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$II, as.numeric(df[4,2]))
+        df[[5,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$AB, as.numeric(df[5,2]))
+        df[[6,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$`MC Attempts`, as.numeric(df[6,2]))
+        df[[7,5]] = ecdf_fun(subset(values$norms, Aphasia==0)$`MC COMPOSITE`, as.numeric(df[7,3]))
+        
+    
+
+        print(df)
+        return(df)
     })
     
     output$results_mca_table <- renderTable(
         results_mca_tab(),
-        align = "c", colnames = F
+        align = "c", colnames = T
     )
     
     output$random_text <- renderText({
@@ -507,8 +548,8 @@ shinyServer(function(input, output, session) {
     })
     
     output$random_plot <- renderPlot({
-        shinipsum::random_ggplot(type = "dotplot")
-    }, height = 250 )
+        get_plot(values$norms, results_mca_tab()$Points[7], input$input_stimulus)
+    })
     
     
     ##############3 Downloads #############3
@@ -518,27 +559,16 @@ shinyServer(function(input, output, session) {
             paste(input$stimMC, "_MC_summary.xlsx", sep = "")
         },
         content = function(file) {
-            writexl::write_xlsx(list(overall = results_mca_tab(),
+            openxlsx::write.xlsx(list(
+                                    transcript = tibble(
+                                        transcript = values$transcript
+                                    ),
+                                     summary_scores = results_mca_tab(),
                                      by_concept = results_mca(),
-                                     transcript = transcr()), file)
-        }
-    )
-    
-    output$downloadData_raw <- downloadHandler(
-        filename = function() {
-            paste(input$stimMC, "_MC_concept.csv", sep = "")
-        },
-        content = function(file) {
-            write.csv(bind_rows(values$concept_accuracy), file)
-        }
-    )
-    
-    output$downloadData_rawsen <- downloadHandler(
-        filename = function() {
-            paste(input$stimMC, "_MC_sentence.csv", sep = "")
-        },
-        content = function(file) {
-            write.csv(get_sentence_data(values$selected_sentences), file)
+                                    by_component = bind_rows(values$concept_accuracy)
+            )
+                                    #,sentences = get_sentence_data(values$selected_sentences))
+                                 , file)
         }
     )
     

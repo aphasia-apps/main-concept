@@ -10,12 +10,12 @@ results_div <-
                   br(),
         ),
       fluidRow(
-        column(width = 4, align = "center",
+        column(width = 5, align = "center",
                #tableOutput("sequencing"),
-               h4("Table of Results"),
+               h4("Results"),
                tableOutput("results_mca_table"),
         ),
-        column(width = 8,
+        column(width = 7,
                h4("Plot goes here"),
                div(align = "center",
                 plotOutput("random_plot", height = "260")
@@ -24,9 +24,7 @@ results_div <-
       ),br(),
       fluidRow(
         column(align = "center", width = 10, offset = 1,
-                  downloadButton("downloadData", "Download Summary Data"),
-                  downloadButton("downloadData_raw", "Download Concept Data"),
-                  downloadButton("downloadData_rawsen", "Download Sentence Data")
+                  downloadButton("downloadData", "Download Data")
         ), br(), br(), br(), 
         column(align = "center", width = 12,
                actionButton("start_over", "Start Over", icon = icon("undo")))
