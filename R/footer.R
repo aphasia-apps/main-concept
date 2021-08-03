@@ -18,21 +18,23 @@ footer_div <-
                ),
                actionButton(
                  inputId = "info",
-                 label = "Scoring Info",
+                 label = "Scoring Manual",
                  icon = icon("info-circle"),
                  style = "background:transparent; border:none;"
                ),
                actionButton(
                  inputId = "about",
-                 label = "About Us",
+                 label = "Scoring Manual 2",
                  icon = icon("user-friends"),
                  style = "background:transparent; border:none;"
                ),
                actionButton(
                  inputId = "references",
-                 label = "References",
+                 label = "Scoring Manual 3", #References",
                  icon = icon("book"),
-                 style = "background:transparent; border:none;"
+                 style = "background:transparent; border:none;",
+                 onclick ="window.open('https://docs.google.com/document/d/1ASJ0PFgmaYRUdMBGHGsvHmJKVgDnKduI/edit?rtpof=true', '_blank')",
+                 
                )
             )
       )

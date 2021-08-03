@@ -14,6 +14,4 @@ Each main concept consists of several essential elements, corresponding to the s
  
  </center>
 
-To our knowledge, norms for AphasiaBank stimuli are only available for the Richardson & Dalton 2016 scoring system. If using the Kong, 2009 system, scores cannot be compared to the Richardson & Dalton 2016 norms.
-
-Nicholas and Brookshire also developed a series of coding rules to assist in determining the accuracy and completeness of main concepts. These coding rules are now supplemented with the published checklists, which provide common alternatives produced for each main concept, since there is variability in the syntax and vocabulary that could be used to produce a main concept. These alternative lists are not comprehensive, so it is possible that a client may produce an acceptable alternative that is not in the checklist.
+Nicholas and Brookshire also developed a series of coding rules to assist in determining the accuracy and completeness of main concepts. These coding rules are now supplemented with published checklists, which provide common alternatives produced for each main concept, since there is variability in the syntax and vocabulary that could be used to produce a main concept. These checklists and comprehsnive scoring instructions are available below (scoring manual) and on google drive[LINK]. These alternative lists are not comprehensive, so it is possible that a client may produce an acceptable alternative that is not in the checklist.

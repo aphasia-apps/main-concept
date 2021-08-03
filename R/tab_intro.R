@@ -22,7 +22,7 @@ intro_tab_div <-
                                           ),
                                           div(align="center",
                                               actionButton("glide_back1", "Back"),
-                                              actionButton("glide_next2", "Next"))
+                                              actionButton("glide_next2", "Get Started"))
                                    )
                                    
                       ),
@@ -32,15 +32,16 @@ intro_tab_div <-
                                        div(style="display: inline-block; text-align: left;",
                                            h5("Input participant information"), br(),
                                            textInput("name", "Enter a Name"),
-                                           radioButtons(inputId = "input_stimulus",
+                                           selectInput(inputId = "input_stimulus",
                                                         label = "Select stimulus",
                                                         c("Broken Window" = 'broken_window',
                                                           "Cat Rescue" = 'cat_rescue',
                                                           "Refused Umbrella" = 'refused_umbrella',
                                                           "Cinderella" = 'cinderella',
                                                           "Sandwich" = 'sandwich'),
-                                                        selected = "broken_window", 
-                                                        inline = F),
+                                                        selected = "broken_window"#, 
+                                                        #inline = F
+                                                       ),
                                            numericInput("input_duration",
                                                         "Enter Duration (seconds)",
                                                         value = 0,
@@ -63,11 +64,14 @@ intro_tab_div <-
                                    #div(align = "center",
                                        #div(style="display: inline-block; text-align: left;",
                                            ### Use this to set how many items to run.
+                                   "We recommended copying and saving samples into a text editor (e.g. microsoft word) after transcribing and before scoring.", br(), br(),
                                      tabsetPanel(id ="instructions",
                                                  tabPanel("Transcribing", br(),
+                                                          "This will be info about transcribing",
                                                           includeMarkdown(here("www", "transcribing.md"))
                                                  ),
                                                  tabPanel("Segmenting", br(),
+                                                          "This will be info about segmenting",
                                                           includeMarkdown(here("www", "segmenting.md"))
                                                           )
                                              #)

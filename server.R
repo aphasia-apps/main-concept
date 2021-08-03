@@ -48,9 +48,18 @@ shinyServer(function(input, output, session) {
     # }, priority = 1000)
     
     observe({
-        if(input$mainpage=="intro" || input$mainpage == "scoring"){
-            shinyjs::hide(selector = "#mainpage li a[data-value=results]")
+        if(values$i==0 || input$mainpage == "scoring"){
+            shinyjs::disable(selector = "#mainpage li a[data-value=results]")
+            shinyjs::disable(selector = "#mainpage li a[data-value=scoring]")
+            shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
+        } else if(input$mainpage == "results"){
+            shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
+            } else if(input$mainpage == "intro" && values$i>0){
+                shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
+                } else {
+            shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
         }
+        
     })
     
     ###########################Intro tab next and back############################
@@ -151,9 +160,9 @@ shinyServer(function(input, output, session) {
         
             if (values$i == stim_task()$num_slides) {
                 updateNavbarPage(session, "mainpage", selected = "results")
-            }
-        
+            } else{
             values$i <- values$i + 1
+            }
    
         }
         
@@ -178,12 +187,12 @@ shinyServer(function(input, output, session) {
     #     values$i <- values$i + 1
     #     #})
     # })
-    observeEvent(input$goback,{
-        #input$prev
-        #isolate({
-        values$i <- 0
-        # })
-    })
+    # observeEvent(input$goback,{
+    #     #input$prev
+    #     #isolate({
+    #     values$i <- 0
+    #     # })
+    # })
     
     
     ################################## FOOTER MODAL ################################
@@ -214,14 +223,15 @@ shinyServer(function(input, output, session) {
     })
     
     observeEvent(input$references, {
-        showModal(modalDialog(
-            div(
-                includeMarkdown(here("www", "references.md"))
-            ),
-            size = "l",
-            easyClose = TRUE,
-            footer = NULL
-        ))
+        # showModal(modalDialog(
+        #     div(
+        #         includeMarkdown(here("www", "references.md"))
+        #     ),
+        #     size = "l",
+        #     easyClose = TRUE,
+        #     footer = NULL
+        # ))
+        
     })
     
 
@@ -444,7 +454,7 @@ shinyServer(function(input, output, session) {
     # Creates a table of the results. 
     # see scoring logic. 
     results_mca <- eventReactive(input$nxt,{
-        if(values$i==stim_task()$num_slides+1){
+        if(values$i==stim_task()$num_slides){
             mca = bind_rows(values$concept_accuracy) %>%
                 left_join(filter_concepts(), by = c('concept', 'component')) %>%
                 drop_na(element) %>%

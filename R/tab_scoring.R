@@ -7,24 +7,26 @@ get_scoring_div <- function(num){
                        htmlOutput("scoring_info")
              )
            ),
-           fluidRow(style = "padding:0;margin:0;",
-             column(width = 6,
-                    h5("Select the sentences that match the concept.")),
-             column(width = 6, align = "right",
-                    checkboxInput("referent", "Using prior referent"))
-           ),
            fluidRow(style = "max-height: 250px; overflow: auto;",
              column(width = 12, style = "min-height: 101%;",
+                    h5("Select the sentences that match the concept."),
                        uiOutput("sentence_buttons")
              )
            ),
            fluidRow(
-             column(width = 12, 
-                       h5("Score each concept noted above."), 
-                            uiOutput("score_sentences")
+             column(width = 6,
+                       h5("Score each concept noted above.")
+                    ),
+             column(width = 6, align = "right",
+                          checkboxInput("referent", "Using prior referent")
+                    )
+           ),
+           fluidRow(
+             column(align = "center", width = 8,offset = 2,
+                       uiOutput("score_sentences")
              )
            )
-           )
     )
+ )
   
 }
