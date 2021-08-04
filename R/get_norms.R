@@ -11,8 +11,8 @@ cat_rescue = "1sTvSX0Ws0kPTw-5HHyY8JO2CubqWVgEzDvE5BuGSefc"
 # go into deauth mode
 gs4_deauth()
 
-#norms = read_sheet(ss = get(stimulus))
-norms <- read_csv(here("data", "test_norms.csv"))
+norms = read_sheet(ss = get(stimulus))
+#norms <- read_csv(here("data", "test_norms.csv"))
 return(norms)
 
 }
