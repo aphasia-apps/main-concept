@@ -1,9 +1,8 @@
-Separate utterances or C-units with a period and space, just as you normally would with sentences. Utterances or C-units (conversational unit) are strings of words that:
+Separate utterances by periods. Follow utterance segmentation rules below, adapted from CHAT Transcription Training/AphasiaBank
 
-1. Are followed by a pause of 1 second or more;
-2. End with a terminal intonation contour; or
-3. Have a complete grammatical structure.
+In general, an utterance can be defined as a segment of running speech that appears to form a coherent unit (Saffran et al., 1989). When in doubt, err on the side of creating shorter rather than longer utterances. The following indicators are recommended, with primary weight given to syntax and intonation:
 
-Having a complete grammatical structure is a sure mark of an utterance, but often an utterance
-may have an incomplete structure in short one-word answers. Also, although a following pause
-can mark an utterance, often another person will talk right away, cancelling the pause (AphasiaBank, SLP's Guide: https://talkbank.org/manuals/Clin-CLAN.pdf)
+  - Syntax – Unless there are strong prosodic counter-indications, a well-formed sentence is considered to be an utterance. However, an utterance may not necessarily be grammatically correct to be considered an utterance.
+  - Intonation – Falling intonation (or rising intonation in the case of a question) suggests the end of an utterance. 
+  - Pauses – Pauses may not be a reliable guide to utterance boundaries. When pauses occur in what appear to be otherwise well-formed utterances, disregard them. 
+  - Semantics – Semantic criteria cannot be stringently applied in marking utterance boundaries in this population.

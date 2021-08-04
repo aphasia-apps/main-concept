@@ -8,6 +8,7 @@ library(shinyWidgets)
 library(shinipsum)
 library(googlesheets4)
 library(openxlsx)
+library(waiter)
 
 scoring_mca = tibble(
   Result = c("AC", "AI", "IC", "II", "Absent"),

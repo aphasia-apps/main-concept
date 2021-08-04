@@ -3,6 +3,9 @@ shinyUI(
   tagList(
     includeCSS("www/style.css"),
     useShinyjs(),
+    useWaiter(), 
+    autoWaiter("waiter"),
+    waiterPreloader(html=spin_dots(),color="white"),
     navbarPage(title = "Main Concept Analysis",
                id = "mainpage",
                footer = tags$div(
@@ -22,7 +25,7 @@ shinyUI(
                             uiOutput("scoring_div")
                ),
                ############################ Results ###################################
-               tabPanel(value = "results", title = "Results",
+               tabPanel(value = "results", title = "Results", 
                             results_div
                ),#,
                #tabPanel(value = "start_over", title = "Start Over")

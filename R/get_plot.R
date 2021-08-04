@@ -17,7 +17,10 @@ get_plot <- function(norms, current_score, stim){
     geom_density(alpha = .3) +
     theme_minimal(base_size = 14) +
     geom_vline(aes(xintercept = current_score), color = "darkred", linetype = "dashed") +
-    scale_x_continuous(limits = c(0,max_val), breaks = seq(0,max_val, 2))
+    scale_x_continuous(limits = c(0,max_val), breaks = seq(0,max_val, 2)) +
+    theme(axis.text.y=element_blank(),
+          axis.ticks.y = element_blank()) +
+    labs(y=NULL, x="Composite Score")
   
   return(p)
 

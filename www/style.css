@@ -22,35 +22,6 @@ li {
   padding: 0.5rem;
 }
 
-/*.navbar {
-    margin-bottom: 1px;
-}*/
-/*p {
-  margin-bottom:1px;
-}*/
-
-/*.navbar {
-  margin-bottom: 5px;
-}
-
-.navbar .navbar-nav {
-  display:none;
-}*/
-
-/*.navbar-default {
-    background-color: #b8bcc2;
-    border-color: #e8e8e8;
-    
-}
-
-.navbar-default .navbar-brand {
-  color: #323333;
-}*/
-
-/*.tab-content {
-  overflow: auto;
-  height: 700px;
-}*/
 
 .btn-group, .btn-group-vertical {
     padding: 2px 0px;
@@ -61,7 +32,7 @@ li {
   bottom:0;
   right:0;
   left:0;
-  background:#e9ecef;
+  background:#dee2e6;
   padding-bottom:0px;
   margin-top: 0px;
   box-sizing:border-box;

@@ -60,18 +60,14 @@ intro_tab_div <-
                       ),
                       tabPanelBody(value = "glide4",
                                 fluidRow(
-                                   column(width = 5, offset = 1,
-                                   #div(align = "center",
-                                       #div(style="display: inline-block; text-align: left;",
-                                           ### Use this to set how many items to run.
-                                   "We recommended copying and saving samples into a text editor (e.g. microsoft word) after transcribing and before scoring.", br(), br(),
+                                   column(width = 5, offset = 1, 
                                      tabsetPanel(id ="instructions",
                                                  tabPanel("Transcribing", br(),
-                                                          "This will be info about transcribing",
-                                                          includeMarkdown(here("www", "transcribing.md"))
+                                                          div(style="height:500px; overflow:auto;",
+                                                            includeMarkdown(here("www", "transcribing.md"))
+                                                          )
                                                  ),
                                                  tabPanel("Segmenting", br(),
-                                                          "This will be info about segmenting",
                                                           includeMarkdown(here("www", "segmenting.md"))
                                                           )
                                              #)
@@ -84,9 +80,12 @@ intro_tab_div <-
                                                          height = "400px",
                                                          width = "100%",
                                                          value = transcriptDefault
-                                           )
+                                           ),
+                                          actionButton("full_transcription",
+                                                       "Detailed transcription rules")
                                         )
                                       ),
+                                br(),
                                 fluidRow(
                                   column(width = 10, offset = 1,
                                        div(align = "center",
