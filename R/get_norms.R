@@ -1,4 +1,13 @@
 
+
+#' Get normative scores
+#'
+#' Retrieves normative scores from the google sheets based on 
+#' the selected stimulus. It is triggered by the start button. 
+#' @param stimulus The stimulus that is selected in the intro_tab
+#'
+#' @return a dataframe of norms pertaining to the selected stimulus
+#' @export
 get_norms <- function(stimulus){
 
 # links to google sheets for norms:
