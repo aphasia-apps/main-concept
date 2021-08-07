@@ -222,7 +222,7 @@ shinyServer(function(input, output, session) {
     # readme modal. probabily will be deleted
     observeEvent(input$about, {
         showModal(modalDialog(
-            tags$iframe(src="https://aphasia-apps.github.io/main-concept/", width = "100%",
+            tags$iframe(src="https://aphasia-apps.github.io/mainconcept/", width = "100%",
                         height = "650px", frameBorder = "0"),
             # div(
             #     includeMarkdown(here("www", "bio.md"))
@@ -490,8 +490,7 @@ shinyServer(function(input, output, session) {
                                      summary_scores = results_mca_tab(),
                                      by_concept = values$results_mca,
                                     by_component = bind_rows(values$concept_accuracy)
-            )
-                                    #,sentences = get_sentence_data(values$selected_sentences))
+                                    )
                                  , file)
         }
     )
