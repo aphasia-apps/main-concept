@@ -1,4 +1,4 @@
-### gets table of results for summary 
+#' @export
 
 get_summary_table <- function(results, norms){
   df = results %>%

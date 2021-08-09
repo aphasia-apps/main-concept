@@ -28,13 +28,22 @@ body {
 <h2 id="welcome-to-the-main-concept-analysis-web-app">Welcome to the Main Concept Analysis Web-app</h2>
 <p>Main Concept Analysis (MCA) is a discourse assessment originally developed by Nicholas and Brookshire (1995) that measures the informativeness of a discourse sample on a given topic. This web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. The app is written in the <a href="https://shiny.rstudio.com/">{shiny}</a> framework. The app is currently in Beta, and is not yet ready for research or clinical deployment.</p>
 <p>Please note, the app <em><strong>does not save any data</strong></em> from each user session.</p>
+<h2 id="installation">Installation</h2>
+<p>This is an R package. You can install the app locally with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;rbcavanaugh/mainConcept&quot;</span>)</span></code></pre></div>
+<h2 id="using">Using</h2>
+<p>The app can be run locally by calling:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mainConcept)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_app</span>()</span></code></pre></div>
+<p>It is also available at [Website link]</p>
 <h2 id="feedback">Feedback</h2>
 <p>At this stage, we would appreciate feedback on the app - whether related to bugs/issues with the app or requested features. Please provide feedback or report bugs using the issues tab in the github repository.</p>
 <h2 id="about-main-concept-analysis">About Main Concept Analysis</h2>
 <p>Main concept checklists for several widely used tasks (including picture description, picture sequence, story retell, and procedural stimuli) have been developed based on discourse samples of control speakers (Richardson &amp; Dalton, 2016; 2020). MCA is a hybrid discourse measure that provides some information on micro-linguistic features of the discourse sample as well as more macro-linguistic features about the overall adequacy of the discourse sample to communicate an intended message.</p>
 <p>MCA has shown good sensitivity in differentiating between controls and individuals with communication disorders (e.g., Kong, Whiteside, &amp; Bargmann, 2016; Dalton &amp; Richardson, 2019) and between individuals with fluent and non-fluent aphasia (Kong et al., 2016). Importantly, studies have shown that changes in informativeness are associated with treatment performance (Albright &amp; Purves, 2008; Avent &amp; Austermann, 2003; Coelho, McHugh, &amp; Boyle, 2000; Cupit, Rochon, Leonard, &amp; Laird, 2010; Stark, 2010) and are associated with listener’s perceptions of communication quality (Cupit et al., 2010; Ross &amp; Wertz, 1999).</p>
 <h3 id="scoring-main-concept-analysis">Scoring Main Concept Analysis</h3>
-<p><a href="https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ">The full analysis manual can be found here.</a></p>
+<p><a href="https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ">The full analysis manual can be found here.</a>. A searchable HTML version of the manual is here: LINK (note, this version is only updated 1x/year)</p>
 <p>Each main concept consists of several essential elements, corresponding to the subject, main verb, object (if appropriate), and any subordinate clauses (Nicholas &amp; Brookshire, 1995). The main concept is assigned one of 5 codes depending on accuracy and completeness.</p>
 <center>
 
@@ -84,6 +93,18 @@ body {
 
 <p>To our knowledge, norms for AphasiaBank stimuli are only available for the Richardson &amp; Dalton 2016 scoring system. If using the Kong, 2009 system, scores cannot be compared to the Richardson &amp; Dalton 2016 norms.</p>
 <p>Nicholas and Brookshire also developed a series of coding rules to assist in determining the accuracy and completeness of main concepts. These coding rules are now supplemented with the published checklists, which provide common alternatives produced for each main concept, since there is variability in the syntax and vocabulary that could be used to produce a main concept. These alternative lists are not comprehensive, so it is possible that a client may produce an acceptable alternative that is not in the checklist.</p>
+<h2 id="references">References</h2>
+<p>Albright, E., &amp; Purves, B. (2008). Exploring SentenceShaperTM: Treatment and augmentative possibilities. <em>Aphasiology</em>, <em>22</em>(7-8), 741-752.</p>
+<p>Avent, J., &amp; Austermann, S. (2003). Reciprocal scaffolding: A context for communication treatment in aphasia. <em>Aphasiology</em>, <em>17</em>(4), 397-404.</p>
+<p>Coelho, C. A., McHugh, R. E., &amp; Boyle, M. (2000). Semantic feature analysis as a treatment for aphasic dysnomia: A replication. <em>Aphasiology</em>, <em>14</em>(2), 133-142.</p>
+<p>Cupit, J., Rochon, E., Leonard, C., &amp; Laird, L. (2010). Social validation as a measure of improvement after aphasia treatment: Its usefulness and influencing factors. <em>Aphasiology</em>, <em>24</em>(11), 1486-1500.</p>
+<p>Dalton, S. G. H., &amp; Richardson, J. D. (2019). A large-scale comparison of main concept production between persons with aphasia and persons without brain injury. <em>American journal of speech-language pathology</em>, <em>28</em>(1S), 293-320.</p>
+<p>Kong, A. P. H., Whiteside, J., &amp; Bargmann, P. (2016). The Main Concept Analysis: Validation and sensitivity in differentiating discourse produced by unimpaired English speakers from individuals with aphasia and dementia of Alzheimer type. <em>Logopedics Phoniatrics Vocology</em>, <em>41</em>(3), 129-141.</p>
+<p>Nicholas, L. E., &amp; Brookshire, R. H. (1995). Presence, completeness, and accuracy of main concepts in the connected speech of non-brain-damaged adults and adults with aphasia. <em>Journal of Speech, Language, and Hearing Research</em>, <em>38</em>(1), 145-156.</p>
+<p>Richardson, J. D., &amp; Dalton, S. G. (2016). Main concepts for three different discourse tasks in a large non-clinical sample. <em>Aphasiology</em>, <em>30</em>(1), 45-73.</p>
+<p>Richardson, J. D., &amp; Dalton, S. G. H. (2020). Main concepts for two picture description tasks: an addition to Richardson and Dalton, 2016. <em>Aphasiology</em>, <em>34</em>(1), 119-136.</p>
+<p>Ross, K. B., &amp; Wertz, R. T. (1999). Comparison of impairment and disability measures for assessing severity of, and improvement in, aphasia. <em>Aphasiology, 13</em>, 113–124.</p>
+<p>Stark, J. A. (2010). Content analysis of the fairy tale Cinderella–A longitudinal single-case study of narrative production: “From rags to riches”. <em>Aphasiology</em>, <em>24</em>(6-8), 709-724.</p>
 
 </body>
 </html>

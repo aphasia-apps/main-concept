@@ -1,3 +1,5 @@
+#' @export
+
 get_scoring_div <- function(num){
   
   scoring_div<- fluidRow(

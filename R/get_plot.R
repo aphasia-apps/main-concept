@@ -1,8 +1,5 @@
 
-# score = results_mca_tab$Points[7]
-# norms = values$norms
-# stim = input$input_stimulus
-
+#' @export
 get_plot <- function(norms, current_score, stim){
   
   val = subset(mc_reference, name == stim)$num 
