@@ -1,5 +1,4 @@
-# long results table
-
+#' @export
 get_long_results_df <- function(concept_accuracy, filtered_concepts){
   df <- 
     bind_rows(concept_accuracy) %>%
