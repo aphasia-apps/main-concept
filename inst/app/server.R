@@ -197,7 +197,7 @@ shinyServer(function(input, output, session) {
                                         dplyr::ungroup() %>%
                                         dplyr::select(id, e1:e4) %>%
                                         tidyr::pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
-                                        dplyr::mutate(component = as.numeric(str_remove(component, "e"))) %>%
+                                        dplyr::mutate(component = as.numeric(stringr::str_remove(component, "e"))) %>%
                                         dplyr::rename(concept = id)
                                     )
 
