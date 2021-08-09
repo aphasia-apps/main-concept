@@ -1,3 +1,7 @@
+
+#' Get intro div
+#'
+#' @return
 #' @export
 get_intro_div <- function(){
   column(width = 12,

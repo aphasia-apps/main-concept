@@ -1,4 +1,13 @@
+#'Get long results data
+#' 
+#' @param concept_accuracy current concept scores
+#'
+#' @param filtered_concepts data of concepts relevant to the stimulus
+#' 
+#' @return a long dataframe of results
+#'
 #' @export
+#' 
 get_long_results_df <- function(concept_accuracy, filtered_concepts){
   df <- 
     dplyr::bind_rows(concept_accuracy) %>%

@@ -1,3 +1,9 @@
+
+#' Get Norms
+#'
+#' @param stimulus which stimulus was chosen
+#' @description Note that if googlesheets fails, static norms will be used. 
+#' @return
 #' @export
 get_norms <- function(stimulus){
 
@@ -9,10 +15,10 @@ get_norms <- function(stimulus){
   cat_rescue = "1sTvSX0Ws0kPTw-5HHyY8JO2CubqWVgEzDvE5BuGSefc"
 
   # go into deauth mode
-  gs4_deauth()
+  googlesheets4::gs4_deauth()
   
   norms <- tryCatch(
-          read_sheet(ss = get(stimulus)),
+    googlesheets4::read_sheet(ss = get(stimulus)),
           error = function(e) "Unable to connect; using norms updated 8/1/21"
         )
 

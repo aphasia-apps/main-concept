@@ -1,6 +1,8 @@
-##### results tab
-#' @export
 
+#' Get results div
+#'
+#' @return
+#' @export
 get_results_div <- function(){
   tagList(
     div(id="waiter",

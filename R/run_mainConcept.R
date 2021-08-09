@@ -1,11 +1,5 @@
-#' @export
-#' @importFrom waiter autoWaiter useWaiter waiterPreloader spin_dots
-#' @importFrom here here
-#' @importFrom shinyjs useShinyjs hidden hide show enable disable
-#' @importFrom bslib bs_theme font_google
-#' @importFrom tokenizers tokenize_sentences
-#' @importFrom shinyWidgets checkboxGroupButtons radioGroupButtons
-#' @importFrom openxlsx write.xlsx
+
+#' Run Main Concept Function
 #' @import tidyr 
 #' @import ggplot2
 #' @import stringr
@@ -13,7 +7,14 @@
 #' @import shinipsum
 #' @import googlesheets4
 #' @import shiny
-#' @importFrom tibble tibble
+#' 
+#' @description The main function of the package to open the app
+#' @return a shiny app!
+#' @examples
+#' \dontrun{
+#' run_mainConcept()
+#' }
+#' @export
 run_mainConcept <- function() {
   appDir <- system.file("app", package = "mainconcept")
   if (appDir == "") {

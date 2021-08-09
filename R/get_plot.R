@@ -1,4 +1,11 @@
 
+#' get plot
+#'
+#' @param norms norms pulled from googlesheets or static if not accessed 
+#' @param current_score the total score
+#' @param stim which stimulus was scored
+#'
+#' @return a density plot 
 #' @export
 get_plot <- function(norms, current_score, stim){
   

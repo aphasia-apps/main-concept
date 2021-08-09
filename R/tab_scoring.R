@@ -1,5 +1,10 @@
-#' @export
 
+#' Get scoring Div
+#'
+#' @param num current item to be shown
+#'
+#' @return
+#' @export
 get_scoring_div <- function(num){
   
   scoring_div<- fluidRow(

@@ -1,3 +1,7 @@
+
+#' Footer function
+#' @description Function to return the footer. Buttons hidden unless scoring. 
+#' @return
 #' @export
 footer_div <- function(){ 
   tagList(

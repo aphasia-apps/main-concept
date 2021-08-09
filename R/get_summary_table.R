@@ -1,5 +1,11 @@
-#' @export
 
+#' Get summary table
+#'
+#' @param results the data frame of results
+#' @param norms the norms for the scored stimulus
+#'
+#' @return
+#' @export
 get_summary_table <- function(results, norms){
   df = results %>%
     dplyr::select(Concept = concept, Code = Result, Score = score) %>%
