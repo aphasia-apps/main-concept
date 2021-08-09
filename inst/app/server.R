@@ -303,7 +303,7 @@ shinyServer(function(input, output, session) {
         } else {}
         if(img_val>0 && img_val < values$stim_task$num_slides+1){
             return(div(style = sty,
-                       includeMarkdown(here("www", input$input_stimulus, paste0(paste_val, img_val, ".md")))
+                       includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
             )
             )
         } else {}

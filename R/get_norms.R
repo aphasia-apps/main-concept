@@ -26,17 +26,17 @@ get_norms <- function(stimulus){
 
 
 
-
-update_static_norms <- function() {
-  
-  refused_umbrella = get_norms("refused_umbrella")
-  cat_rescue = get_norms("cat_rescue")
-  cinderella = get_norms("cinderella")
-  sandwich = get_norms("sandwich")
-  broken_window = get_norms("broken_window")
-  
-  static_norms <- bind_rows(lst(refused_umbrella, cat_rescue, cinderella, sandwich, broken_window), .id = "stimulus")
-  
-  use_data(static_norms)
-  
-}
+# 
+# update_static_norms <- function() {
+#   
+#   refused_umbrella = get_norms("refused_umbrella")
+#   cat_rescue = get_norms("cat_rescue")
+#   cinderella = get_norms("cinderella")
+#   sandwich = get_norms("sandwich")
+#   broken_window = get_norms("broken_window")
+#   
+#   static_norms <- bind_rows(lst(refused_umbrella, cat_rescue, cinderella, sandwich, broken_window), .id = "stimulus")
+#   
+#   use_data(static_norms)
+#   
+# }

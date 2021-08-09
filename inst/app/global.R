@@ -1,21 +1,3 @@
-# library(shiny)
-# library(here)
-# library(shinyjs)
-# library(bslib)
-# library(dplyr)
-# library(tibble)
-# library(tidyr)
-# library(ggplot2)
-# library(stringr)
-# library(readr)
-# library(tokenizers)
-# library(shinyWidgets)
-# library(shinipsum)
-# library(googlesheets4)
-# library(openxlsx)
-# library(waiter)
-# library(scales)
-
 scoring_mca = data.frame(
   Result = c("AC", "AI", "IC", "II", "Absent"),
   score = c(3, 2, 2, 1, 0)
