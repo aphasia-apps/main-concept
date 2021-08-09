@@ -6,18 +6,18 @@ get_plot <- function(norms, current_score, stim){
   max_val = val*3
   
   dat = norms %>%
-    mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-    rename(score = `MC COMPOSITE`)
+    dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+    dplyr::rename(score = `MC COMPOSITE`)
 
   p = dat %>%
-    ggplot(aes(x=score, fill = group, group = group)) +
-    geom_density(alpha = .3) +
-    theme_minimal(base_size = 14) +
-    geom_vline(aes(xintercept = current_score), color = "darkred", linetype = "dashed") +
-    scale_x_continuous(limits = c(0,max_val), breaks = seq(0,max_val, 2)) +
-    theme(axis.text.y=element_blank(),
-          axis.ticks.y = element_blank()) +
-    labs(y=NULL, x="Composite Score")
+    ggplot2::ggplot(aes(x=score, fill = group, group = group)) +
+    ggplot2::geom_density(alpha = .3) +
+    ggplot2::theme_minimal(base_size = 14) +
+    ggplot2::geom_vline(aes(xintercept = current_score), color = "darkred", linetype = "dashed") +
+    ggplot2::scale_x_continuous(limits = c(0,max_val), breaks = seq(0,max_val, 2)) +
+    ggplot2::theme(axis.text.y=ggplot2::element_blank(),
+          axis.ticks.y = ggplot2::element_blank()) +
+    ggplot2::labs(y=NULL, x="Composite Score")
   
   return(p)
 
