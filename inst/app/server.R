@@ -338,7 +338,7 @@ shinyServer(function(input, output, session) {
             dplyr::filter(task == input$input_stimulus) %>%
             dplyr::ungroup() %>%
             #dplyr::select(concept_length) %>%
-            slice(values$i) %>%
+            dplyr::slice(values$i) %>%
             dplyr::pull(concept_length)
     })
     
