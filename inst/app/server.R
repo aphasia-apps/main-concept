@@ -181,11 +181,12 @@ shinyServer(function(input, output, session) {
                 updateNavbarPage(session, "mainpage", selected = "results")
             } else{
             # otherwise iterate values$i and move on to the next item. 
+                print(paste("before", values$i))
             values$i <- values$i + 1
             }
    
         }
-        
+        print(paste("after", values$i))
         if(values$i==values$stim_task$num_slides){
             
             # if its the last concept, put all the results together. 
@@ -193,6 +194,7 @@ shinyServer(function(input, output, session) {
                 get_long_results_df(concept_accuracy = values$concept_accuracy,
                                     filtered_concepts = 
                                         values$concept_labels %>%
+                                        ungroup() %>%
                                         dplyr::select(id, e1:e4) %>%
                                         pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
                                         mutate(component = as.numeric(str_remove(component, "e"))) %>%
@@ -313,8 +315,8 @@ shinyServer(function(input, output, session) {
     # displays the unique sentences to be selected
     # get sentences #######
     output$sentence_buttons <- renderUI({
-        df = tibble(txt = unlist(tokenize_sentences(input$input_transcript)))
-            checkboxGroupButtons(
+        df = tibble(txt = unlist(tokenizers::tokenize_sentences(input$input_transcript)))
+             shinyWidgets::checkboxGroupButtons(
                 inputId = "score_mca",
                 justified = T, size = "sm",
                 individual = T,
@@ -357,7 +359,7 @@ shinyServer(function(input, output, session) {
     # concept 1
     output$score1 <- renderUI({
         if(values$i<values$stim_task$num_slides+1){
-            radioGroupButtons(
+            shinyWidgets::radioGroupButtons(
                 inputId = "accuracy1",
                 label = values$concept_labels[values$i, 2], 
                 choices = c("Accurate", "Inaccurate", "Absent"),
@@ -373,7 +375,7 @@ shinyServer(function(input, output, session) {
     # concept 2
     output$score2 <- renderUI({
         if(values$i<values$stim_task$num_slides+1){
-            radioGroupButtons(
+            shinyWidgets::radioGroupButtons(
                 inputId = "accuracy2",
                 label = values$concept_labels[values$i, 3], 
                 choices = c("Accurate", "Inaccurate", "Absent"),
@@ -390,7 +392,7 @@ shinyServer(function(input, output, session) {
     output$score3 <- renderUI({
         if(values$i<values$stim_task$num_slides+1){
             if(values$concept_len<3){} else {
-                radioGroupButtons(
+                shinyWidgets::radioGroupButtons(
                     inputId = "accuracy3",
                     label = values$concept_labels[values$i, 4], 
                     choices = c("Accurate", "Inaccurate", "Absent"),
@@ -406,7 +408,7 @@ shinyServer(function(input, output, session) {
     
     # concept 4 - only shown below for the one occurance. 
     output$score4 <- renderUI({
-        radioGroupButtons(
+        shinyWidgets::radioGroupButtons(
             inputId = "accuracy4",
             label = values$concept_labels[values$i, 5], 
             choices = c("Accurate", "Inaccurate", "Absent"),

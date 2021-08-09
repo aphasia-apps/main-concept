@@ -14,6 +14,7 @@
 #' @import shinipsum
 #' @import googlesheets4
 #' @import shiny
+#' @importFrom tibble tibble
 run_mainConcept <- function() {
   appDir <- system.file("app", package = "mainconcept")
   if (appDir == "") {

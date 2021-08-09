@@ -31,7 +31,8 @@ Imports:
     tidyr,
     tokenizers,
     waiter,
-    scales
+    scales,
+    magrittr
 URL: https://www.github.com/aphasia-apps/mainconcept
 BugReports: https://www.github.com/aphasia-apps/mainconcept/issues
 Language: en-US

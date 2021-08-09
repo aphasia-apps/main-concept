@@ -7,7 +7,7 @@ shinyUI(
     shinyjs::useShinyjs(),
     waiter::useWaiter(), 
     waiter::autoWaiter("waiter"),
-    waiter::waiterPreloader(html=spin_dots(),color="white"),
+    waiter::waiterPreloader(html=waiter::spin_dots(),color="white"),
     navbarPage(title = "Main Concept Analysis",
                id = "mainpage",
                footer = tags$div(
