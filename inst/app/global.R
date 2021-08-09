@@ -30,7 +30,7 @@ mc_reference = data.frame(
 transcriptDefault <- "Young boy is practicing playing soccer. Kicking the ball up and keeping it in the air. He miskicks. It fall goes and breaks the window of his house. Of the living room actually. And bounces into the living room knocking a lamp over where his father is sitting. The father picks up the soccer ball. Looks out the window. And calls for the little boy to come and explain."
 
 # # broken window main concepts:
-load(here("data", "main_concepts.rda"))
+#load(here("data", "main_concepts.rda"))
 
 main_concepts$concept_length = 4-rowSums(is.na(main_concepts))
 
