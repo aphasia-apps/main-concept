@@ -3,7 +3,7 @@ get_long_results_df <- function(concept_accuracy, filtered_concepts){
   df <- 
     dplyr::bind_rows(concept_accuracy) %>%
     dplyr::left_join(filtered_concepts, by = c('concept', 'component')) %>%
-    dplyr::drop_na(element) %>%
+    tidyr::drop_na(element) %>%
     dplyr::group_by(concept) %>%
     dplyr::summarize(absent = sum(as.numeric(rating == "Absent")),
               accurate = sum(as.numeric(rating == "Accurate")),
