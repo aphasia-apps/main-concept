@@ -1,7 +1,7 @@
 #' @export
 
 minimal_theme <- function(){
-  theme = bs_theme(bootswatch = "default",
+  theme = bslib::bs_theme(bootswatch = "default",
                    base_font = font_google("Open Sans"),
                    heading_font = font_google("Open Sans"),
                    version = "4",

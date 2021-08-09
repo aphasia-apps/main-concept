@@ -1,7 +1,7 @@
 #' @export
 footer_div <- function(){ 
   tagList(
-    hidden(
+    shinyjs::hidden(
       column(12, align = "center", style = "background-color: white; padding-bottom: 15px;", id = "footer_buttons",
              actionButton("prev", label = "Previous", icon = icon('arrow-left'), width = "20%"),
              actionButton("nxt", label = "Next",  icon = icon('arrow-right'), width = "20%")

@@ -10,6 +10,6 @@ get_sentence_data <- function(rds_list){
       
     )
   }
-  return(bind_rows(newlist))
+  return(dplyr::bind_rows(newlist))
 }
 

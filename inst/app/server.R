@@ -104,7 +104,7 @@ shinyServer(function(input, output, session) {
     observeEvent(input$start, {
         
         values$i = 1
-        values$stim_task <- tibble(
+        values$stim_task <- tibble::tibble(
                 stim = input$input_stimulus,
                 stim_num = if(input$input_stimulus == 'broken_window'){1
                 } else if(input$input_stimulus=='cat_rescue'){2
@@ -173,7 +173,7 @@ shinyServer(function(input, output, session) {
         # saving the data
         values$concept[[values$i]] = values$i
         values$selected_sentences[[values$i]] = input$score_mca
-        values$concept_accuracy[[values$i]] = tibble(rating = score,
+        values$concept_accuracy[[values$i]] = tibble::tibble(rating = score,
                                                      component = component,
                                                      concept = concept)
             # go to results if the scoring is done. 
@@ -194,11 +194,11 @@ shinyServer(function(input, output, session) {
                 get_long_results_df(concept_accuracy = values$concept_accuracy,
                                     filtered_concepts = 
                                         values$concept_labels %>%
-                                        ungroup() %>%
+                                        dplyr::ungroup() %>%
                                         dplyr::select(id, e1:e4) %>%
-                                        pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
-                                        mutate(component = as.numeric(str_remove(component, "e"))) %>%
-                                        rename(concept = id)
+                                        tidyr::pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
+                                        dplyr::mutate(component = as.numeric(str_remove(component, "e"))) %>%
+                                        dplyr::rename(concept = id)
                                     )
 
         } 
@@ -315,7 +315,7 @@ shinyServer(function(input, output, session) {
     # displays the unique sentences to be selected
     # get sentences #######
     output$sentence_buttons <- renderUI({
-        df = tibble(txt = unlist(tokenizers::tokenize_sentences(input$input_transcript)))
+        df = tibble::tibble(txt = unlist(tokenizers::tokenize_sentences(input$input_transcript)))
              shinyWidgets::checkboxGroupButtons(
                 inputId = "score_mca",
                 justified = T, size = "sm",
@@ -336,10 +336,10 @@ shinyServer(function(input, output, session) {
         values$concept_len <-
             main_concepts %>%
             dplyr::filter(task == input$input_stimulus) %>%
-            ungroup() %>%
+            dplyr::ungroup() %>%
             #dplyr::select(concept_length) %>%
             slice(values$i) %>%
-            pull(concept_length)
+            dplyr::pull(concept_length)
     })
     
     # holds label information for scoring buttons
@@ -351,7 +351,7 @@ shinyServer(function(input, output, session) {
     
     ########### These four setup the scoring buttons for concepts ##############
     ########### Score 1, 2, 3, 4 create the buttons ############################
-    ########### score_sentences pulls them together to be rendered #############
+    ########### score_sentences dplyr::pulls them together to be rendered #############
     
     # change to NULL when ready for release. 
     test_var <-  "Absent" # NA
@@ -464,12 +464,12 @@ shinyServer(function(input, output, session) {
     # which concepts are important for this stimulus?
     # filter_concepts <- reactive({
     #     main_concepts %>%
-    #         ungroup() %>%
+    #         dplyr::ungroup() %>%
     #         dplyr::filter(task == input$input_stimulus) %>% 
     #         dplyr::select(id, e1:e4) %>%
-    #         pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
-    #         mutate(component = as.numeric(str_remove(component, "e"))) %>%
-    #         rename(concept = id)
+    #         tidyr::pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
+    #         dplyr::mutate(component = as.numeric(str_remove(component, "e"))) %>%
+    #         dplyr::rename(concept = id)
     # })
     
     # gets the summary table of results. 
@@ -486,7 +486,7 @@ shinyServer(function(input, output, session) {
     # outputs summmary table 
     output$results_mca_table <- renderTable(
         results_mca_tab() %>%
-            mutate(Points = as.character(Points)),
+            dplyr::mutate(Points = as.character(Points)),
         align = "c", colnames = T
     )
     
@@ -506,7 +506,7 @@ shinyServer(function(input, output, session) {
         },
         content = function(file) {
             openxlsx::write.xlsx(list(
-                                    transcript = tibble(
+                                    transcript = tibble::tibble(
                                         transcript = values$transcript
                                     ),
                                      summary_scores = results_mca_tab(),

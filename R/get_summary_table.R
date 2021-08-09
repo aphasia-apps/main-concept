@@ -2,8 +2,8 @@
 
 get_summary_table <- function(results, norms){
   df = results %>%
-    select(Concept = concept, Code = Result, Score = score) %>%
-    summarize(`AC` = sum(Code == 'AC'),
+    dplyr::select(Concept = concept, Code = Result, Score = score) %>%
+    dplyr::summarize(`AC` = sum(Code == 'AC'),
               `AI` = sum(Code == 'AI'),
               `IC` = sum(Code == 'IC'),
               `II` = sum(Code == 'II'),
@@ -12,8 +12,8 @@ get_summary_table <- function(results, norms){
                                  'II'),
               `Composite` = sum(Score)
     ) %>% 
-    pivot_longer(cols = everything(), names_to = 'Variable', values_to = 'Count') %>%
-    mutate(Count = as.character(Count))
+    tidyr::pivot_longer(cols = everything(), names_to = 'Variable', values_to = 'Count') %>%
+    dplyr::mutate(Count = as.character(Count))
   
   df$Points = NA
   df[[1,3]] = round(as.numeric(df[1,2])*3)
