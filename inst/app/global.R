@@ -16,12 +16,12 @@
 # library(waiter)
 # library(scales)
 
-scoring_mca = tibble(
+scoring_mca = data.frame(
   Result = c("AC", "AI", "IC", "II", "Absent"),
   score = c(3, 2, 2, 1, 0)
 )
 
-mc_reference = tibble(
+mc_reference = data.frame(
   num = c(8, 10, 10, 10, 34),
   prefix = c('bw', 'cr', 'u', 's', 'c'),
   name = c("broken_window", "cat_rescue", "refused_umbrella", "sandwich", "cinderella")
