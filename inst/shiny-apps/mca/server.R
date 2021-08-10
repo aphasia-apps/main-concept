@@ -1,14 +1,6 @@
 
 
-#shinyServer(function(input, output, session) {
-    
-#' The application server-side
-#' 
-#' @param input,output,session Internal parameters for {shiny}. 
-#'     DO NOT REMOVE.
-#' @import shiny
-#' @export
-app_server <- function( input, output, session ) {
+shinyServer(function(input, output, session) {
     # reactiveValues is a list where elements of the list can change
     # startign places for pages and storing data. ####
     values = reactiveValues(i=0,
@@ -245,7 +237,7 @@ app_server <- function( input, output, session ) {
     observeEvent(input$about, {
         showModal(modalDialog(
             div(
-                includeMarkdown(system.file("www", "bio.md", package = "mainconcept"))
+                includeMarkdown("www/bio.md")
             ),
             size = "l",
             easyClose = TRUE,
@@ -257,7 +249,7 @@ app_server <- function( input, output, session ) {
     observeEvent(input$references, {
         showModal(modalDialog(
             div(
-                includeMarkdown(system.file("www", "references.md", package = "mainconcept"))
+                includeMarkdown("www/references.md")
             ),
             size = "l",
             easyClose = TRUE,
@@ -320,10 +312,9 @@ app_server <- function( input, output, session ) {
         if(img_val>0 && img_val < values$stim_task$num_slides+1){
             return(div(style = sty,
                        #includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
-                       includeMarkdown(system.file("www",
-                                                   input$input_stimulus,
-                                                   paste0(paste_val, img_val, ".md"),
-                                                   package = "mainconcept"))
+                       includeMarkdown(paste0("www/", 
+                                                   input$input_stimulus, "/",
+                                                   paste0(paste_val, img_val, ".md")))
             )
             )
         } else {}
@@ -542,4 +533,4 @@ app_server <- function( input, output, session ) {
     
 
 }
-#)
+)

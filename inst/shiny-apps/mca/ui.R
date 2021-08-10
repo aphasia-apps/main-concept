@@ -1,18 +1,9 @@
 # Define UI
 # 
 # 
-# shinyUI(
-#   
-
-#' The application User-Interface
-#' 
-#' @param request Internal parameter for `{shiny}`. 
-#'     DO NOT REMOVE.
-#' @import shiny
-#' @export
-app_ui <- function(request) {
+shinyUI(
     tagList(
-      includeCSS(system.file("www", "style.css", package = "mainconcept")),
+      includeCSS("www/style.css"),
       shinyjs::useShinyjs(),
       waiter::useWaiter(), 
       waiter::autoWaiter("waiter"),
@@ -43,4 +34,4 @@ app_ui <- function(request) {
            br(),br(),br(),br()     
       )
     )
-}
+)

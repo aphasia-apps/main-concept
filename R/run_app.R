@@ -1,10 +1,9 @@
-#' Run the Shiny Application
-#'
 #' @export
-run_app <- function(...) {
-  shinyApp(
-      ui = app_ui,
-      server = app_server,
-      ...
-  )
+runMCA <- function() {
+  appDir <- system.file("shiny-apps", "mca", package = "mainconcept")
+  if (appDir == "") {
+    stop("Could not find example directory. Try re-installing `mypackage`.", call. = FALSE)
+  }
+  
+  shiny::runApp(appDir, display.mode = "normal")
 }

@@ -3,4 +3,4 @@
 # Or use the blue button on top of this file
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
-mainconcept::run_app() # add parameters here (if any)
+mainconcept::runMCA() # add parameters here (if any)
