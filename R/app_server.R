@@ -20,7 +20,15 @@ app_server <- function( input, output, session ) {
     values$num_previous <- 0 # number of previous tests
     values$datetime <- Sys.time() # establishes datetime when app opens for saving
     
+    w <- waiter::Waiter$new(
+        color = waiter::transparent(0.1),
+        html = waiter::spin_refresh()
+    )
     
+    w1 <- waiter::Waiter$new(
+        color = waiter::transparent(0.1),
+        html = waiter::spin_refresh()
+    )
     ################################## PREVIOUS DATA ###############################
     # ------------------------------------------------------------------------------
     ################################################################################ 
@@ -76,8 +84,10 @@ app_server <- function( input, output, session ) {
     })
     
     observeEvent(input$glide_next3,{
-        updateTabsetPanel(session, "glide", "glide4")
+        w$show()
         values$norms = get_norms(stimulus = input$input_stimulus)
+        w$hide()
+        updateTabsetPanel(session, "glide", "glide4")
     })
     
     observeEvent(input$glide_back3,{
@@ -184,6 +194,7 @@ app_server <- function( input, output, session ) {
                                                      concept = concept)
             # go to results if the scoring is done. 
             if (values$i == values$stim_task$num_slides) {
+                w1$show()
                 updateNavbarPage(session, "mainpage", selected = "results")
             } else{
             # otherwise iterate values$i and move on to the next item. 
@@ -291,6 +302,7 @@ app_server <- function( input, output, session ) {
     
     output$results_div <- renderUI({
         get_results_div()
+        
     })
     
     ############################# Display Concept HTML CODE ####################
@@ -482,7 +494,6 @@ app_server <- function( input, output, session ) {
     # gets the summary table of results. 
     results_mca_tab <- reactive({
         get_summary_table(results = values$results_mca, norms = values$norms)
-        
     })
     
     # outputs text summary. 
@@ -491,14 +502,16 @@ app_server <- function( input, output, session ) {
     })
     
     # outputs summmary table 
-    output$results_mca_table <- renderTable(
-        results_mca_tab() %>%
-            dplyr::mutate(Points = as.character(Points)),
-        align = "c", 
-        colnames = T,
-        spacing = "s",
-        width = "100%"
-    )
+    output$results_mca_table <- renderTable({
+        tab = results_mca_tab() %>%
+            dplyr::mutate(Points = as.character(Points))
+        w1$hide()
+        return(tab)
+    },
+    align = "c", 
+    colnames = T,
+    spacing = "s",
+    width = "100%")
     
     # outputs summary plot
     output$plot <- renderPlot({

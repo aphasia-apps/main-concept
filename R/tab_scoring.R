@@ -25,7 +25,7 @@ get_scoring_div <- function(num){
                        h5("Score each concept noted above.")
                     ),
              column(width = 6, align = "right",
-                          checkboxInput("referent", "Using prior referent")
+                          checkboxInput("referent", "Used prior referent")
                     )
            ),
            fluidRow(
