@@ -18,13 +18,16 @@ get_plot <- function(norms, current_score, stim){
 
   p = dat %>%
     ggplot2::ggplot(aes(x=score, fill = group, group = group)) +
-    ggplot2::geom_density(alpha = .3) +
+    ggplot2::geom_density(alpha = .5) +
     ggplot2::theme_minimal(base_size = 14) +
-    ggplot2::geom_vline(aes(xintercept = current_score), color = "darkred", linetype = "dashed") +
+    ggplot2::geom_vline(aes(xintercept = current_score), color = "darkred", linetype = "dashed", size = 1.5) +
     ggplot2::scale_x_continuous(limits = c(0,max_val), breaks = seq(0,max_val, 2)) +
-    ggplot2::theme(axis.text.y=ggplot2::element_blank(),
-          axis.ticks.y = ggplot2::element_blank()) +
-    ggplot2::labs(y=NULL, x="Composite Score")
+    ggplot2::theme(
+          axis.text.y=ggplot2::element_blank(),
+          axis.ticks.y = ggplot2::element_blank(),
+          legend.position="bottom") +
+    ggplot2::scale_fill_manual(values = c("#E66100", "#5D3A9B")) +
+    ggplot2::labs(y=NULL, x="Composite Score", caption = "Dashed red line indicates current score", fill = NULL)
   
   return(p)
 

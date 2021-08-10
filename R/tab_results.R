@@ -19,7 +19,7 @@ get_results_div <- function(){
                  column(width = 7,
                         div(align = "center",
                             br(),
-                            plotOutput("plot", height = "300")
+                            plotOutput("plot", height = "400")
                         )
                  )
                ),br(),

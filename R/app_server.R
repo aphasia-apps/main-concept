@@ -308,7 +308,10 @@ app_server <- function( input, output, session ) {
         if(img_val>0 && img_val < values$stim_task$num_slides+1){
             return(div(style = sty,
                        #includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
-                       includeMarkdown(system.file("www", input$input_stimulus, paste0(paste_val, img_val, ".md"), package = "mainconcept"))
+                       includeMarkdown(system.file("www",
+                                                   input$input_stimulus,
+                                                   paste0(paste_val, img_val, ".md"),
+                                                   package = "mainconcept"))
             )
             )
         } else {}
@@ -318,7 +321,8 @@ app_server <- function( input, output, session ) {
     # displays the unique sentences to be selected
     # get sentences #######
     output$sentence_buttons <- renderUI({
-        df = tibble::tibble(txt = unlist(tokenizers::tokenize_sentences(input$input_transcript)))
+        df = tibble::tibble(txt = stringr::str_trim(unlist(strsplit(input$input_transcript, "(?<=\\.)", perl = T))))
+        print(df)
              shinyWidgets::checkboxGroupButtons(
                 inputId = "score_mca",
                 justified = T, size = "sm",
@@ -490,7 +494,10 @@ app_server <- function( input, output, session ) {
     output$results_mca_table <- renderTable(
         results_mca_tab() %>%
             dplyr::mutate(Points = as.character(Points)),
-        align = "c", colnames = T
+        align = "c", 
+        colnames = T,
+        spacing = "s",
+        width = "100%"
     )
     
     # outputs summary plot
