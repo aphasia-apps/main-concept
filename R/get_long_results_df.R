@@ -18,12 +18,12 @@ get_long_results_df <- function(concept_accuracy, filtered_concepts){
               accurate = sum(as.numeric(rating == "Accurate")),
               inaccurate = sum(as.numeric(rating == "Inaccurate"))) %>%
     dplyr::mutate(
-      accuracy = case_when(
+      accuracy = dplyr::case_when(
         inaccurate > 0 ~ "I",
         accurate > 0 ~ "A",
         TRUE ~ "Absent"
       ),
-      completeness = case_when(
+      completeness = dplyr::case_when(
         absent > 0 ~ "I",
         absent == 0 ~ "C",
         TRUE ~ "missed"

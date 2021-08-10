@@ -29,16 +29,15 @@ footer_div <- function(){
              ),
              actionButton(
                inputId = "about",
-               label = "Scoring Manual 2",
+               label = "About us",
                icon = icon("user-friends"),
                style = "background:transparent; border:none;"
              ),
              actionButton(
                inputId = "references",
-               label = "Scoring Manual 3", #References",
+               label = "References", 
                icon = icon("book"),
-               style = "background:transparent; border:none;",
-               onclick ="window.open('https://docs.google.com/document/d/1ASJ0PFgmaYRUdMBGHGsvHmJKVgDnKduI/edit?rtpof=true', '_blank')",
+               style = "background:transparent; border:none;"
                
              )
            )

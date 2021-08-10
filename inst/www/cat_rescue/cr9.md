@@ -1,4 +1,5 @@
 9.<sup>1</sup>***The fire department*** <sup>2</sup>***comes*** <sup>3</sup>***with a ladder***.
+
 1. The firefighters, the firemen, the fire truck, they (if appropriate referent or if includes ladder or other context so that the referent is not ambiguous)
 2. Is on the way, is/are coming, came, have arrived, rushes out, brings
 

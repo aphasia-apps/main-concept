@@ -15,11 +15,11 @@ Please note, the app ***does not save any data*** from each user session.
 
 ## Installation
 
-This is an R package. You can install the app locally with:
+This web-app is also an R package! You can install the app locally with:
 
 ``` r
-library(remotes)
-remotes::install_github("rbcavanaugh/mainConcept")
+install.packages("remotes")
+remotes::install_github("aphasia-apps/mainconcept")
 ```
 
 ## Using
@@ -28,10 +28,10 @@ The app can be run locally by calling:
 
 ``` r
 library(mainConcept)
-run_app()
+mainconcept::run_app()
 ```
 
-It is also available at [Website link]
+It is also (temporarily) available at https://rb-cavanaugh.shinyapps.io/mainconcept
 
 ## Feedback
 

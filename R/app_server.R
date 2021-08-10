@@ -223,7 +223,7 @@ app_server <- function( input, output, session ) {
     # More information modal
     observeEvent(input$info, {
         showModal(modalDialog(
-            tags$iframe(src="https://docs.google.com/document/d/e/2PACX-1vR0_QBT5Ra5nDj5781RtlJcvSvEr8JJ9AwAJ9-xVbs_05c3khjw9Zj8__hA0CnrLQ/pub?embedded=true", width = "100%",
+            tags$iframe(src="https://aphasia-apps.github.io/mainconcept/", width = "100%",
                         height = "650px", frameBorder = "0"),
             easyClose = TRUE,
             footer = NULL,
@@ -233,12 +233,9 @@ app_server <- function( input, output, session ) {
     # readme modal. probabily will be deleted
     observeEvent(input$about, {
         showModal(modalDialog(
-            tags$iframe(src="https://aphasia-apps.github.io/mainconcept/", width = "100%",
-                        height = "650px", frameBorder = "0"),
-            # div(
-            # system.file("www", "style.css", package = "mainconcept")
-            #     includeMarkdown(here("www", "bio.md"))
-            # ),
+            div(
+                includeMarkdown(system.file("www", "bio.md", package = "mainconcept"))
+            ),
             size = "l",
             easyClose = TRUE,
             footer = NULL
@@ -247,14 +244,14 @@ app_server <- function( input, output, session ) {
     
     # dont delete this. uncomment it when you change the footer onclick
     observeEvent(input$references, {
-        # showModal(modalDialog(
-        #     div(
-        #         includeMarkdown(here("www", "references.md"))
-        #     ),
-        #     size = "l",
-        #     easyClose = TRUE,
-        #     footer = NULL
-        # ))
+        showModal(modalDialog(
+            div(
+                includeMarkdown(system.file("www", "references.md", package = "mainconcept"))
+            ),
+            size = "l",
+            easyClose = TRUE,
+            footer = NULL
+        ))
         
     })
     
