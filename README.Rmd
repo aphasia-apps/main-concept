@@ -7,6 +7,10 @@ output:
 
 Main Concept Analysis (MCA) is a discourse assessment originally developed by Nicholas and Brookshire (1995) that measures the informativeness of a discourse sample on a given topic. This web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. The app is written in the [{shiny}](https://shiny.rstudio.com/) framework. The app is currently in Beta, and is not yet ready for research or clinical deployment.
 
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
 Please note, the app ***does not save any data*** from each user session.
 
 ## Installation

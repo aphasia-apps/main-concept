@@ -5,7 +5,7 @@
 \alias{main_concepts}
 \title{Main Concept Data}
 \format{
-An object of class \code{grouped_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 72 rows and 6 columns.
+An object of class \code{grouped_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 72 rows and 7 columns.
 }
 \usage{
 data(main_concepts)

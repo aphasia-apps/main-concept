@@ -9,6 +9,12 @@ for both research and clinical practice. The app is written in the
 [{shiny}](https://shiny.rstudio.com/) framework. The app is currently in
 Beta, and is not yet ready for research or clinical deployment.
 
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
 Please note, the app ***does not save any data*** from each user
 session.
 

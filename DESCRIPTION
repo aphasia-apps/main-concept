@@ -32,7 +32,9 @@ Imports:
     tokenizers,
     waiter,
     scales,
-    magrittr
+    magrittr,
+    pkgload,
+    markdown
 URL: https://www.github.com/aphasia-apps/mainconcept
 BugReports: https://www.github.com/aphasia-apps/mainconcept/issues
 Language: en-US
