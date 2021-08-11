@@ -1,7 +1,8 @@
 # Define UI
 # 
 # 
-shinyUI(
+app_ui <- function(request){
+  shinyUI(
     tagList(
       includeCSS("www/style.css"),
       shinyjs::useShinyjs(),
@@ -34,4 +35,5 @@ shinyUI(
            br(),br(),br(),br()     
       )
     )
-)
+  )
+}

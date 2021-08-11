@@ -1,6 +1,6 @@
 
 
-shinyServer(function(input, output, session) {
+app_server <- function(input, output, session) {
     # reactiveValues is a list where elements of the list can change
     # startign places for pages and storing data. ####
     values = reactiveValues(i=0,
@@ -533,4 +533,4 @@ shinyServer(function(input, output, session) {
     
 
 }
-)
+
