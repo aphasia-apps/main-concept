@@ -1,4 +1,4 @@
-Package: mainconcept
+Package: mainConcept
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
@@ -33,6 +33,6 @@ Imports:
     magrittr,
     pkgload,
     markdown
-URL: https://www.github.com/aphasia-apps/mainconcept
-BugReports: https://www.github.com/aphasia-apps/mainconcept/issues
+URL: https://www.github.com/aphasia-apps/mainConcept
+BugReports: https://www.github.com/aphasia-apps/mainConcept/issues
 Language: en-US

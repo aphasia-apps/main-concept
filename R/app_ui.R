@@ -2,9 +2,13 @@
 # 
 # 
 app_ui <- function(request){
+  addResourcePath('www', system.file("www", package = "mainConcept"))
+  
   shinyUI(
     tagList(
-      includeCSS("www/style.css"),
+      tags$head(
+        tags$link(rel = "stylesheet", type = "text/css", href = file.path("www","style.css"))
+      ),
       shinyjs::useShinyjs(),
       waiter::useWaiter(), 
       waiter::autoWaiter("waiter"),

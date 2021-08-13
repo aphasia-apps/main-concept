@@ -312,9 +312,9 @@ app_server <- function(input, output, session) {
         if(img_val>0 && img_val < values$stim_task$num_slides+1){
             return(div(style = sty,
                        #includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
-                       includeMarkdown(paste0("www/", 
+                       includeMarkdown(system.file(paste0("www/", 
                                                    input$input_stimulus, "/",
-                                                   paste0(paste_val, img_val, ".md")))
+                                                   paste0(paste_val, img_val, ".md")), package = "mainConcept"))
             )
             )
         } else {}
