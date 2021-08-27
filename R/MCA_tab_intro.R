@@ -10,7 +10,7 @@ get_intro_div <- function(){
                      tabPanelBody(value = "glide1",
                                   column(width = 10, offset = 1,
                                          div(
-                                           includeMarkdown(system.file("www/intro.md", package = "mainConcept"))
+                                           includeMarkdown(system.file("app/www/intro.md", package = "mainConcept"))
                                            #markdown(intro_md)
                                          ),
                                          div(align="center",
@@ -22,7 +22,7 @@ get_intro_div <- function(){
                                   column(width = 10, offset = 1,
                                          div(class="ox-hugo-table basic-styling",
                                              #markdown(scoring_md)
-                                             includeMarkdown(system.file("www/scoring.md", package = "mainConcept"))
+                                             includeMarkdown(system.file("app/www/scoring.md", package = "mainConcept"))
                                          ),
                                          div(align="center",
                                              actionButton("glide_back1", "Back"),
@@ -68,11 +68,11 @@ get_intro_div <- function(){
                                            tabsetPanel(id ="instructions",
                                                        tabPanel("Transcribing", br(),
                                                                 div(style="height:500px; overflow:auto;",
-                                                                    includeMarkdown(system.file("www/transcribing.md", package = "mainConcept"))
+                                                                    includeMarkdown(system.file("app/www/transcribing.md", package = "mainConcept"))
                                                                 )
                                                        ),
                                                        tabPanel("Segmenting", br(),
-                                                                includeMarkdown(system.file("www/segmenting.md", package = "mainConcept"))
+                                                                includeMarkdown(system.file("app/www/segmenting.md", package = "mainConcept"))
                                                        )
                                                        #)
                                                        #)

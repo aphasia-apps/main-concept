@@ -1,7 +1,6 @@
 ---
 output: 
-  github_document:
-    keep_html: true
+  html_document
 ---
 
 ## Rules for orthographic transcription (long)

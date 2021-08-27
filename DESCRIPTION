@@ -1,8 +1,8 @@
-Package: mca
-Title: PKG_TITLE
+Package: mainConcept
+Title: Shiny Main Concept Analysis
 Version: 0.0.0.9000
-Authors@R: person('AUTHOR_FIRST', 'AUTHOR_LAST', email = 'AUTHOR@MAIL.COM', role = c('cre', 'aut'))
-Description: PKG_DESC.
+Authors@R: person('Rob', 'Cavanaugh', email = 'rob.cavanaugh@pitt.edu', role = c('cre', 'aut'))
+Description: Shiny app for main concept analysis.
 License: AGPL (>= 3)
 Depends:
     R (>= 2.10),
@@ -27,8 +27,8 @@ Imports:
     pkgload,
     markdown,
     tibble
-URL: https://www.github.com/aphasia-apps/mainConcept
-BugReports: https://www.github.com/aphasia-apps/mainConcept/issues
+URL: https://github.com/aphasia-apps/mainConcept
+BugReports: https://github.com/aphasia-apps/mainConcept/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

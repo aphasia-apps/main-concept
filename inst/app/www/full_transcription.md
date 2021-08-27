@@ -3,50 +3,50 @@
 
 1.  Include words/phrases even if they are repeated or part of revisions
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “she was not, I mean, she was going to go to the ball”
+-   Original: “she was not, I mean, she was going to go to the ball”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: she was not, I mean, she was going to go to the ball
+-   Final: she was not, I mean, she was going to go to the ball
 
-    </div>
+</div>
 
 2.  Include the standard version of nonstandard productions
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “she finna bust up outta there because she hasta be
-        home by midnight”
+-   Original: “she finna bust up outta there because she hasta be
+    home by midnight”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: she fixing to bust up out of there because she has to be
-        home by midnight
+-   Final: she fixing to bust up out of there because she has to be
+    home by midnight
 
-    </div>
+</div>
 
-    Non standard and standard productions
+Non standard and standard productions
 
-    | NONSTANDARD      | STANDARD   | NONSTANDARD  | STANDARD           |
-    |------------------|------------|--------------|--------------------|
-    | coulda(ve)       | could have | lemme        | let me             |
-    | dunno            | don’t know | lotsa        | lots of            |
-    | dyou             | do you     | mighta       | might have         |
-    | finna, fixin’ to | fixing to  | need(t)a     | need to            |
-    | gimme            | give me    | oughta       | ought to           |
-    | gonna            | going to   | (s)posta(ve) | supposed to (have) |
-    | gotchya          | got you    | sorta        | sort of            |
-    | gotta            | got to     | wanna        | want to            |
-    | hadta            | had to     | wassup       | what’s up          |
-    | hasta            | has to     | whaddya      | what did you       |
-    | hafta            | have to    | whyddya      | why did you        |
-    | kinda            | kind of    | whyntcha     | why didn’t you     |
+| NONSTANDARD      | STANDARD   | NONSTANDARD  | STANDARD           |
+|------------------|------------|--------------|--------------------|
+| coulda(ve)       | could have | lemme        | let me             |
+| dunno            | don’t know | lotsa        | lots of            |
+| dyou             | do you     | mighta       | might have         |
+| finna, fixin’ to | fixing to  | need(t)a     | need to            |
+| gimme            | give me    | oughta       | ought to           |
+| gonna            | going to   | (s)posta(ve) | supposed to (have) |
+| gotchya          | got you    | sorta        | sort of            |
+| gotta            | got to     | wanna        | want to            |
+| hadta            | had to     | wassup       | what’s up          |
+| hasta            | has to     | whaddya      | what did you       |
+| hafta            | have to    | whyddya      | why did you        |
+| kinda            | kind of    | whyntcha     | why didn’t you     |
 
 3.  Include words with non-typical sounds (e.g., slurred, distorted) and
     type as the target word as long as it is recognizable/intelligible
@@ -56,84 +56,84 @@
     recognizable/intelligible with context and more than 50% of phonemes
     are correct.
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “and she rode off with the pɪnts \[: prince\]”
+-   Original: “and she rode off with the pɪnts \[: prince\]”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: and she rode off with the prince
+-   Final: and she rode off with the prince
 
-    </div>
+</div>
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “troll child in tɛptʃɪldrɪn \[: stepchildren\]”
+-   Original: “troll child in tɛptʃɪldrɪn \[: stepchildren\]”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: troll child in stepchildren
+-   Final: troll child in stepchildren
 
-    </div>
+</div>
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “wanted to doe \[: go\] to dance”
+-   Original: “wanted to doe \[: go\] to dance”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: wanted to go to dance
+-   Final: wanted to go to dance
 
-    </div>
+</div>
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “she /pʌz/ \[: was\] (gestures to face, talking about
-        Cinderella) a pretty curl \[: girl\]”
+-   Original: “she /pʌz/ \[: was\] (gestures to face, talking about
+    Cinderella) a pretty curl \[: girl\]”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: she was a pretty girl
+-   Final: she was a pretty girl
 
-    </div>
+</div>
 
 5.  Exclude part-words, false starts, sounds/syllables produced as a
     participant attempts to say a word
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “and ~~dr- dr-~~ beautiful”
+-   Original: “and ~~dr- dr-~~ beautiful”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: and beautiful
+-   Final: and beautiful
 
-    </div>
+</div>
 
 6.  Exclude neologisms (less than 50% of phonemes correct)
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “and she mades \[: made\] her all ~~/prudɪsbʊl/ \[:
-        beautiful\]~~”
+-   Original: “and she mades \[: made\] her all ~~/prudɪsbʊl/ \[:
+    beautiful\]~~”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: and she mades her all
+-   Final: and she mades her all
 
-    </div>
+</div>
 
 7.  Exclude fillers – meaningless non-words such as “uh”, “um”, “er”.
     Some real words may serve a filler function – e.g., to stall while
@@ -141,18 +141,18 @@
     them in the transcript. These may include words/phrases like “you
     know”, “like”, “so”, “okay”, etc.
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “~~um~~, okay, so then she went off with the, ~~uh~~,
-        the prince”
+-   Original: “~~um~~, okay, so then she went off with the, ~~uh~~,
+    the prince”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: okay so then she went off with the the prince
+-   Final: okay so then she went off with the the prince
 
-    </div>
+</div>
 
 8.  Exclude information/words/phrases/sentences spoken by the clinician
     or assessor. You are only focusing on the participant. If working
@@ -161,33 +161,33 @@
 
 9.  Exclude utterances prompted by the clinician.
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “C: Did someone find it? P: The prince found it I
-        think. C: Did he keep her shoe or did he do something? P: He
-        gave it to her.”
+-   Original: “C: Did someone find it? P: The prince found it I
+    think. C: Did he keep her shoe or did he do something? P: He
+    gave it to her.”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: ~~C: Did someone find it? P: The prince found it I think.
-        C: Did he keep her shoe or did he do something? P: He gave it to
-        her~~
+-   Final: ~~C: Did someone find it? P: The prince found it I think.
+    C: Did he keep her shoe or did he do something? P: He gave it to
+    her~~
 
-    </div>
+</div>
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “P: And they lived. C: happily… P: Ever after.”
+-   Original: “P: And they lived. C: happily… P: Ever after.”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: P: And they lived. ~~C: happily… P: Ever after.~~
+-   Final: P: And they lived. ~~C: happily… P: Ever after.~~
 
-    </div>
+</div>
 
 ### Segmenting Utterances
 
@@ -218,59 +218,59 @@ syntax and intonation:
 
 1.  Rules 1 & 5
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “~~um /tʃɛkdɜ˞dɪm/ \[: potentially ”stepchildren”\]~~
-        wanted to go ball”
+-   Original: “~~um /tʃɛkdɜ˞dɪm/ \[: potentially ”stepchildren”\]~~
+    wanted to go ball”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: wanted to go ball
+-   Final: wanted to go ball
 
-    </div>
+</div>
 
-    Rationale: um deleted because filler (rule 1); neologism deleted
-    (rule 5)
+Rationale: um deleted because filler (rule 1); neologism deleted
+(rule 5)
 
 2.  Rules 2, 1, & 3
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “she ~~um~~ she and ~~um dr- dr-~~ beautiful”
+-   Original: “she ~~um~~ she and ~~um dr- dr-~~ beautiful”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: she she and beautiful
+-   Final: she she and beautiful
 
-    </div>
+</div>
 
-    Rationale: both of the “she”’s retained (rule 2); um deleted because
-    filler (rule 1); part words (dr- dr-) deleted (rule 3)
+Rationale: both of the “she”’s retained (rule 2); um deleted because
+filler (rule 1); part words (dr- dr-) deleted (rule 3)
 
 3.  Rules 1, 2, 5, 6, & 7
 
-    <div style="color: #00008b;">
+<div style="color: #00008b;">
 
-    -   Original: “she wanna doe \[: go\] to dance with king, I mean
-        pɪnts \[: prince\], but I dunno,  that witch ~~stomɪst \[:
-        potentially ”stepmother”\]~~was ~~um~~ not, she was mean”
+-   Original: “she wanna doe \[: go\] to dance with king, I mean
+    pɪnts \[: prince\], but I dunno,  that witch ~~stomɪst \[:
+    potentially ”stepmother”\]~~was ~~um~~ not, she was mean”
 
-    </div>
+</div>
 
-    <div style="color: green;">
+<div style="color: green;">
 
-    -   Final: she want to go to dance with king I mean prince but I
-        don’t know, that witch was not, she was mean
+-   Final: she want to go to dance with king I mean prince but I
+    don’t know, that witch was not, she was mean
 
-    </div>
+</div>
 
-    Rationale: um deleted because filler (rule 1); “was not, she was”
-    retained because revisions included (rule 2); neologism that was
-    potentially “stepmother” excluded because neologism (rule 5); words
-    recognizable in context that matched more than 50% phonemes included
-    (go, prince) (rule 6);  nonstandard words (wanna, dunno) rewritten
-    as standard words (rule 7)
+Rationale: um deleted because filler (rule 1); “was not, she was”
+retained because revisions included (rule 2); neologism that was
+potentially “stepmother” excluded because neologism (rule 5); words
+recognizable in context that matched more than 50% phonemes included
+(go, prince) (rule 6);  nonstandard words (wanna, dunno) rewritten
+as standard words (rule 7)

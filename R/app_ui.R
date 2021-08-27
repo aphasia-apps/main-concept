@@ -5,12 +5,8 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
-  shinyUI(
     tagList(
       golem_add_external_resources(),
-      # tags$head(
-      #   tags$link(rel = "stylesheet", type = "text/css", href = file.path("www","style.css"))
-      # ),
       shinyjs::useShinyjs(),
       waiter::useWaiter(), 
       waiter::autoWaiter("waiter"),
@@ -41,7 +37,6 @@ app_ui <- function(request) {
                  br(),br(),br(),br()     
       )
     )
-  )
 }
 
 #' Add external Resources to the Application
@@ -62,7 +57,7 @@ golem_add_external_resources <- function(){
     favicon(),
     bundle_resources(
       path = app_sys('app/www'),
-      app_title = 'mca'
+      app_title = 'mainConcept'
     )
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert() 

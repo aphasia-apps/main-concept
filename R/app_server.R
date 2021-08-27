@@ -242,7 +242,7 @@ app_server <- function( input, output, session ) {
   observeEvent(input$about, {
     showModal(modalDialog(
       div(
-        includeMarkdown(system.file("app/www/bio.md", package = "mca"))
+        includeMarkdown(system.file("app/www/bio.md", package = "mainConcept"))
       ),
       size = "l",
       easyClose = TRUE,
@@ -254,7 +254,7 @@ app_server <- function( input, output, session ) {
   observeEvent(input$references, {
     showModal(modalDialog(
       div(
-        includeMarkdown(system.file("app/www/references.md", package = "mca"))
+        includeMarkdown(system.file("app/www/references.md", package = "mainConcept"))
       ),
       size = "l",
       easyClose = TRUE,
@@ -267,8 +267,10 @@ app_server <- function( input, output, session ) {
   #trascription rules
   observeEvent(input$full_transcription, {
     showModal(modalDialog(
-      tags$iframe(src = "full_transcription.html", frameBorder="0",
-                  height = "650px", width = "100%"),
+      tags$iframe(src = "www/full_transcription.html",
+                  frameBorder="0",
+                  height = "650px",
+                  width = "100%"),
       size = "l",
       easyClose = TRUE,
       footer = NULL
@@ -319,7 +321,7 @@ app_server <- function( input, output, session ) {
                  #includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
                  includeMarkdown(system.file(paste0("app/www/", 
                                                     input$input_stimulus, "/",
-                                                    paste0(paste_val, img_val, ".md")), package = "mca"))
+                                                    paste0(paste_val, img_val, ".md")), package = "mainConcept"))
       )
       )
     } else {}
