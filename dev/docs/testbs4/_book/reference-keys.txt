@@ -1,0 +1,17 @@
+eq:binom
+thm:tri
+introduction
+coding-scoring
+required-readingsresources
+links-to-picture-stimuli
+broken-window
+elicitation-script
+main-concept-checklist
+blocks
+equations
+theorems-and-proofs
+callout-blocks
+sharing-your-book
+publishing
+pages
+metadata-for-sharing
