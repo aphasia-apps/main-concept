@@ -142,24 +142,20 @@ app_server <- function( input, output, session ) {
   # if start over is hit, go to home page
   
   observeEvent(input$start_over,{
-    # reset everything. not clear that this works...
-    shinyjs::reset("intro_tab")
-    # first intro glide
-    updateTabsetPanel(session, "glide", "glide1")
-    
-    # immediately navigate back to previous tab
-    updateTabsetPanel(session, "mainpage",
-                      selected = "intro")
-    # new date time for new run
-    values$datetime <- Sys.time() # reestablishes datetime
-    # i = zero before starting
-    values$i=0
-    # reset important data
-    values$concept = list()
-    values$selected_sentences = list()
-    values$concept_accuracy = list()
-    values$stim_task <- NULL
-    
+    shinyWidgets::confirmSweetAlert(
+      inputId = "confirm_start_over",
+      session = session,
+      title = "Are you sure you want to start over?",
+      text = "All data will be lost.",
+      type = "warning",
+      width = "300px", 
+    )
+  })
+  
+  observeEvent(input$confirm_start_over,{
+    if(isTruthy(input$confirm_start_over)){
+      session$reload()
+    }
   })
   
   ########################## STORE RESPONSES #################################
@@ -229,15 +225,15 @@ app_server <- function( input, output, session ) {
   # ------------------------------------------------------------------------------
   ################################################################################
   # More information modal
-  observeEvent(input$info, {
-    showModal(modalDialog(
-      tags$iframe(src="https://aphasia-apps.github.io/mainConcept/", width = "100%",
-                  height = "650px", frameBorder = "0"),
-      easyClose = TRUE,
-      footer = NULL,
-      size = "l"
-    ))
-  })
+  # observeEvent(input$info, {
+  #   showModal(modalDialog(
+  #     tags$iframe(src="https://aphasia-apps.github.io/mainConcept/", width = "100%",
+  #                 height = "650px", frameBorder = "0"),
+  #     easyClose = TRUE,
+  #     footer = NULL,
+  #     size = "l"
+  #   ))
+  # })
   # readme modal. probabily will be deleted
   observeEvent(input$about, {
     showModal(modalDialog(

@@ -17,7 +17,7 @@ footer_div <- function(){
                inputId='source',
                label="Source Code",
                icon = icon("github"),
-               onclick ="window.open('https://github.com/rbcavanaugh/mssg', '_blank')",
+               onclick ="window.open('https://github.com/aphasia-apps/mainConcept', '_blank')",
                style = "background:transparent; border:none;"
                
              ),
@@ -25,6 +25,7 @@ footer_div <- function(){
                inputId = "info",
                label = "Scoring Manual",
                icon = icon("info-circle"),
+               onclick ="window.open('https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ', '_blank')",
                style = "background:transparent; border:none;"
              ),
              actionButton(

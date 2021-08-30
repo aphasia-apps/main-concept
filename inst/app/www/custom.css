@@ -52,5 +52,8 @@ h5 {
   margin: 0;
 }
 
-
+.swal2-popup {
+    width: 20em !important;
+    font-size: 1rem !important;
+}
  
