@@ -37,7 +37,7 @@ mainconcept::run_app()
 ```
 
 It is also (temporarily) available at
-<https://rb-cavanaugh.shinyapps.io/mainconcept>
+<https://aphasia-apps.shinyapps.io/mainconcept/>
 
 ## Feedback
 
