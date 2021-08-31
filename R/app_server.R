@@ -368,18 +368,18 @@ app_server <- function( input, output, session ) {
   
   # change to NULL when ready for release. 
   test_var <-  "Absent" # NA
-  
+  choices = c("Accurate", "Inaccurate", "Absent")
   # concept 1
   output$score1 <- renderUI({
     if(values$i<values$stim_task$num_slides+1){
       shinyWidgets::radioGroupButtons(
         inputId = "accuracy1",
         label = values$concept_labels[values$i, 2], 
-        choices = c("Accurate", "Inaccurate", "Absent"),
+        choices = choices,
         direction = "vertical",
         selected = if (length(values$concept_accuracy)>values$i && values$i>0){
           values$concept_accuracy[[values$i]][1,1]
-        } else {test_var}
+        } else {sample(choices, 1)}
       )
     } else {}
     
@@ -395,7 +395,7 @@ app_server <- function( input, output, session ) {
         direction = "vertical",
         selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
           values$concept_accuracy[[values$i]][2,1]
-        } else {test_var}
+        } else {sample(choices, 1)}
       )
     }else{}
     
@@ -412,7 +412,7 @@ app_server <- function( input, output, session ) {
           direction = "vertical",
           selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
             values$concept_accuracy[[values$i]][3,1]
-          } else {test_var}
+          } else {sample(choices, 1)}
         )
       } 
     }else{}
@@ -428,7 +428,7 @@ app_server <- function( input, output, session ) {
       direction = "vertical",
       selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
         values$concept_accuracy[[values$i]][4,1]
-      } else {test_var}
+      } else {sample(choices, 1)}
     )
   })
   
@@ -487,7 +487,7 @@ app_server <- function( input, output, session ) {
   
   # gets the summary table of results. 
   results_mca_tab <- reactive({
-    get_summary_table(results = values$results_mca, norms = values$norms)
+    get_summary_table(results = values$results_mca, norms = values$norms, scoring = input$scoring_system)
   })
   
   # outputs text summary. 
@@ -505,13 +505,15 @@ app_server <- function( input, output, session ) {
   align = "c", 
   colnames = T,
   spacing = "s",
-  width = "100%")
+  width = "100%",
+  na = "")
   
   # outputs summary plot
   output$plot <- renderPlot({
     get_plot(values$norms,
-             as.numeric(results_mca_tab()$Points[7]),
-             input$input_stimulus)
+             as.numeric(results_mca_tab()[[1,3]]),
+             input$input_stimulus,
+             scoring = input$scoring_system)
   })
   
   
