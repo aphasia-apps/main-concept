@@ -15,14 +15,19 @@ get_results_div <- function(){
                  column(width = 5, align = "center",
                         br(),
                         tableOutput("results_mca_table"),
-                        shinyWidgets::radioGroupButtons("scoring_system",
-                                     #label = "Scoring:",
-                                     #inline = T,
-                                     status = "info",
-                                     choices = c("Dalton & Richardson" = "dalton_richardson",
-                                                 "Kong" = "kong"
-                                                )
-                                     )
+                        div(
+                          div(tags$b("Scoring system: "),
+                              style = "display: inline-block;"),
+                          div(shinyWidgets::radioGroupButtons(
+                                  "scoring_system",
+                                 size = "s",
+                                 choices = c("Dalton & Richardson" = "dalton_richardson",
+                                             "Kong" = "kong"
+                                             )
+                                 ),
+                              style = "display: inline-block;"
+                              )
+                        )
                  ),
                  column(width = 7,
                         div(align = "center",

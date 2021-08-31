@@ -11,6 +11,7 @@ app_ui <- function(request) {
       waiter::useWaiter(), 
       waiter::autoWaiter("waiter"),
       waiter::waiterPreloader(html=waiter::spin_dots(),color="white"),
+      tags$style(".swal2-popup {font-size: 1rem !important;}"),
       navbarPage(title = "Main Concept Analysis",
                  id = "mainpage",
                  footer = tags$div(
