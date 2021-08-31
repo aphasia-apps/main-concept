@@ -61,6 +61,11 @@ app_server <- function( input, output, session ) {
       shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
     }
     
+    # if(input$mainpage == "intro"){
+    #   shinyjs::disable("downloadData")
+    # } else {
+    #   shinyjs::enable("downloadData")
+    # }
   })
   
   ###########################Intro tab next and back############################
@@ -195,7 +200,7 @@ app_server <- function( input, output, session ) {
       }
       
     }
-    if(values$i==values$stim_task$num_slides){
+    #if(values$i==values$stim_task$num_slides){
       
       # if its the last concept, put all the results together. 
       values$results_mca <- 
@@ -209,7 +214,7 @@ app_server <- function( input, output, session ) {
                               dplyr::rename(concept = id)
         )
       
-    } 
+    #} 
     
     
     
@@ -328,7 +333,6 @@ app_server <- function( input, output, session ) {
   # get sentences #######
   output$sentence_buttons <- renderUI({
     df = tibble::tibble(txt = stringr::str_trim(unlist(strsplit(input$input_transcript, "(?<=\\.)", perl = T))))
-    print(df)
     shinyWidgets::checkboxGroupButtons(
       inputId = "score_mca",
       justified = T, size = "sm",
@@ -529,14 +533,11 @@ app_server <- function( input, output, session ) {
       paste(input$stimMC, "_MC_summary.xlsx", sep = "")
     },
     content = function(file) {
-      openxlsx::write.xlsx(list(
-        transcript = tibble::tibble(
-          transcript = values$transcript
-        ),
-        summary_scores = results_mca_tab(),
-        by_concept = values$results_mca,
-        by_component = bind_rows(values$concept_accuracy)
-      )
+      openxlsx::write.xlsx(
+                  get_download_data(
+                              current_tab = input$mainpage,
+                              values = values,
+                              results_tab = results_mca_tab())
       , file)
     }
   )

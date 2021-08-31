@@ -3,6 +3,7 @@
 export("%>%")
 export(ecdf_fun)
 export(footer_div)
+export(get_download_data)
 export(get_intro_div)
 export(get_long_results_df)
 export(get_norms)

@@ -21,8 +21,8 @@ get_results_div <- function(){
                           div(shinyWidgets::radioGroupButtons(
                                   "scoring_system",
                                  size = "s",
-                                 choices = c("Dalton & Richardson" = "dalton_richardson",
-                                             "Kong" = "kong"
+                                 choices = c("Dalton & Richardson 2016" = "dalton_richardson",
+                                             "Kong 2009" = "kong"
                                              )
                                  ),
                               style = "display: inline-block;"
@@ -30,8 +30,8 @@ get_results_div <- function(){
                         )
                  ),
                  column(width = 7,
-                        div(align = "center",
-                            #br(),
+                        div(align = "center",  br(),
+                            plotOutput("plot", height = "300"),
                             div(
                               div(tags$b("Variable:", HTML('&nbsp;')),
                                   style = "display: inline-block;"),
@@ -45,17 +45,16 @@ get_results_div <- function(){
                               ),
                               style = "display: inline-block;"
                               )
-                            ),
-                            plotOutput("plot", height = "400")
+                            )
                         )
                  )
-               ),br(),
-               fluidRow(
-                 column(align = "center", width = 10, offset = 1,
-                        downloadButton("downloadData", "Download Data"),
-                        actionButton("start_over", "Start Over", icon = icon("undo"))
-                 )
-               )
+               )#,br(),
+               # fluidRow(
+               #   column(align = "center", width = 10, offset = 1,
+               #          downloadButton("downloadData", "Download Data"),
+               #          actionButton("start_over", "Start Over", icon = icon("undo"))
+               #   )
+               # )
         )
     )
   )

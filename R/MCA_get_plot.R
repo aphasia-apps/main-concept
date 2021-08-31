@@ -42,9 +42,12 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
     ggplot2::theme(
           axis.text.y=ggplot2::element_blank(),
           axis.ticks.y = ggplot2::element_blank(),
-          legend.position="bottom") +
+          legend.position = c(0.87, 0.15),
+          legend.background = ggplot2::element_rect(fill = scales::alpha("white", 0.75), color = "black")) +
     ggplot2::scale_fill_manual(values = c("#E66100", "#5D3A9B")) +
-    ggplot2::labs(y=NULL, x=xlabel, caption = "Dashed red line indicates current score", fill = NULL)
+    ggplot2::labs(y=NULL, x=xlabel,
+                  #caption = "Dashed red line indicates current score",
+                  fill = NULL)
   
   if(scoring == "dalton_richardson"){
     p = p + 

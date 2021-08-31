@@ -12,7 +12,15 @@ app_ui <- function(request) {
       waiter::autoWaiter("waiter"),
       waiter::waiterPreloader(html=waiter::spin_dots(),color="white"),
       tags$style(".swal2-popup {font-size: 1rem !important;}"),
-      navbarPage(title = "Main Concept Analysis",
+      navbarPage(title = div(
+                            div("Main Concept Analysis"),
+                            div(id = "navbar-right",
+                                downloadButton("downloadData", "Download Data"),
+                                actionButton("start_over",
+                                             "Start Over",
+                                             icon = icon("undo")),
+                                style = "position: absolute; right: 5px; top: 8px;")
+                ),
                  id = "mainpage",
                  footer = tags$div(
                    id = "footer_id",
