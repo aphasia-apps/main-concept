@@ -4,7 +4,7 @@
 \alias{get_plot}
 \title{get plot}
 \usage{
-get_plot(norms, current_score, stim, scoring = "dalton_richardson")
+get_plot(norms, current_score, stim, scoring = "dalton_richardson", norm_var)
 }
 \arguments{
 \item{norms}{norms pulled from googlesheets or static if not accessed}

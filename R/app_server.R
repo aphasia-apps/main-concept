@@ -510,10 +510,15 @@ app_server <- function( input, output, session ) {
   
   # outputs summary plot
   output$plot <- renderPlot({
-    get_plot(values$norms,
-             as.numeric(results_mca_tab()[[1,3]]),
-             input$input_stimulus,
-             scoring = input$scoring_system)
+    get_plot(norms = values$norms,
+             current_score = as.numeric(c(
+                                          results_mca_tab()[[1,3]], # composite
+                                          results_mca_tab()[[2,2]], # AC
+                                          results_mca_tab()[[7,2]]) # attempts
+                                        ),
+             stim = input$input_stimulus,
+             scoring = input$scoring_system,
+             norm_var = input$norm_variable)
   })
   
   

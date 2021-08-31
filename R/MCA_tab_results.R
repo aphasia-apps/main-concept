@@ -16,7 +16,7 @@ get_results_div <- function(){
                         br(),
                         tableOutput("results_mca_table"),
                         div(
-                          div(tags$b("Scoring system: "),
+                          div(tags$b("Scoring system: ", HTML('&nbsp;')),
                               style = "display: inline-block;"),
                           div(shinyWidgets::radioGroupButtons(
                                   "scoring_system",
@@ -31,7 +31,21 @@ get_results_div <- function(){
                  ),
                  column(width = 7,
                         div(align = "center",
-                            br(),
+                            #br(),
+                            div(
+                              div(tags$b("Variable:", HTML('&nbsp;')),
+                                  style = "display: inline-block;"),
+                              div(shinyWidgets::radioGroupButtons(
+                                "norm_variable",
+                                size = "s",
+                                choices = c("Composite" = "MC COMPOSITE",
+                                            "AC" = "AC",
+                                            "Attempts" = "MC Attempts"
+                                )
+                              ),
+                              style = "display: inline-block;"
+                              )
+                            ),
                             plotOutput("plot", height = "400")
                         )
                  )
