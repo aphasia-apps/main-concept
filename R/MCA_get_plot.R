@@ -15,22 +15,60 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
     if(norm_var == "MC COMPOSITE"){
       vert_line <- current_score[1]
       xlabel <- "Composite Score"
+      
+      dat = norms %>%
+        dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+        dplyr::rename(score = norm_var)
+      
+      val = max(dat$score)
+      
     } else if (norm_var == "AC"){
       vert_line <- current_score[2]
       xlabel <- "Number of Accurate Complete Concepts"
+      
+      dat = norms %>%
+        dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+        dplyr::rename(score = norm_var)
+      
+      val = max(dat$score)
+      
     } else if (norm_var == "MC Attempts"){
       vert_line <- current_score[3]
       xlabel <- "Number of Attempts"
+      
+      dat = norms %>%
+        dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+        dplyr::rename(score = norm_var)
+      
+      val = max(dat$score)
+      
+    } else if (norm_var == "COMP_min"){
+      vert_line <- current_score[4]
+      xlabel <- "Number of Attempts"
+      
+      dat = eff_norms %>%
+        dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+        dplyr::rename(score = norm_var)
+      
+      val = quantile(dat$score, probs = .97)
+      
+    } else if (norm_var == "AC_min"){
+      vert_line <- current_score[5]
+      xlabel <- "Number of Attempts"
+      
+      dat = eff_norms %>%
+        dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+        dplyr::rename(score = norm_var)
+      
+      val = quantile(dat$score, probs = .97)
+      
     } else {
-      0
+      vert_line <- 0
       xlabel <- ""
     }
+
   
-  dat = norms %>%
-    dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-    dplyr::rename(score = norm_var)
   
-  val = max(dat$score)
 
   p = dat %>%
     ggplot2::ggplot(ggplot2::aes(x=score, fill = group, group = group)) +

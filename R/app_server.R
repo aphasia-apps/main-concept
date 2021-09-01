@@ -491,10 +491,13 @@ app_server <- function( input, output, session ) {
   
   # gets the summary table of results. 
   results_mca_tab <- reactive({
-    get_summary_table(results = values$results_mca, norms = values$norms, scoring = input$scoring_system)
+    get_summary_table(results = values$results_mca,
+                      norms = values$norms,
+                      scoring = input$scoring_system,
+                      min = input$input_duration)
   })
   
-  # outputs text summary. 
+  # outputs text summary. get_summary_table
   output$random_text <- renderText({
     shinipsum::random_text(nwords = 100)
   })
@@ -502,7 +505,7 @@ app_server <- function( input, output, session ) {
   # outputs summmary table 
   output$results_mca_table <- renderTable({
     tab = results_mca_tab() %>%
-      dplyr::mutate(Points = as.character(Points))
+      dplyr::mutate(Score = as.character(Score))
     w1$hide()
     return(tab)
   },
@@ -514,11 +517,13 @@ app_server <- function( input, output, session ) {
   
   # outputs summary plot
   output$plot <- renderPlot({
-    get_plot(norms = values$norms,
+    get_plot(norms = values$norms$acc,
              current_score = as.numeric(c(
                                           results_mca_tab()[[1,3]], # composite
                                           results_mca_tab()[[2,2]], # AC
-                                          results_mca_tab()[[7,2]]) # attempts
+                                          results_mca_tab()[[7,2]],
+                                          readr::parse_number(results_mca_tab()[[8,2]]),
+                                          readr::parse_number(results_mca_tab()[[9,2]])) # attempts
                                         ),
              stim = input$input_stimulus,
              scoring = input$scoring_system,

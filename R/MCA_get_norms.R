@@ -17,10 +17,15 @@ get_norms <- function(stimulus){
   # go into deauth mode
   googlesheets4::gs4_deauth()
   
-  norms <- tryCatch(
-    googlesheets4::read_sheet(ss = get(stimulus)),
+  acc <- tryCatch(
+    googlesheets4::read_sheet(ss = get(stimulus), sheet = 1),
           error = function(e) "Unable to connect; using norms updated 8/1/21"
         )
+  
+  norms = list(
+    acc = acc,
+    eff = eff_norms %>% dplyr::filter(stim == stimulus)
+  )
 
   if(is.character(norms)){
     return(static_norms %>%
@@ -36,15 +41,21 @@ get_norms <- function(stimulus){
 
 
 # update_static_norms <- function() {
-# 
+#   load(here::here("R", "sysdata.rda"))
 #   refused_umbrella = get_norms("refused_umbrella")
 #   cat_rescue = get_norms("cat_rescue")
 #   cinderella = get_norms("cinderella")
 #   sandwich = get_norms("sandwich")
 #   broken_window = get_norms("broken_window")
 # 
-#   static_norms <- bind_rows(lst(refused_umbrella, cat_rescue, cinderella, sandwich, broken_window), .id = "stim")
-# 
-#   use_data(static_norms, internal = T, overwrite = T)
+#   static_norms <- dplyr::bind_rows(tibble::lst(refused_umbrella$acc, cat_rescue$acc,
+#                                                cinderella$acc, sandwich$acc, broken_window$acc),
+#                                    .id = "stim") %>%
+#                   dplyr::mutate(stim = stringr::str_remove(stim, "[$]acc"))
+#   eff_norms <- dplyr::bind_rows(tibble::lst(refused_umbrella$eff, cat_rescue$eff,
+#                                             cinderella$eff, sandwich$eff, broken_window$eff),
+#                                 .id = "stim") %>%
+#     dplyr::mutate(stim = stringr::str_remove(stim, "[$]eff"))
+#   usethis::use_data(static_norms, eff_norms, main_concepts, mc_reference,scoring_mca, transcriptDefault, sty, internal = T, overwrite = T)
 # 
 # }

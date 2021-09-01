@@ -4,7 +4,7 @@
 \alias{get_summary_table}
 \title{Get summary table}
 \usage{
-get_summary_table(results, norms, scoring = "dalton_richardson")
+get_summary_table(results, norms, scoring = "dalton_richardson", min = 0)
 }
 \arguments{
 \item{results}{the data frame of results}

@@ -31,7 +31,7 @@ get_results_div <- function(){
                  ),
                  column(width = 7,
                         div(align = "center",  br(),
-                            plotOutput("plot", height = "300"),
+                            plotOutput("plot", height = "360"),
                             div(
                               div(tags$b("Variable:", HTML('&nbsp;')),
                                   style = "display: inline-block;"),
@@ -40,7 +40,9 @@ get_results_div <- function(){
                                 size = "s",
                                 choices = c("Composite" = "MC COMPOSITE",
                                             "AC" = "AC",
-                                            "Attempts" = "MC Attempts"
+                                            "Attempts" = "MC Attempts",
+                                            "Composite/min" = "COMP_min",
+                                            "AC/min"= "AC_min"
                                 )
                               ),
                               style = "display: inline-block;"
@@ -48,13 +50,7 @@ get_results_div <- function(){
                             )
                         )
                  )
-               )#,br(),
-               # fluidRow(
-               #   column(align = "center", width = 10, offset = 1,
-               #          downloadButton("downloadData", "Download Data"),
-               #          actionButton("start_over", "Start Over", icon = icon("undo"))
-               #   )
-               # )
+               )
         )
     )
   )
