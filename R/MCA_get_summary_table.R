@@ -68,6 +68,9 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
     df[[8,2]] = paste0(round(comp_min,1), "/min")
     ac_min = as.numeric(df[2,2])/(min/60)
     df[[9,2]] = paste0(as.character(round(ac_min,1)), "/min")
+  } else {
+    df[[8,2]] = "N/A"
+    df[[9,2]] = "N/A"
   }
 
   
@@ -83,9 +86,14 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
     # Attempts
     df[[7,4]] = ecdf_fun(subset(acc, Aphasia==1)$`MC Attempts`, as.numeric(df[7,2]))
     # composite/min
-    df[[8,4]] = ecdf_fun(subset(eff, Aphasia==1)$COMP_min, comp_min)
+        if(min >0){
+            df[[8,4]] = ecdf_fun(subset(eff, Aphasia==1)$COMP_min, comp_min)
     # AC/min
-    df[[9,4]] = ecdf_fun(subset(eff, Aphasia==1)$AC_min, ac_min)
+            df[[9,4]] = ecdf_fun(subset(eff, Aphasia==1)$AC_min, ac_min)
+        } else {
+          df[[8,4]] = NA
+          df[[9,4]] = NA
+        }
     
     # control norms
     #composite
@@ -95,9 +103,17 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
     # Attempts
     df[[7,5]] = ecdf_fun(subset(acc, Aphasia==0)$`MC Attempts`, as.numeric(df[7,2]))
     # composite/min
-    df[[8,5]] = ecdf_fun(subset(eff, Aphasia==0)$COMP_min, comp_min)
-    # AC/min
-    df[[9,5]] = ecdf_fun(subset(eff, Aphasia==0)$AC_min, ac_min)
+    if(min >0){
+        df[[8,5]] = ecdf_fun(subset(eff, Aphasia==0)$COMP_min, comp_min)
+        # AC/min
+        df[[9,5]] = ecdf_fun(subset(eff, Aphasia==0)$AC_min, ac_min)
+    } else {
+      df[[8,5]] = NA
+      
+      df[[9,5]] = NA
+     
+      
+    }
     
   } else {
     df$`Percentile (Aphasia)` = NA
