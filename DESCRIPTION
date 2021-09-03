@@ -26,7 +26,8 @@ Imports:
     magrittr,
     pkgload,
     markdown,
-    tibble
+    tibble,
+    readr
 URL: https://github.com/aphasia-apps/mainConcept
 BugReports: https://github.com/aphasia-apps/mainConcept/issues
 Encoding: UTF-8
