@@ -16,8 +16,8 @@ header-includes:
 
 ```{r}
 # The `params` object is available in the document.
-# params$n
-#print(stim)
+# example:
+print(params$stim)
 ```
 
 ### Summary of measure

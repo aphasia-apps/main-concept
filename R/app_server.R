@@ -53,6 +53,11 @@ app_server <- function( input, output, session ) {
       shinyjs::disable(selector = "#mainpage li a[data-value=results]")
       shinyjs::disable(selector = "#mainpage li a[data-value=scoring]")
       shinyjs::disable(selector = "#mainpage li a[data-value=intro]")
+      if(input$mainpage != "results"){
+        shinyjs::hide("report")
+      } else {
+        shinyjs::show("report")
+      }
     # } else if(input$mainpage == "results"){
     #   shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
     # } else if(input$mainpage == "intro" && values$i>0){
