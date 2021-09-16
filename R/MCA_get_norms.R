@@ -27,12 +27,14 @@ get_norms <- function(stimulus){
     eff = eff_norms %>% dplyr::filter(stim == stimulus)
   )
 
-  if(is.character(norms)){
-    return(static_norms %>%
-             dplyr::filter(stim==stimulus))
-  } else {
-    return(norms)
-  }
+  if(is.character(acc)){
+    norms$acc = static_norms %>%
+             dplyr::filter(stim==stimulus)
+  } 
+    
+  
+  return(norms)
+  
 
 }
 

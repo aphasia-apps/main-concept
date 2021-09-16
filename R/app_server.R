@@ -49,17 +49,17 @@ app_server <- function( input, output, session ) {
   # disables the navbar buttons in different situations
   
   observe({
-    if(values$i==0 || input$mainpage == "scoring"){
+    #if(values$i==0 || input$mainpage == "scoring"){
       shinyjs::disable(selector = "#mainpage li a[data-value=results]")
       shinyjs::disable(selector = "#mainpage li a[data-value=scoring]")
-      shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
-    } else if(input$mainpage == "results"){
-      shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
-    } else if(input$mainpage == "intro" && values$i>0){
-      shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
-    } else {
-      shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
-    }
+      shinyjs::disable(selector = "#mainpage li a[data-value=intro]")
+    # } else if(input$mainpage == "results"){
+    #   shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
+    # } else if(input$mainpage == "intro" && values$i>0){
+    #   shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
+    # } else {
+    #   shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
+    # }
     
     # if(input$mainpage == "intro"){
     #   shinyjs::disable("downloadData")
@@ -147,14 +147,27 @@ app_server <- function( input, output, session ) {
   # if start over is hit, go to home page
   
   observeEvent(input$start_over,{
-    shinyWidgets::confirmSweetAlert(
-      inputId = "confirm_start_over",
-      session = session,
-      title = "Are you sure you want to start over?",
-      text = "All data will be lost.",
-      type = "warning",
-      width = "300px", 
-    )
+    # shinyWidgets::confirmSweetAlert(
+    #   inputId = "confirm_start_over",
+    #   session = session,
+    #   title = "Are you sure you want to start over?",
+    #   text = "All data will be lost.",
+    #   type = "warning",
+    #   width = "300px", 
+    # )
+    
+    showModal(modalDialog(
+      title="Are you sure you want to start over?",
+      "All data will be lost.",
+      footer = tagList(actionButton("confirm_start_over", "Start over"),
+                       modalButton("Cancel")
+      ), 
+      size = "s",
+    ))
+    
+    
+    
+    
   })
   
   observeEvent(input$confirm_start_over,{
@@ -183,26 +196,89 @@ app_server <- function( input, output, session ) {
       
       component = seq(1,len,1)
       concept = rep(values$i, len)
-      
       # saving the data
       values$concept[[values$i]] = values$i
-      values$selected_sentences[[values$i]] = input$score_mca
+      values$selected_sentences[[values$i]] = ifelse(is.null(input$score_mca), "none", input$score_mca)
       values$concept_accuracy[[values$i]] = tibble::tibble(rating = score,
                                                            component = component,
                                                            concept = concept)
-      # go to results if the scoring is done. 
-      if (values$i == values$stim_task$num_slides) {
-        w1$show()
-        updateNavbarPage(session, "mainpage", selected = "results")
-      } else{
-        # otherwise iterate values$i and move on to the next item. 
-        values$i <- values$i + 1
+      
+      ##### Training feedback ######
+      
+      if (isTruthy(values$training)){
+        
+        values$check = values$concept_accuracy[[values$i]] %>%
+          dplyr::inner_join(values$answers, by = c("component", "concept"))
+        #print(values$check)
+        check_concepts = all(values$check$rating == values$check$correct_rating)
+        check_sentences = values$selected_sentences[[values$i]] == values$key[[values$i]]
+        
+        if(isTruthy(check_concepts) & isTruthy(check_sentences)){
+          
+          shinyWidgets::confirmSweetAlert(
+            inputId = "alert_correct_answer",
+            session = session,
+            title = "Nice Work!",
+            text = div(
+              DT::DTOutput("training_table")
+            ),
+            type = "success",
+            width = "300px", 
+            html = T
+          )
+         
+        } else if (isTruthy(check_concepts)) {
+          
+          shinyWidgets::sendSweetAlert(
+            session = session,
+            title = "Try Again!",
+            text = div(
+              tags$em("Your concepts are correct, but you didn't select the correct utterance."),br(),
+              DT::DTOutput("training_table")
+            ),
+            type = "error",
+            width = "300px", 
+            html = T
+          )
+          
+        } else {
+          
+          shinyWidgets::sendSweetAlert(
+            session = session,
+            title = "Try Again!",
+            text = div(
+              DT::DTOutput("training_table")
+            ),
+            type = "error",
+            width = "300px", 
+            html = T
+          )
+          
+        }
+        
+        
+      } else {
+        
+        # only do this part here if not trianing
+        # go to results if the scoring is done. 
+        if (values$i == values$stim_task$num_slides) {
+          w1$show()
+          print(unlist(values$selected_sentences))
+          updateNavbarPage(session, "mainpage", selected = "results")
+        } else{
+          # otherwise iterate values$i and move on to the next item. 
+          values$i <- values$i + 1
+        }
+        
+        
       }
       
-    }
-    #if(values$i==values$stim_task$num_slides){
       
-      # if its the last concept, put all the results together. 
+      
+
+      
+    #}
+    # put all the results together. 
       values$results_mca <- 
         get_long_results_df(concept_accuracy = values$concept_accuracy,
                             filtered_concepts = 
@@ -213,8 +289,8 @@ app_server <- function( input, output, session ) {
                               dplyr::mutate(component = as.numeric(stringr::str_remove(component, "e"))) %>%
                               dplyr::rename(concept = id)
         )
-      
-    #} 
+
+    } 
     
     
     
@@ -223,6 +299,18 @@ app_server <- function( input, output, session ) {
   # if you his previous, go back. prev is disabled on concept 1. 
   observeEvent(input$prev,{
     values$i <- values$i -1
+  #  print(values$concept_accuracy[[values$i]])
+  })
+  
+  observeEvent(input$alert_correct_answer,{
+    req(isTruthy(input$alert_correct_answer))
+    if (values$i == values$stim_task$num_slides) {
+      w1$show()
+      updateNavbarPage(session, "mainpage", selected = "results")
+    } else{
+      # otherwise iterate values$i and move on to the next item. 
+      values$i <- values$i + 1
+    }
   })
   
   
@@ -332,7 +420,8 @@ app_server <- function( input, output, session ) {
   # displays the unique sentences to be selected
   # get sentences #######
   output$sentence_buttons <- renderUI({
-    df = tibble::tibble(txt = stringr::str_trim(unlist(strsplit(input$input_transcript, "(?<=\\.)", perl = T))))
+    req(values$transcript)
+    df = tibble::tibble(txt = stringr::str_trim(unlist(strsplit(values$transcript, "(?<=\\.)", perl = T))))
     shinyWidgets::checkboxGroupButtons(
       inputId = "score_mca",
       justified = T, size = "sm",
@@ -370,9 +459,10 @@ app_server <- function( input, output, session ) {
   ########### Score 1, 2, 3, 4 create the buttons ############################
   ########### score_sentences dplyr::pulls them together to be rendered #############
   
-  # change to NULL when ready for release. 
-  test_var <-  "Absent" # NA
+  # change to AN when ready for release. 
+  #test_var <- "Absent" #"Absent" # NA
   choices = c("Accurate", "Inaccurate", "Absent")
+  choice_tests = c("Accurate", "Inaccurate", "Absent")
   # concept 1
   output$score1 <- renderUI({
     if(values$i<values$stim_task$num_slides+1){
@@ -381,9 +471,12 @@ app_server <- function( input, output, session ) {
         label = values$concept_labels[values$i, 2], 
         choices = choices,
         direction = "vertical",
-        selected = if (length(values$concept_accuracy)>values$i && values$i>0){
+        selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
           values$concept_accuracy[[values$i]][1,1]
-        } else {sample(choices, 1)}
+        } else {
+          #NA
+          sample(choice_tests, 1)
+          }
       )
     } else {}
     
@@ -399,7 +492,10 @@ app_server <- function( input, output, session ) {
         direction = "vertical",
         selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
           values$concept_accuracy[[values$i]][2,1]
-        } else {sample(choices, 1)}
+        } else {
+          #NA
+          sample(choice_tests, 1)
+        }
       )
     }else{}
     
@@ -416,8 +512,11 @@ app_server <- function( input, output, session ) {
           direction = "vertical",
           selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
             values$concept_accuracy[[values$i]][3,1]
-          } else {sample(choices, 1)}
-        )
+          } else {
+            #NA
+            sample(choice_tests, 1)
+          }        
+          )
       } 
     }else{}
     
@@ -432,8 +531,10 @@ app_server <- function( input, output, session ) {
       direction = "vertical",
       selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
         values$concept_accuracy[[values$i]][4,1]
-      } else {sample(choices, 1)}
-    )
+      } else {
+        #NA
+        sample(choice_tests, 1)
+      }    )
   })
   
   # gathers the concept scoring buttons into a single UI to show. 
@@ -497,11 +598,6 @@ app_server <- function( input, output, session ) {
                       min = input$input_duration)
   })
   
-  # outputs text summary. get_summary_table
-  output$random_text <- renderText({
-    shinipsum::random_text(nwords = 100)
-  })
-  
   # outputs summmary table 
   output$results_mca_table <- renderTable({
     tab = results_mca_tab() %>%
@@ -513,18 +609,18 @@ app_server <- function( input, output, session ) {
   colnames = T,
   spacing = "s",
   width = "100%",
-  na = "")
+  na = "-")
   
   # outputs summary plot
   output$plot <- renderPlot({
     get_plot(norms = values$norms$acc,
              current_score = as.numeric(c(
-                                          results_mca_tab()[[1,3]], # composite
-                                          results_mca_tab()[[2,2]], # AC
-                                          results_mca_tab()[[7,2]],
-                                          readr::parse_number(results_mca_tab()[[8,2]]),
-                                          readr::parse_number(results_mca_tab()[[9,2]])) # attempts
-                                        ),
+               results_mca_tab()[[1,3]], # composite
+               results_mca_tab()[[2,2]], # AC
+               results_mca_tab()[[7,2]],
+               readr::parse_number(results_mca_tab()[[8,2]]),
+               readr::parse_number(results_mca_tab()[[9,2]])) # attempts
+             ),
              stim = input$input_stimulus,
              scoring = input$scoring_system,
              norm_var = input$norm_variable)
@@ -546,6 +642,147 @@ app_server <- function( input, output, session ) {
       , file)
     }
   )
+  
+  ################################## TRAINING #################################
+  # --------------------------------------------------------------------------
+  ############################################################################
+  
+  # This will be about the training module - a modal
+  observeEvent(input$glide_training, {
+    showModal(modalDialog(
+      title = "Main Concept Analysis Training Module",
+      div(
+        tabsetPanel(id = "training_tabset",
+          tabPanel(title = "About Training",
+                   br(),
+                  h3("This is a modal that will tell you about training"),
+                   p("Lorem ipsum and instruction stuff")),
+          tabPanel(title = "Transcribing rules",
+                   br(),
+            includeMarkdown(system.file("app/www/transcribing.md", package = "mainConcept"))
+          ),
+          tabPanel(title = "Segmenting Rules",
+                   br(),
+            includeMarkdown(system.file("app/www/segmenting.md", package = "mainConcept"))
+          ),
+          tabPanel(title = "Get Started",
+                   br(),
+                radioButtons("training_module",
+                                label = 'Pick a training module, review the transcript, and then press "Get Started"' ,
+                                choices = c("Module 1" = "1", "Module 2" = "2", "Module 3" = "3"),
+                                selected = "1",
+                                inline = T),
+                   uiOutput("training_markdown"))
+        )
+        
+        
+      ),
+      size = "l",
+      easyClose = TRUE,
+      footer = tagList(actionButton("start_training", "Get Started"),
+                       modalButton("Cancel")
+      )
+    ))
+  })
+  
+  observe(
+    if(isTruthy(input$training_tabset == "Get Started")){
+      shinyjs::enable("start_training")
+    } else {
+      shinyjs::disable("start_training")
+    }
+  )
+  
+  training_transcript1 <- "Okay. I’ve done this before. He kicked the ball. It went doodoodoo and went through the glass. It’s his dad sitting in the the couch. It’s not good."
+  training_transcript2 <- "He kicking ball. And the lamp it hits. Man yelled."
+  training_transcript3 <- "Looks like the problem is the cat is stuck up in a tree. Father is out on the and. he's kind of stuck himself I think. The little girl is crying for the cat. She's got an umbrella. There's a guy up in the or. a dog barking up the tree. And the fire department is coming. A little girl was trying to reach him I guess. I don't know if she was trying to get this ladder or not. I have no idea about that. But anyway the firemen are coming. The fire truck is there. And they're coming out with a ladder apparently to help get the cat and father out of the tree."
+  # All the things that need to start happening for training to work. 
+  observeEvent(input$start_training,{
+    values$training = T
+    values$i = 1
+    values$key =keys[[as.numeric(input$training_module)]]
+    
+    
+    stim_in <- if(input$training_module == "1"){"broken_window"
+      } else if (input$training_module == "2"){"broken_window"
+      } else if (input$training_module == "3"){"cat_rescue"}
+    
+    values$answers <- answers %>% dplyr::filter(module == input$training_module)
+    
+    values$stim_task <- tibble::tibble(
+      stim = stim_in,
+      stim_num = if(stim_in == 'broken_window'){1
+      } else if(stim_in=='cat_rescue'){2
+      } else if(stim_in == 'refused_umbrella'){3
+      } else if(stim_in == 'cinderella'){4
+      } else if(stim_in == 'sandwich'){5
+      } else {0},
+      num_slides = if(stim_in == 'broken_window'){8
+      } else if(stim_in=='cat_rescue'){10
+      } else if(stim_in == 'refused_umbrella'){10
+      } else if(stim_in == 'cinderella'){34
+      } else if(stim_in == 'sandwich'){10
+      } else {0}
+    )
+    values$transcript = get(paste0("training_transcript", input$training_module))
+    values$norms = get_norms(stimulus = stim_in) 
+    # static_norms %>% dplyr::filter(stim==input$input_stimulus)
+    removeModal()
+    updateNavbarPage(session, "mainpage", selected = "scoring")
+  })
+  
+  output$training_table <- DT::renderDT({
+    req(values$check)
+    get_training_table(values$check)
+  }, options = list(
+    dom = 't',
+    ordering=F,
+    searching=F,
+    columnDefs=list(list(targets=-1, class="dt-left", width = "60%"))
+  ))
+  
+  output$training_markdown <- renderUI({
+    get_training_trascript_div(input$training_module)
+  })
+  
+  
+  ##################################### REPORT #################################
+  
+  output$report <- downloadHandler(
+    # For PDF output, change this to "report.pdf"
+    filename = "report.pdf",
+    content = function(file) {
+      # Copy the report file to a temporary directory before processing it, in
+      # case we don't have write permissions to the current working dir (which
+      # can happen when deployed).
+      tempReport <- system.file("report.Rmd", package = "mainConcept")#file.path(tempdir(), "report.Rmd")
+      file.copy("report.Rmd", tempReport, overwrite = TRUE)
+      
+      # Set up parameters to pass to Rmd document
+      params <- list(
+                     summary_table = results_mca_tab(),
+                     norms = values$norms$acc,
+                     current_score = as.numeric(c(
+                       results_mca_tab()[[1,3]], # composite
+                       results_mca_tab()[[2,2]], # AC
+                       results_mca_tab()[[7,2]],
+                       readr::parse_number(results_mca_tab()[[8,2]]),
+                       readr::parse_number(results_mca_tab()[[9,2]])) # attempts
+                     ),
+                     stim = input$input_stimulus,
+                     scoring = input$scoring_system,
+                     norm_var = input$norm_variable)
+      
+      # Knit the document, passing in the `params` list, and eval it in a
+      # child of the global environment (this isolates the code in the document
+      # from the code in this app).
+      rmarkdown::render(tempReport, output_file = file,
+                        params = params,
+                        envir = new.env(parent = globalenv())
+      )
+    }
+  )
+  
   
   
 }

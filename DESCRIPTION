@@ -27,7 +27,10 @@ Imports:
     pkgload,
     markdown,
     tibble,
-    readr
+    readr,
+    DT,
+    knitr,
+    kableExtra
 URL: https://github.com/aphasia-apps/mainConcept
 BugReports: https://github.com/aphasia-apps/mainConcept/issues
 Encoding: UTF-8

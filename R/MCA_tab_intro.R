@@ -26,7 +26,8 @@ get_intro_div <- function(){
                                          ),
                                          div(align="center",
                                              actionButton("glide_back1", "Back"),
-                                             actionButton("glide_next2", "Get Started"))
+                                             actionButton("glide_training", "Training"),
+                                             actionButton("glide_next2", "Score sample"))
                                   )
                                   
                      ),

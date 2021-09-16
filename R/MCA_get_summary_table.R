@@ -69,8 +69,8 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
     ac_min = as.numeric(df[2,2])/(min/60)
     df[[9,2]] = paste0(as.character(round(ac_min,1)), "/min")
   } else {
-    df[[8,2]] = "N/A"
-    df[[9,2]] = "N/A"
+    df[[8,2]] = NA
+    df[[9,2]] = NA
   }
 
   

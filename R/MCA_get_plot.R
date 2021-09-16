@@ -42,19 +42,19 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
       
       val = max(dat$score)
       
-    } else if (norm_var == "COMP_min"){
-      vert_line <- current_score[4]
-      xlabel <- "Number of Attempts"
-      
-      dat = eff_norms %>%
-        dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-        dplyr::rename(score = norm_var)
-      
-      val = quantile(dat$score, probs = .97)
-      
+    # } else if (norm_var == "COMP_min"){
+    #   vert_line <- current_score[4]
+    #   xlabel <- "Composite/min (TO BE DELETED)"
+    #   
+    #   dat = eff_norms %>%
+    #     dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
+    #     dplyr::rename(score = norm_var)
+    #   
+    #   val = quantile(dat$score, probs = .97)
+    #   
     } else if (norm_var == "AC_min"){
       vert_line <- current_score[5]
-      xlabel <- "Number of Attempts"
+      xlabel <- "Accurate Complete concepts/minute"
       
       dat = eff_norms %>%
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
@@ -72,7 +72,8 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
 
   p = dat %>%
     ggplot2::ggplot(ggplot2::aes(x=score, fill = group, group = group)) +
-    ggplot2::geom_density(alpha = .5) +
+    # ggplot2::geom_density(alpha = .5) +
+    ggplot2::geom_vline(ggplot2::aes(xintercept = vert_line), color = "darkred", linetype = "dashed", size = 1.5) +
     ggplot2::theme_minimal(base_size = 14) +
     ggplot2::scale_x_continuous(
       limits = c(0,val),
@@ -89,7 +90,8 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
   
   if(scoring == "dalton_richardson"){
     p = p + 
-      ggplot2::geom_vline(ggplot2::aes(xintercept = vert_line), color = "darkred", linetype = "dashed", size = 1.5)
+      ggplot2::geom_density(alpha = .5)
+      
   }
     
   return(p)

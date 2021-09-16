@@ -1,0 +1,75 @@
+---
+title: "Main Concept Analysis: report"
+output: pdf_document
+params:
+  summary_table: NA
+  norms: NA 
+  current_score: NA
+  stim: NA
+  scoring: NA
+  norm_var: NA
+header-includes:
+    - \usepackage{booktabs}
+    - \usepackage{tabu}
+    - \usepackage{longtable}
+---
+
+```{r}
+# The `params` object is available in the document.
+# params$n
+#print(stim)
+```
+
+### Summary of measure
+
+Main Concept Analysis (MCA) is a hybrid discourse measure that provides some information on micro-linguistic features of the discourse sample as well as more macro-linguistic features about the overall adequacy of the discourse sample to communicate an intended message. Main concept checklists for several widely used tasks (including picture description, picture sequence, story retell, and procedural stimuli) have been developed based on discourse samples of control speakers (Richardson & Dalton, 2016; 2020). Each main concept consists of several essential elements, corresponding to the subject, main verb, object (if appropriate), and any subordinate clauses (Nicholas & Brookshire, 1995). The main concept is assigned one of 5 codes depending on the accuracy (are the essential elements accurate?) and completeness (are essential elements present?) of the production. 
+
+### Coding
+
+- Accurate & Complete (AC): contains all elements of the main concept on the checklist with no incorrect information
+- Accurate & Incomplete (AI): contains no incorrect information, but leaves out at least one essential element of the main concept on the checklist
+- Inaccurate & Complete (IC): contains at least one incorrect piece of essential information (e.g., “knight” for “prince”) but includes all essential elements of the main concept on the checklist
+- Inaccurate & Incomplete (II): clearly corresponds with a main concept on the checklist but includes at least one incorrect essential element and fails to include at least one essential element
+- Absent (AB): did not produce the main concept
+
+### Main Concept Composite Scoring (Richardson & Dalton, 2016)	
+
+- Accurate & Complete (AC): 3 Points
+- Accurate & Incomplete (AI): 2 Points
+- Inaccurate & Complete (IC): 2 Points
+- Inaccurate & Incomplete (II): 1 Point
+- Absent (AB): 0 Points
+				
+*MC codes were transformed to numeric scores using the formula adapted from Kong (2009): AC(3) + AI(2) + IC(2) + II(1) + AB(0) = MC score.* 
+
+### Results
+
+Main Concept Composite Score: The main concept score for this person is [column 3, row 2]. This is in the [column 4, row 2] percentile of persons with aphasia (PWAs), meaning that [column 4, row 2] percent of the PWAs in the sample scored lower than your patient/participant. This is in the [column 5, row 2] percentile of controls, meaning that [column 5, row 2] percent of controls in the sample scored lower than your patient/participant. 
+
+Accurate and Complete (AC) Codes: Out of X main concepts for this task, your patient/participant produced [column 2, row 3] AC codes. This is in the [column 4, row 3] percentile of persons with aphasia (PWAs), meaning that [column 4, row 3] percent of the PWAs in the sample scored lower than your patient/participant. This is in the [column 5, row 3] percentile of controls, meaning that [column 5, row 3] percent of controls in the sample scored lower than your patient/participant. 
+
+```{r, fig.cap="This will be the table output"}
+options(knitr.kable.NA = '-')
+kableExtra::kbl(params$summary_table,
+                format = "latex",
+                booktabs = TRUE,
+                caption = "Summary of results from MCA")
+```
+
+*Column 1 lists the following discourse variables: Main Concept Composite score, Accurate and Complete (AC) concepts, Accurate and Incomplete (AI) concepts, Inaccurate and Complete (IC) concepts, Inaccurate and Incomplete (II) concepts, Absent concepts, Main Concept Attempts, and Accurate and Complete concepts per minute (AC/min). Column 2 shows the counts for the discourse variables. Column 3 shows the calculated score for the discourse variables, based upon the scoring system for either Dalton & Richardson (2016) or Kong (2009) (select scoring system option at bottom of table). Column 4 shows a percentile score that corresponds to the vertical red dashed line and the orange density plot and is the percentage of scores for the sample of people with aphasia that are lower than your patient’s/participant’s score. Column 5 shows a percentile score that corresponds to the vertical red dashed line and the purple density plot and is the percentage of control scores that are lower than your patient’s/participant’s score. Columns 4 and 5 are only available when using the Dalton & Richardson (2016) scoring system.*
+
+Accurate and Incomplete (AI) Codes: Out of X main concepts for this task, your patient/participant produced [column 2, row 4] AI codes.
+
+Inaccurate and Complete (IC) Codes: Out of X main concepts for this task, your patient/participant produced [column 2, row 5] IC codes.  
+
+Inaccurate and Complete (II) Codes: Out of X main concepts for this task, your patient/participant produced [column 2, row 6] II codes.  
+
+Absent (AB) Codes: Out of X main concepts for this task, [column 2, row 7] were absent/not attempted. 
+
+Attempts: Your patient/participant attempted to produce [column 2, row 8] of of X main concepts for this task. This is in the [column 4, row 8] percentile of persons with aphasia (PWAs), meaning that [column 4, row 8] percent of the PWAs in the sample had fewer attempts than your patient/participant. This is in the [column 5, row 8] percentile of controls, meaning that [column 5, row 8] percent of controls in the sample had fewer attempts than your patient/participant. 
+
+```{r, fig.cap="This will be the area for the plots"}
+plot(rnorm(100, 5, 1), rnorm(100, 5, 2))
+```
+
+Accurate and Complete Codes per minute (AC/min): AC/min is a measure of discourse efficiency, specifically how many accurate and complete main concepts were produced per minute. Derived efficiency measures are “useful in examining the effort needed by the speaker to produce discourse and the consequent effort needed by the listener in receiving the information effectively” (Armstrong, 2000). Your patient/participant produced [column X, row X]. This is in the [column X, row X] percentile of persons with aphasia (PWAs), meaning that [column X, row X] percent of the PWAs in the sample produced fewer AC concepts per minute than your patient/participant. This is in the [column X, row X] percentile of controls, meaning that [column X, row X] percent of controls in the sample produced fewer AC concepts per minute than your patient/participant. 

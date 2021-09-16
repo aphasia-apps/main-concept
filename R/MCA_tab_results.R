@@ -8,12 +8,22 @@ get_results_div <- function(){
     div(id="waiter",
         column(width = 10, offset = 1,
                fluidRow(
-                 h4("This will be information about interpreting results"),
-                 textOutput("random_text"),
+                 column(align = "center", width = 12, 
+                    h2("Results", style = "padding-bottom:5px;")
+                    )
                ),
                fluidRow(
                  column(width = 5, align = "center",
-                        br(),
+                        div(
+                          h4("Results summary", style = "float:left"),
+                          div(style = "float:right;margin-top:1rem;margin-bottom:.5rem;",
+                              shinyWidgets::dropdownButton(
+                                includeMarkdown(system.file("app/www/interpreting.md", package = "mainConcept")),
+                                circle = F, status = "default",size = "s",
+                                icon = icon("info"), width = "500px", 
+                                tooltip = shinyWidgets::tooltipOptions(title = "Interpreting this table")
+                              ))
+                        ),
                         tableOutput("results_mca_table"),
                         div(
                           div(tags$b("Scoring system: ", HTML('&nbsp;')),
@@ -29,9 +39,18 @@ get_results_div <- function(){
                               )
                         )
                  ),
-                 column(width = 7,
-                        div(align = "center",  br(),
-                            plotOutput("plot", height = "360"),
+                 column(width = 6, align = "center", offset = 1,
+                        div(
+                          h4("Scores relative to norms", style = "float:left"),
+                          div(style = "float:right;margin-top:1rem;margin-bottom:.5rem;",
+                              shinyWidgets::dropdownButton(
+                                includeMarkdown(system.file("app/www/interpreting_plot.md", package = "mainConcept")),
+                                circle = F, status = "default",size = "s",
+                                icon = icon("info"), width = "500px", right = T,
+                                tooltip = shinyWidgets::tooltipOptions(title = "Interpreting this plot")
+                              ))
+                        ),
+                            plotOutput("plot", width = "100%", height = "360px"),br(),br(),
                             div(
                               div(tags$b("Variable:", HTML('&nbsp;')),
                                   style = "display: inline-block;"),
@@ -41,14 +60,14 @@ get_results_div <- function(){
                                 choices = c("Composite" = "MC COMPOSITE",
                                             "AC" = "AC",
                                             "Attempts" = "MC Attempts",
-                                            "Composite/min" = "COMP_min",
+                                            #"Composite/min" = "COMP_min",
                                             "AC/min"= "AC_min"
                                 )
                               ),
                               style = "display: inline-block;"
                               )
                             )
-                        )
+                        
                  )
                )
         )
