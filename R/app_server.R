@@ -404,17 +404,17 @@ app_server <- function( input, output, session ) {
   
   output$scoring_info <- renderUI({
     img_val = values$i
-    paste_val = if(input$input_stimulus == 'broken_window'){'bw'
-    } else if(input$input_stimulus == 'cat_rescue'){'cr'
-    } else if(input$input_stimulus == 'refused_umbrella'){'u'
-    } else if(input$input_stimulus == 'cinderella'){'c'
-    } else if(input$input_stimulus == 'sandwich'){'s'
+    paste_val = if(values$stim_task$stim == 'broken_window'){'bw'
+    } else if(values$stim_task$stim == 'cat_rescue'){'cr'
+    } else if(values$stim_task$stim == 'refused_umbrella'){'u'
+    } else if(values$stim_task$stim == 'cinderella'){'c'
+    } else if(values$stim_task$stim == 'sandwich'){'s'
     } else {}
     if(img_val>0 && img_val < values$stim_task$num_slides+1){
       return(div(style = sty,
                  #includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
                  includeMarkdown(system.file(paste0("app/www/", 
-                                                    input$input_stimulus, "/",
+                                                    values$stim_task$stim, "/",
                                                     paste0(paste_val, img_val, ".md")), package = "mainConcept"))
       )
       )
@@ -446,7 +446,7 @@ app_server <- function( input, output, session ) {
     req(values$i>0)
     values$concept_len <-
       main_concepts %>%
-      dplyr::filter(task == input$input_stimulus) %>%
+      dplyr::filter(task == values$stim_task$stim) %>%
       dplyr::ungroup() %>%
       #dplyr::select(concept_length) %>%
       dplyr::slice(values$i) %>%
@@ -454,10 +454,11 @@ app_server <- function( input, output, session ) {
   })
   
   # holds label information for scoring buttons
-  observeEvent(input$input_stimulus,{
+  observeEvent(values$stim_task$stim,{
+    req(values$stim_task$stim)
     values$concept_labels <- 
       main_concepts %>%
-      dplyr::filter(task == input$input_stimulus)
+      dplyr::filter(task == values$stim_task$stim)
   })
   
   ########### These four setup the scoring buttons for concepts ##############
@@ -626,7 +627,7 @@ app_server <- function( input, output, session ) {
                readr::parse_number(results_mca_tab()[[8,2]]),
                readr::parse_number(results_mca_tab()[[9,2]])) # attempts
              ),
-             stim = input$input_stimulus,
+             stim = values$stim_task$stim,
              scoring = input$scoring_system,
              norm_var = input$norm_variable)
   })
@@ -774,7 +775,7 @@ app_server <- function( input, output, session ) {
                        readr::parse_number(results_mca_tab()[[8,2]]),
                        readr::parse_number(results_mca_tab()[[9,2]])) # attempts
                      ),
-                     stim = input$input_stimulus,
+                     stim = values$stim_task$stim,
                      scoring = input$scoring_system,
                      norm_var = input$norm_variable)
       
