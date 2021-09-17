@@ -10,7 +10,7 @@
 #'
 #' @return a density plot 
 #' @export
-get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", norm_var, basesize){
+get_plot_report <- function(norms, current_score, stim, scoring = "dalton_richardson", norm_var, basesize){
   
   #val = subset(mc_reference, name == stim)$num 
   #max_val = val*3
@@ -84,8 +84,8 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
     ggplot2::theme(
           axis.text.y=ggplot2::element_blank(),
           axis.ticks.y = ggplot2::element_blank(),
-          legend.position = c(0.87, 0.15),
-          legend.background = ggplot2::element_rect(fill = scales::alpha("white", 0.75), color = "black")) +
+          legend.position = "none"
+    ) +
     ggplot2::scale_fill_manual(values = c("#E66100", "#5D3A9B")) +
     ggplot2::labs(y=NULL, x=xlabel,
                   #caption = "Dashed red line indicates current score",

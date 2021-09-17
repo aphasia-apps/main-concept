@@ -624,12 +624,13 @@ app_server <- function( input, output, session ) {
                results_mca_tab()[[1,3]], # composite
                results_mca_tab()[[2,2]], # AC
                results_mca_tab()[[7,2]],
-               readr::parse_number(results_mca_tab()[[8,2]]),
-               readr::parse_number(results_mca_tab()[[9,2]])) # attempts
+               readr::parse_number(results_mca_tab()[[8,2]])
+             )
              ),
              stim = values$stim_task$stim,
              scoring = input$scoring_system,
-             norm_var = input$norm_variable)
+             norm_var = input$norm_variable,
+             basesize=14)
   })
   
   
@@ -772,10 +773,11 @@ app_server <- function( input, output, session ) {
                        results_mca_tab()[[1,3]], # composite
                        results_mca_tab()[[2,2]], # AC
                        results_mca_tab()[[7,2]],
-                       readr::parse_number(results_mca_tab()[[8,2]]),
-                       readr::parse_number(results_mca_tab()[[9,2]])) # attempts
+                       #readr::parse_number(results_mca_tab()[[8,2]]),
+                       readr::parse_number(results_mca_tab()[[8,2]])) 
                      ),
                      stim = values$stim_task$stim,
+                     num_concepts = values$stim_task$num_slides,
                      scoring = input$scoring_system,
                      norm_var = input$norm_variable)
       

@@ -30,7 +30,8 @@ Imports:
     readr,
     DT,
     knitr,
-    kableExtra
+    kableExtra,
+    cowplot
 URL: https://github.com/aphasia-apps/mainConcept
 BugReports: https://github.com/aphasia-apps/mainConcept/issues
 Encoding: UTF-8
