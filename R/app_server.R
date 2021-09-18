@@ -679,6 +679,7 @@ app_server <- function( input, output, session ) {
                                 choices = c("Module 1" = "1", "Module 2" = "2", "Module 3" = "3"),
                                 selected = "1",
                                 inline = T),
+                checkboxInput("hide_answers", label = "Hide Answers during training?", value = T),
                    uiOutput("training_markdown"))
         )
         
@@ -708,6 +709,7 @@ app_server <- function( input, output, session ) {
     values$training = T
     values$i = 1
     values$key =keys[[as.numeric(input$training_module)]]
+    values$hide_answers = input$hide_answers
     
     
     stim_in <- if(input$training_module == "1"){"broken_window"
@@ -740,7 +742,7 @@ app_server <- function( input, output, session ) {
   
   output$training_table <- DT::renderDT({
     req(values$check)
-    get_training_table(values$check)
+    get_training_table(values$check, values$hide_answers)
   }, options = list(
     dom = 't',
     ordering=F,

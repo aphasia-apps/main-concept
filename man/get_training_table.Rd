@@ -4,7 +4,7 @@
 \alias{get_training_table}
 \title{get training table function}
 \usage{
-get_training_table(dat_in)
+get_training_table(dat_in, hide_answers = T)
 }
 \arguments{
 \item{values}{}
