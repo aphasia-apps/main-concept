@@ -15,7 +15,7 @@ app_ui <- function(request) {
       navbarPage(title = div(
                             div("Main Concept Analysis"),
                             div(id = "navbar-right",
-                                downloadButton("report", "Download summary"),
+                                downloadButton("report", "Download Report"),
                                 downloadButton("downloadData", "Download Data"),
                                 actionButton("start_over",
                                              "Start Over",

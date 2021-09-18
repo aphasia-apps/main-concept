@@ -38,7 +38,11 @@ li {
   box-sizing:border-box;
 }
 
-a {
+/*a {
+  color:darkblue;
+}*/
+
+.nav-tabs>li>a{
   color:black;
 }
 
