@@ -12,6 +12,10 @@ li {
   font-size: 1rem;
 }
 
+p {
+  margin-bottom:.2rem;
+}
+
 .modal-lg, .modal-xl {
     max-width: 1000px;
 }
@@ -65,3 +69,19 @@ h5 {
   margin-bottom: 10px!important;
 }
 
+#training_div {
+  margin:5%;
+}
+#training_div2 {
+  margin:1%;
+}
+
+#transcript_box {
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px lightgrey;
+  background-color: #dee2e6;
+  padding: 1%;
+  margin-bottom:1%;
+  margin-top:1%;
+  border-radius:5px;
+}

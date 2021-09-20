@@ -101,7 +101,14 @@ get_intro_div <- function(){
                                            )
                                     )
                                   )
-                     )
+                     ),
+                     tabPanelBody(value = "glide4_training",
+                                  div(id="training_div2",
+                                      fluidRow(
+                                        uiOutput("training_markdown")
+                                      )
+                                  )
+                                )
          )
   )
 }

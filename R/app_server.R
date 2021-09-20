@@ -335,24 +335,22 @@ app_server <- function( input, output, session ) {
   # readme modal. probabily will be deleted
   observeEvent(input$about, {
     showModal(modalDialog(
-      div(
+      div(style="margin:5%;",
         includeMarkdown(system.file("app/www/bio.md", package = "mainConcept"))
       ),
       size = "l",
-      easyClose = TRUE,
-      footer = NULL
+      easyClose = TRUE
     ))
   })
   
   # dont delete this. uncomment it when you change the footer onclick
   observeEvent(input$references, {
     showModal(modalDialog(
-      div(
-        includeMarkdown(system.file("app/www/references.md", package = "mainConcept"))
+      div(style="margin:5%",
+          includeMarkdown(system.file("app/www/references.md", package = "mainConcept"))
       ),
       size = "l",
-      easyClose = TRUE,
-      footer = NULL
+      easyClose = TRUE
     ))
     
   })
@@ -360,6 +358,19 @@ app_server <- function( input, output, session ) {
   ################################### OTHER MODALS ############################
   #trascription rules
   observeEvent(input$full_transcription, {
+    showModal(modalDialog(
+      tags$iframe(src = "www/full_transcription.html",
+                  frameBorder="0",
+                  height = "650px",
+                  width = "100%"),
+      size = "l",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+  })
+  
+  #trascription rules
+  observeEvent(input$full_transcription2, {
     showModal(modalDialog(
       tags$iframe(src = "www/full_transcription.html",
                   frameBorder="0",
@@ -658,48 +669,24 @@ app_server <- function( input, output, session ) {
   observeEvent(input$glide_training, {
     showModal(modalDialog(
       title = "Main Concept Analysis Training Module",
-      div(
-        tabsetPanel(id = "training_tabset",
-          tabPanel(title = "About Training",
-                   br(),
-                  h3("This is a modal that will tell you about training"),
-                   p("Lorem ipsum and instruction stuff")),
-          tabPanel(title = "Transcribing rules",
-                   br(),
-            includeMarkdown(system.file("app/www/transcribing.md", package = "mainConcept"))
-          ),
-          tabPanel(title = "Segmenting Rules",
-                   br(),
-            includeMarkdown(system.file("app/www/segmenting.md", package = "mainConcept"))
-          ),
-          tabPanel(title = "Get Started",
-                   br(),
-                radioButtons("training_module",
-                                label = 'Pick a training module, review the transcript, and then press "Get Started"' ,
-                                choices = c("Module 1" = "1", "Module 2" = "2", "Module 3" = "3"),
-                                selected = "1",
-                                inline = T),
-                checkboxInput("hide_answers", label = "Hide Answers during training?", value = T),
-                   uiOutput("training_markdown"))
-        )
-        
-        
+             div(id="training_div",
+                 includeMarkdown(system.file("app/www/training_module.md",
+                                             package = "mainConcept")),
+                 radioButtons("training_module",
+                              label = 'Pick a training module' ,
+                              choices = c("Broken Window 1" = "1",
+                                          "Broken Window 2" = "2",
+                                          "Cat Rescue 1" = "3"),
+                              selected = "1",
+                              inline = T)
       ),
       size = "l",
       easyClose = TRUE,
-      footer = tagList(actionButton("start_training", "Get Started"),
+      footer = tagList(actionButton("start_training", "Start scoring"),
                        modalButton("Cancel")
       )
     ))
   })
-  
-  observe(
-    if(isTruthy(input$training_tabset == "Get Started")){
-      shinyjs::enable("start_training")
-    } else {
-      shinyjs::disable("start_training")
-    }
-  )
   
   training_transcript1 <- "Okay. I’ve done this before. He kicked the ball. It went doodoodoo and went through the glass. It’s his dad sitting in the the couch. It’s not good."
   training_transcript2 <- "He kicking ball. And the lamp it hits. Man yelled."
@@ -737,8 +724,24 @@ app_server <- function( input, output, session ) {
     values$norms = get_norms(stimulus = stim_in) 
     # static_norms %>% dplyr::filter(stim==input$input_stimulus)
     removeModal()
+    updateTabsetPanel(session, "glide", "glide4_training")
+  })
+  
+  observeEvent(input$start_training_scoring,{
     updateNavbarPage(session, "mainpage", selected = "scoring")
   })
+  
+  observeEvent(input$show_transcript_answer,{
+    shinyjs::show("correct_transcript")
+  })
+  
+  observe(
+    if(isTruthy(input$glide == "glide4_training")){
+      shinyjs::show("footer_buttons_training")
+    } else {
+      shinyjs:: hide("footer_buttons_training")
+    }
+  )
   
   output$training_table <- DT::renderDT({
     req(values$check)
