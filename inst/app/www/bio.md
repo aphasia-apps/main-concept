@@ -1,9 +1,11 @@
 
 ### About the app
 
-The main concept web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. The app is currently in Beta, and is not yet ready for research or clinical deployment. Please note, **the app does not save any data from each user session** for privacy reasons. However, this also means that refreshing the page or a lost internet connection will lose any current data. 
+The main concept web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. The app is currently in Beta, and is not yet ready for research or clinical deployment. 
 
 This app is built using the {shiny} R framework, along with a number of other packages and their dependencies: config, golem, bslib, dplyr, ggplot2, googleshets4, here, shinyjs, shinyWidgets, stringr, tidyr, waiter, scales, magrittr, pkgload, markdown, tibble, readr, DT, knitr, kableExtra, and cowplot. The app does not save any data between The app is open source; the source code is located at https://github.com/aphasia-apps/mainConcept. Comments, feedback, and bug-reports are best made on the [github issues page](https://github.com/aphasia-apps/mainConcept/issues) (github.com accounts are free) but can also be emailed to Rob Cavanaugh (see link below). Contributions via pull requests are welcome. 
+
+Please note, <u>***the app does not save any data from each user session***</u> for privacy reasons (<a href="https://docs.rstudio.com/shinyapps.io/Storage.html" target="_blank">See here</a>). However, this also means that refreshing the page or a lost internet connection will lose any current data. 
 
  
 

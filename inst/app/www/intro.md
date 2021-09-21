@@ -1,8 +1,8 @@
 ## Welcome to the Main Concept Analysis Web-app
 
-Main Concept Analysis (MCA) is a discourse assessment originally developed by Nicholas and Brookshire (1995) that measures the informativeness of a discourse sample on a given topic. This web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. The app is written in the {shiny} framework, is currently in Beta, and is not yet ready for research or clinical deployment. Please note, the app does not save any data from each user session, and will time out after 5 minutes of idle use. 
+Main Concept Analysis (MCA) is a discourse assessment originally developed by Nicholas and Brookshire (1995) that measures the informativeness of a discourse sample on a given topic. This web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. 
 
-Click next to review scoring information for MCA, and get started scoring. There is a training mode available for those unfamiliar with MCA, but it is highly recommended that anyone who would like to use MCA start by reading the manual. Additional resources including the manual are located on <a href="https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ/" target="_blank">google drive</a> and at <a href="https://aphasia.talkbank.org/discourse/MainConcepts" target="_blank">talkbank.org</a>
+Click next to review scoring information for MCA, and get started scoring. There is also a training mode available for those unfamiliar with MCA, but we recommended that anyone unfamiliar with MCA start by reading the manual. Additional resources including the manual are located on <a href="https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ/" target="_blank">google drive</a> and at <a href="https://aphasia.talkbank.org/discourse/MainConcepts" target="_blank">talkbank.org</a>
 
 ### About Main Concept Analysis
 

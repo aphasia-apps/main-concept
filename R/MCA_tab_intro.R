@@ -55,6 +55,8 @@ get_intro_div <- function(){
                                                               max = 720
                                                  ),
                                                  textAreaInput("notes", "Enter any notes", width = "100%", height = "100px"),
+                                                 br(),
+                                                 p(tags$em("Note, for privacy reasons, data is not retained after the page is closed or refreshed."), style="max-width:300px;"), br()
                                                  #fileInput("file1", "Upload previous results", accept = ".csv"),
                                              )
                                          ),

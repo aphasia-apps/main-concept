@@ -1,6 +1,6 @@
 ### Scoring Main Concept Analysis
 
-Each main concept consists of several essential elements, corresponding to the subject, main verb, object (if appropriate), and any subordinate clauses (Nicholas & Brookshire, 1995). The main concept is assigned one of 5 codes depending on accuracy and completeness.
+Each main concept consists of several essential elements, corresponding to the subject, main verb, object (if appropriate), and any subordinate clauses (Nicholas & Brookshire, 1995). The main concept is assigned one of 5 codes depending on accuracy and completeness. Nicholas and Brookshire developed a series of coding rules to assist in determining the accuracy and completeness of main concepts. These rules are now supplemented with published checklists, which provide common alternatives and are used in this web-app.
 
 <center>
 
@@ -14,4 +14,5 @@ Each main concept consists of several essential elements, corresponding to the s
  
  </center>
 
-Nicholas and Brookshire also developed a series of coding rules to assist in determining the accuracy and completeness of main concepts. These coding rules are now supplemented with published checklists, which provide common alternatives produced for each main concept, since there is variability in the syntax and vocabulary that could be used to produce a main concept. These checklists and comprehsnive scoring instructions are available below (scoring manual) and on google drive[LINK]. These alternative lists are not comprehensive, so it is possible that a client may produce an acceptable alternative that is not in the checklist.
+Get started using the app by selecting 'Training' to begin the training modules or 'Start scoring' to begin scoring a transcript. 
+
