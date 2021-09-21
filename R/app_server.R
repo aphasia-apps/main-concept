@@ -779,7 +779,8 @@ app_server <- function( input, output, session ) {
                      scoring = input$scoring_system,
                      norm_var = input$norm_variable,
                      name = ifelse(nchar(input$name)>0, input$name, "X"),
-                     start_time = values$time)
+                     start_time = values$time,
+                     notes = input$notes)
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document

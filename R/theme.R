@@ -1,7 +1,7 @@
 
 
 #' Theme function
-#' @description Returns the main theming of the web app
+#' @description Returns the main theme-ing of the web app. see app_ui.R
 #' @export
 minimal_theme <- function(){
   theme = bslib::bs_theme(bootswatch = "default",

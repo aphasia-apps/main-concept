@@ -6,15 +6,25 @@
 #' @noRd
 app_ui <- function(request) {
     tagList(
+      # Adds the inst/ folder 
       golem_add_external_resources(),
+      # use the shinyjs functions
       shinyjs::useShinyjs(),
+      # for the loading screens/icons
       waiter::useWaiter(), 
       waiter::autoWaiter("waiter"),
       waiter::waiterPreloader(html=waiter::spin_dots(),color="white"),
+      # this css when added to custom.css did not load in the right priority, 
+      # so now its here
       tags$style(".swal2-popup {font-size: 1rem !important;}"),
-      navbarPage(title = div(
-                            div("Main Concept Analysis"),
+      # UI starts here
+      navbarPage(
+              # Navbar content
+              title = div(
+                            div("Main Concept Analysis"), # title
                             div(id = "navbar-right",
+                                # buttons on the right
+                                # not always shown
                                 downloadButton("report", "Download Report"),
                                 downloadButton("downloadData", "Download Data"),
                                 actionButton("start_over",
@@ -22,13 +32,15 @@ app_ui <- function(request) {
                                              icon = icon("undo")),
                                 style = "position: absolute; right: 5px; top: 8px;")
                 ),
+                  # when referencing status of navbar, id is mainpage (input$mainpage == "...")
                  id = "mainpage",
+                  # footer div
                  footer = tags$div(
                    id = "footer_id",
                    class = "footer",
                    footer_div()
                  ),
-                 
+                 # loads theme function from theme.R
                  theme = minimal_theme(),
                  
                  ############################ Instructions ############################## 

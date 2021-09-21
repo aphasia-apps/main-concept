@@ -7,5 +7,5 @@
 minimal_theme()
 }
 \description{
-Returns the main theming of the web app
+Returns the main theme-ing of the web app. see app_ui.R
 }
