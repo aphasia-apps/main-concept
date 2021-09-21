@@ -687,12 +687,14 @@ app_server <- function( input, output, session ) {
     values$training = T
     values$i = 1
     values$key =keys[[as.numeric(input$training_module)]]
-    values$hide_answers = input$hide_answers
+    values$datetime <- Sys.time()
     
     
     stim_in <- if(input$training_module == "1"){"broken_window"
       } else if (input$training_module == "2"){"broken_window"
       } else if (input$training_module == "3"){"cat_rescue"}
+    
+    values$hide_answers = ifelse(input$training_module != "1", T, F)
     
     values$answers <- answers %>% dplyr::filter(module == input$training_module)
     
