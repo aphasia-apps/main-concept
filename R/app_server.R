@@ -93,6 +93,7 @@ app_server <- function( input, output, session ) {
   observeEvent(input$glide_next3,{
     w$show()
     values$norms = get_norms(stimulus = input$input_stimulus)
+    values$time = Sys.time()
     w$hide()
     updateTabsetPanel(session, "glide", "glide4")
   })
@@ -322,17 +323,7 @@ app_server <- function( input, output, session ) {
   ################################## FOOTER MODAL ################################
   # ------------------------------------------------------------------------------
   ################################################################################
-  # More information modal
-  # observeEvent(input$info, {
-  #   showModal(modalDialog(
-  #     tags$iframe(src="https://aphasia-apps.github.io/mainConcept/", width = "100%",
-  #                 height = "650px", frameBorder = "0"),
-  #     easyClose = TRUE,
-  #     footer = NULL,
-  #     size = "l"
-  #   ))
-  # })
-  # readme modal. probabily will be deleted
+
   observeEvent(input$about, {
     showModal(modalDialog(
       div(style="margin:5%;",
@@ -668,19 +659,19 @@ app_server <- function( input, output, session ) {
   # This will be about the training module - a modal
   observeEvent(input$glide_training, {
     showModal(modalDialog(
-      title = "Main Concept Analysis Training Module",
+      title = "Main Concept Analysis Training Modules",
              div(id="training_div",
                  includeMarkdown(system.file("app/www/training_module.md",
                                              package = "mainConcept")),
                  radioButtons("training_module",
-                              label = 'Pick a training module' ,
+                              label = h4('Pick a training module'),
                               choices = c("Broken Window 1" = "1",
                                           "Broken Window 2" = "2",
                                           "Cat Rescue 1" = "3"),
                               selected = "1",
                               inline = T)
       ),
-      size = "l",
+      size = "m",
       easyClose = TRUE,
       footer = tagList(actionButton("start_training", "Start scoring"),
                        modalButton("Cancel")
@@ -736,7 +727,7 @@ app_server <- function( input, output, session ) {
   })
   
   observe(
-    if(isTruthy(input$glide == "glide4_training")){
+    if(isTruthy(input$glide == "glide4_training" & input$mainpage == "intro")){
       shinyjs::show("footer_buttons_training")
     } else {
       shinyjs:: hide("footer_buttons_training")
@@ -784,7 +775,9 @@ app_server <- function( input, output, session ) {
                      stim = values$stim_task$stim,
                      num_concepts = values$stim_task$num_slides,
                      scoring = input$scoring_system,
-                     norm_var = input$norm_variable)
+                     norm_var = input$norm_variable,
+                     name = ifelse(nchar(input$name)>0, input$name, "X"),
+                     start_time = values$time)
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document

@@ -10,6 +10,8 @@ params:
   scoring: NA
   norm_var: NA
   num_concepts: NA
+  start_time: NA 
+  name: NA
 header-includes:
     - \usepackage{booktabs}
     - \usepackage{tabu}
@@ -47,7 +49,7 @@ Main Concept Analysis (MCA) is a hybrid discourse measure that provides some inf
 
 ### Results
 
-This test was scored on `r format(Sys.Date(), format="%B %d %Y")`. These results are specific to the ***`r paste(unlist(strsplit(params$stim, split = "_")), collapse = " ")` stimulus.*** 
+This test was completed by `r params$name` and scored on `r format(params$start_time, format="%B %d %Y %R %Z")`. These results are specific to the ***`r paste(unlist(strsplit(params$stim, split = "_")), collapse = " ")` stimulus.*** 
 
 Main Concept Composite Score: The main concept score for this person is `r params$summary_table[1,3]`. This is in the `r params$summary_table[1,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[1,4]` percent of the PWAs in the sample scored lower than your patient/participant. This is in the `r params$summary_table[1,5]` percentile of controls, meaning that `r params$summary_table[1,5]` percent of controls in the sample scored lower than your patient/participant. 
 
