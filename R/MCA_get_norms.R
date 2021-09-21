@@ -5,7 +5,18 @@
 #' @description Note that if googlesheets fails, static norms will be used. 
 #' @return
 #' @export
-get_norms <- function(stimulus){
+get_norms <- function(stimulus, google_sheets = F){
+  
+  if(isTruthy(google_sheets)){
+    
+    norms = list(
+      acc = static_norms %>%
+        dplyr::filter(stim==stimulus),
+      eff = eff_norms %>% dplyr::filter(stim == stimulus)
+    )
+    
+    return(norms)
+  }
 
   # links to google sheets for norms:
   refused_umbrella = "1oYiwnUdO0dOsFVTmdZBCxkAQc5Ui-71GhUSchK_YY44"

@@ -4,7 +4,7 @@
 \alias{get_norms}
 \title{Get Norms}
 \usage{
-get_norms(stimulus)
+get_norms(stimulus, google_sheets = F)
 }
 \arguments{
 \item{stimulus}{which stimulus was chosen}

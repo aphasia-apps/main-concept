@@ -714,7 +714,7 @@ app_server <- function( input, output, session ) {
       } else {0}
     )
     values$transcript = get(paste0("training_transcript", input$training_module))
-    values$norms = get_norms(stimulus = stim_in) 
+    values$norms = get_norms(stimulus = stim_in, google_sheets = T) 
     # static_norms %>% dplyr::filter(stim==input$input_stimulus)
     removeModal()
     updateTabsetPanel(session, "glide", "glide4_training")
