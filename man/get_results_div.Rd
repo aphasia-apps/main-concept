@@ -10,5 +10,5 @@ get_results_div()
 
 }
 \description{
-Get results div
+this function generates the UI for the results page.
 }

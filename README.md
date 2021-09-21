@@ -9,6 +9,8 @@ for both research and clinical practice. The app is written in the
 [{shiny}](https://shiny.rstudio.com/) framework. The app is currently in
 Beta, and is not yet ready for research or clinical deployment.
 
+It can be accessed here: <https://aphasia-apps.shinyapps.io/mainConcept>
+
 <!-- badges: start -->
 
 [![Lifecycle:
@@ -24,26 +26,39 @@ This web-app is also an R package! You can install the app locally with:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("aphasia-apps/mainConcept")
+remotes::install_github("aphasia-apps/mainconcept")
 ```
 
 ## Using
 
-The app can be run locally by calling:
+If installed, the app can be run locally by calling:
 
 ``` r
 library(mainConcept)
 mainconcept::run_app()
 ```
 
-It is also (temporarily) available at
-<https://aphasia-apps.shinyapps.io/mainconcept/>
-
 ## Feedback
 
 At this stage, we would appreciate feedback on the app - whether related
 to bugs/issues with the app or requested features. Please provide
 feedback or report bugs using the issues tab in the github repository.
+
+## Repository organization
+
+The app was made using the {golem} package. The folders are organized as
+follows:
+
+-   /R: Holds R scripts for the app
+    -   app_ui.R and app_server.R hold the main code for the app.
+    -   The remaining files hold functions called in app_ui.R and
+        app_server.R
+-   /inst: Holds resources for the app made available at app/www/…
+-   /man: Holds documentation for functions. fairly minimal.
+-   /dev: Holds developer functions
+-   The list of dependencies can be found in the DESCRIPTION file.
+-   License can be found in the LICENSE.md file
+-   app.R is used to upload the app to shinyapps.io
 
 ## About Main Concept Analysis
 

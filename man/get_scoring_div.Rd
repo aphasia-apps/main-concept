@@ -13,5 +13,5 @@ get_scoring_div(num)
 
 }
 \description{
-Get scoring Div
+This function renders the UI for input$mainpage == "intro" on the navbar.
 }
