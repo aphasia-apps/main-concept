@@ -279,6 +279,7 @@ app_server <- function( input, output, session ) {
   # ------------------------------------------------------------------------------
   ################################################################################
 
+  # about hte app page
   observeEvent(input$about, {
     showModal(modalDialog(
       div(style="margin:5%;",
@@ -315,7 +316,7 @@ app_server <- function( input, output, session ) {
     ))
   })
   
-  #trascription rules
+  #trascription rules (for training). two triggers showing the modal idk why
   observeEvent(input$full_transcription2, {
     showModal(modalDialog(
       tags$iframe(src = "www/full_transcription.html",
@@ -328,11 +329,8 @@ app_server <- function( input, output, session ) {
     ))
   })
   
-  ################################## REACTIVE DATA ###############################
-  # ------------------------------------------------------------------------------
-  ################################################################################
   
-  ################################## OUTPUTS #################################
+  ################################## UI #################################
   # --------------------------------------------------------------------------
   ############################################################################
   
@@ -369,7 +367,6 @@ app_server <- function( input, output, session ) {
     } else {}
     if(img_val>0 && img_val < values$stim_task$num_slides+1){
       return(div(style = sty,
-                 #includeMarkdown(paste0("www/", input$input_stimulus, "/", paste0(paste_val, img_val, ".md")))
                  includeMarkdown(system.file(paste0("app/www/", 
                                                     values$stim_task$stim, "/",
                                                     paste0(paste_val, img_val, ".md")), package = "mainConcept"))
@@ -486,6 +483,7 @@ app_server <- function( input, output, session ) {
   })
   
   # concept 4 - only shown below for the one occurance. 
+  # darn you cinderella
   output$score4 <- renderUI({
     shinyWidgets::radioGroupButtons(
       inputId = "accuracy4",
