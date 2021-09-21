@@ -8,6 +8,8 @@ app_server <- function( input, output, session ) {
   # Your application server logic 
   # reactiveValues is a list where elements of the list can change
   # startign places for pages and storing data. ####
+  # VALUES here holds just about everything important. 
+  # it can be sent to functions to give them data available in the app. 
   values = reactiveValues(i=0,
                           concept = list(),
                           selected_sentences = list(),
@@ -17,63 +19,47 @@ app_server <- function( input, output, session ) {
   values$num_previous <- 0 # number of previous tests
   values$datetime <- Sys.time() # establishes datetime when app opens for saving
   
+  # this is for loading screens
   w <- waiter::Waiter$new(
     color = waiter::transparent(0.1),
     html = waiter::spin_refresh()
   )
-  
+  # this is for loading screens
   w1 <- waiter::Waiter$new(
     color = waiter::transparent(0.1),
     html = waiter::spin_refresh()
   )
-  ################################## PREVIOUS DATA ###############################
-  # ------------------------------------------------------------------------------
-  ################################################################################ 
-  
-  # observer for uploading data
-  observeEvent(input$file1,{
-    file <- input$file1
-    ext <- tools::file_ext(file$datapath)
-    # check upload
-    req(file)
-    validate(need(ext == "csv", "Please upload a csv file"))
-    # save upload
-    values$previous <- read.csv(file$datapath)
-    
-  })
   
   ################################## OBSERVERS ###################################
   # ------------------------------------------------------------------------------
   ################################################################################
   
-  # disables the navbar buttons in different situations
+  # larger observer to disable, hide and show specific things:
   
   observe({
-    #if(values$i==0 || input$mainpage == "scoring"){
+    # disables the navbar buttons
       shinyjs::disable(selector = "#mainpage li a[data-value=results]")
       shinyjs::disable(selector = "#mainpage li a[data-value=scoring]")
       shinyjs::disable(selector = "#mainpage li a[data-value=intro]")
+      # shows download report button only on the results page. 
       if(input$mainpage != "results"){
         shinyjs::hide("report")
       } else {
         shinyjs::show("report")
       }
-    # } else if(input$mainpage == "results"){
-    #   shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
-    # } else if(input$mainpage == "intro" && values$i>0){
-    #   shinyjs::enable(selector = "#mainpage li a[data-value=scoring]")
-    # } else {
-    #   shinyjs::enable(selector = "#mainpage li a[data-value=intro]")
-    # }
-    
-    # if(input$mainpage == "intro"){
-    #   shinyjs::disable("downloadData")
-    # } else {
-    #   shinyjs::enable("downloadData")
-    # }
+      # buttons to advance scoring. dont delete you bozo. 
+      if(input$mainpage == "scoring"){
+        shinyjs::show("footer_buttons")
+      } else {
+        shinyjs:: hide("footer_buttons")
+      }
   })
+
   
-  ###########################Intro tab next and back############################
+  ########################### Navigate through intro ############################
+  
+  # includes a few other actions when moving to the last page. 
+  
   observeEvent(input$glide_next1,{
     updateTabsetPanel(session, "glide", "glide2")
   })
@@ -91,9 +77,11 @@ app_server <- function( input, output, session ) {
   })
   
   observeEvent(input$glide_next3,{
+    # log the time and date for record keeping
+    values$time = Sys.time()
+    # show waiter while waiting for norms to load from google sheets. 
     w$show()
     values$norms = get_norms(stimulus = input$input_stimulus)
-    values$time = Sys.time()
     w$hide()
     updateTabsetPanel(session, "glide", "glide4")
   })
@@ -101,33 +89,17 @@ app_server <- function( input, output, session ) {
   observeEvent(input$glide_back3,{
     updateTabsetPanel(session, "glide", "glide3")
   })
-  
-  # buttons to advance scoring. dont delete you bozo. 
-  
-  observe(
-    if(input$mainpage == "scoring"){
-      shinyjs::show("footer_buttons")
-    } else {
-      shinyjs:: hide("footer_buttons")
-    }
-  )
-  
-  # can't hit previous on first page 
-  
-  observe(
-    if(values$i == 1){
-      shinyjs::disable("prev")
-    } else {
-      shinyjs::enable("prev")
-    }
-  )
+
   
   ################################## START ASSESSMENT ############################
   # start button. sets the i value to 1 corresponding to the first slide
   # switches to the assessment tab
   observeEvent(input$start, {
     
+    # initiate values$i
     values$i = 1
+    # create a table called stim)task that holds important information about 
+    # the stimulus chosen by the user
     values$stim_task <- tibble::tibble(
       stim = input$input_stimulus,
       stim_num = if(input$input_stimulus == 'broken_window'){1
@@ -143,25 +115,17 @@ app_server <- function( input, output, session ) {
       } else if(input$input_stimulus == 'sandwich'){10
       } else {0}
     )
-    updateNavbarPage(session, "mainpage", selected = "scoring")
+    # go to the scoring page
+    # save the transcript
     values$transcript = input$input_transcript
-    
+    updateNavbarPage(session, "mainpage", selected = "scoring")
   })
   
   #############################START OVER#########################################
   
-  # if start over is hit, go to home page
+  # if start over is hit, check, and reload the page if confirmed. 
   
   observeEvent(input$start_over,{
-    # shinyWidgets::confirmSweetAlert(
-    #   inputId = "confirm_start_over",
-    #   session = session,
-    #   title = "Are you sure you want to start over?",
-    #   text = "All data will be lost.",
-    #   type = "warning",
-    #   width = "300px", 
-    # )
-    
     showModal(modalDialog(
       title="Are you sure you want to start over?",
       "All data will be lost.",
@@ -170,10 +134,6 @@ app_server <- function( input, output, session ) {
       ), 
       size = "s",
     ))
-    
-    
-    
-    
   })
   
   observeEvent(input$confirm_start_over,{
@@ -204,12 +164,14 @@ app_server <- function( input, output, session ) {
       concept = rep(values$i, len)
       # saving the data
       values$concept[[values$i]] = values$i
-      values$selected_sentences[[values$i]] = ifelse(is.null(input$score_mca), "none", input$score_mca)
+      values$selected_sentences[[values$i]] = ifelse(is.null(input$score_mca),
+                                                     "none",
+                                                     input$score_mca)
       values$concept_accuracy[[values$i]] = tibble::tibble(rating = score,
                                                            component = component,
                                                            concept = concept)
       
-      ##### Training feedback ######
+      ##### Training feedback ###################################################
       
       if (isTruthy(values$training)){
         
@@ -262,6 +224,7 @@ app_server <- function( input, output, session ) {
           
         }
         
+        ##### END OF Training feedback #########################################
         
       } else {
         
@@ -269,22 +232,16 @@ app_server <- function( input, output, session ) {
         # go to results if the scoring is done. 
         if (values$i == values$stim_task$num_slides) {
           w1$show()
-          print(unlist(values$selected_sentences))
           updateNavbarPage(session, "mainpage", selected = "results")
         } else{
           # otherwise iterate values$i and move on to the next item. 
           values$i <- values$i + 1
         }
-        
-        
       }
-      
-      
-      
 
-      
     #}
     # put all the results together. 
+    # done everytime so its always available to download. 
       values$results_mca <- 
         get_long_results_df(concept_accuracy = values$concept_accuracy,
                             filtered_concepts = 
@@ -308,16 +265,14 @@ app_server <- function( input, output, session ) {
   #  print(values$concept_accuracy[[values$i]])
   })
   
-  observeEvent(input$alert_correct_answer,{
-    req(isTruthy(input$alert_correct_answer))
-    if (values$i == values$stim_task$num_slides) {
-      w1$show()
-      updateNavbarPage(session, "mainpage", selected = "results")
-    } else{
-      # otherwise iterate values$i and move on to the next item. 
-      values$i <- values$i + 1
+  # can't hit previous on first page 
+  observe(
+    if(values$i == 1){
+      shinyjs::disable("prev")
+    } else {
+      shinyjs::enable("prev")
     }
-  })
+  )
   
   
   ################################## FOOTER MODAL ################################
@@ -587,17 +542,6 @@ app_server <- function( input, output, session ) {
   # --------------------------------------------------------------------------
   ############################################################################
   
-  # which concepts are important for this stimulus?
-  # filter_concepts <- reactive({
-  #     main_concepts %>%
-  #         dplyr::ungroup() %>%
-  #         dplyr::filter(task == input$input_stimulus) %>% 
-  #         dplyr::select(id, e1:e4) %>%
-  #         tidyr::pivot_longer(cols= e1:e4, names_to = "component", values_to = "element") %>%
-  #         dplyr::mutate(component = as.numeric(str_remove(component, "e"))) %>%
-  #         dplyr::rename(concept = id)
-  # })
-  
   # gets the summary table of results. 
   results_mca_tab <- reactive({
     get_summary_table(results = values$results_mca,
@@ -635,23 +579,6 @@ app_server <- function( input, output, session ) {
              basesize=14)
   })
   
-  
-  ############## Downloads ##################################################3
-  
-  output$downloadData <- downloadHandler(
-    filename = function() {
-      paste(input$stimMC, "_MC_summary.xlsx", sep = "")
-    },
-    content = function(file) {
-      openxlsx::write.xlsx(
-                  get_download_data(
-                              current_tab = input$mainpage,
-                              values = values,
-                              results_tab = results_mca_tab())
-      , file)
-    }
-  )
-  
   ################################## TRAINING #################################
   # --------------------------------------------------------------------------
   ############################################################################
@@ -684,18 +611,19 @@ app_server <- function( input, output, session ) {
   training_transcript3 <- "Looks like the problem is the cat is stuck up in a tree. Father is out on the and. he's kind of stuck himself I think. The little girl is crying for the cat. She's got an umbrella. There's a guy up in the or. a dog barking up the tree. And the fire department is coming. A little girl was trying to reach him I guess. I don't know if she was trying to get this ladder or not. I have no idea about that. But anyway the firemen are coming. The fire truck is there. And they're coming out with a ladder apparently to help get the cat and father out of the tree."
   # All the things that need to start happening for training to work. 
   observeEvent(input$start_training,{
-    values$training = T
+    values$training = T #are we in training mode?
     values$i = 1
-    values$key =keys[[as.numeric(input$training_module)]]
-    values$datetime <- Sys.time()
-    
+    values$key =keys[[as.numeric(input$training_module)]] # not sure why I made this
+    values$datetime <- Sys.time() # log the time and date. 
     
     stim_in <- if(input$training_module == "1"){"broken_window"
       } else if (input$training_module == "2"){"broken_window"
       } else if (input$training_module == "3"){"cat_rescue"}
     
+    # shoudl answers in the table below be hidden?
     values$hide_answers = ifelse(input$training_module != "1", T, F)
     
+    # premade table of answers for each of the training modules. 
     values$answers <- answers %>% dplyr::filter(module == input$training_module)
     
     values$stim_task <- tibble::tibble(
@@ -720,14 +648,30 @@ app_server <- function( input, output, session ) {
     updateTabsetPanel(session, "glide", "glide4_training")
   })
   
-  observeEvent(input$start_training_scoring,{
-    updateNavbarPage(session, "mainpage", selected = "scoring")
-  })
-  
+
+  # TRAINING OBSERVER show the correct transcript when button pushed
   observeEvent(input$show_transcript_answer,{
     shinyjs::show("correct_transcript")
   })
   
+  # TRAINING OBSERVER go to scoring page when button pushed
+  observeEvent(input$start_training_scoring,{
+    updateNavbarPage(session, "mainpage", selected = "scoring")
+  })
+  
+  # TRAINING OBSERVER - if the answer is correct, move on or to results page. 
+  observeEvent(input$alert_correct_answer,{
+    req(isTruthy(input$alert_correct_answer))
+    if (values$i == values$stim_task$num_slides) {
+      w1$show()
+      updateNavbarPage(session, "mainpage", selected = "results")
+    } else{
+      # otherwise iterate values$i and move on to the next item. 
+      values$i <- values$i + 1
+    }
+  })
+  
+  # only show the training footer buttons in this case. 
   observe(
     if(isTruthy(input$glide == "glide4_training" & input$mainpage == "intro")){
       shinyjs::show("footer_buttons_training")
@@ -736,6 +680,7 @@ app_server <- function( input, output, session ) {
     }
   )
   
+  # training table to go in modal to provide feedback. 
   output$training_table <- DT::renderDT({
     req(values$check)
     get_training_table(values$check, values$hide_answers)
@@ -746,10 +691,30 @@ app_server <- function( input, output, session ) {
     columnDefs=list(list(targets=-1, class="dt-left", width = "60%"))
   ))
   
+  # this is the training transcript variable from above. 
   output$training_markdown <- renderUI({
     get_training_trascript_div(input$training_module)
   })
   
+  ################################## DOWNLOADS #################################
+  # --------------------------------------------------------------------------
+  ############################################################################
+  
+  ############## Download data ##################################################3
+  
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste(input$stimMC, "_MC_summary.xlsx", sep = "")
+    },
+    content = function(file) {
+      openxlsx::write.xlsx(
+        get_download_data(
+          current_tab = input$mainpage,
+          values = values,
+          results_tab = results_mca_tab())
+        , file)
+    }
+  )
   
   ##################################### REPORT #################################
   
@@ -793,5 +758,7 @@ app_server <- function( input, output, session ) {
   )
   
   
-  
+  ################################## FIN #####################################
+  # --------------------------------------------------------------------------
+  ############################################################################
 }

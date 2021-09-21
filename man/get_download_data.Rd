@@ -7,13 +7,15 @@
 get_download_data(current_tab, values, results_tab)
 }
 \arguments{
-\item{x}{score}
+\item{current_tab}{current navbar tab selected}
 
-\item{perc}{percent}
+\item{values}{all the values and stuff}
+
+\item{results_tab}{the table from the results page}
 }
 \value{
-
+a list of data that goes into writeexcel (list elements to tabs)
 }
 \description{
-get_download_data
+organizes data for downloading
 }

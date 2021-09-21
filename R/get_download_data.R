@@ -1,10 +1,13 @@
 
 #' get_download_data
+#' 
+#' organizes data for downloading
 #'
-#' @param x score
-#' @param perc percent
+#' @param current_tab current navbar tab selected
+#' @param values all the values and stuff
+#' @param results_tab the table from the results page
 #'
-#' @return
+#' @return a list of data that goes into writeexcel (list elements to tabs)
 #' @export
 get_download_data <- function(current_tab, values, results_tab){
   dat = list(

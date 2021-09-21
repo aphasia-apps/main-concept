@@ -1,5 +1,10 @@
 
 #' Get sentence data
+#' 
+#' Not currently used as far as I can tell
+#' But not deleting it until I confirm that for sure
+#' I suspect this was made early on when I was trying to figure out
+#' The best way to deal with the incoming text data...
 #'
 #' @param rds_list a list sentences
 #'

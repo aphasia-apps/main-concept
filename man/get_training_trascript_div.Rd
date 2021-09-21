@@ -7,8 +7,8 @@
 get_training_trascript_div(module_num)
 }
 \arguments{
-\item{module_num}{}
+\item{module_num}{which module is running}
 }
 \description{
-get training transcript
+transcription page for training
 }

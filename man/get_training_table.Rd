@@ -7,11 +7,13 @@
 get_training_table(dat_in, hide_answers = T)
 }
 \arguments{
-\item{values}{}
+\item{dat_in}{data going into the table}
+
+\item{hide_answers}{should answers (a column) be hidden?}
 }
 \value{
 
 }
 \description{
-get training table function
+outputs the training table with ansswers and feedback for the modal
 }

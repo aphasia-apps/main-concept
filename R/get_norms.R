@@ -1,7 +1,12 @@
 
 #' Get Norms
+#' 
+#' gets normative data from google sheets, or just uses a locally stored
+#' version that has to be updated manually
 #'
+#' @param google_sheets should the functionget norms from google sheets? 
 #' @param stimulus which stimulus was chosen
+#'
 #' @description Note that if googlesheets fails, static norms will be used. 
 #' @return
 #' @export
@@ -51,7 +56,7 @@ get_norms <- function(stimulus, google_sheets = F){
 
 
 
-
+# This is code to update the static norms...
 
 # update_static_norms <- function() {
 #   load(here::here("R", "sysdata.rda"))

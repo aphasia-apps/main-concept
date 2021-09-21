@@ -1,6 +1,9 @@
 #' get training table function
+#' 
+#' outputs the training table with ansswers and feedback for the modal
 #'
-#' @param values 
+#' @param dat_in data going into the table
+#' @param hide_answers should answers (a column) be hidden?
 #'
 #' @return
 #' @export

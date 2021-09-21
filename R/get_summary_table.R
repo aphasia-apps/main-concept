@@ -1,8 +1,12 @@
 
 #' Get summary table
+#' 
+#' creates the summary table for the results page. 
 #'
 #' @param results the data frame of results
 #' @param norms the norms for the scored stimulus
+#' @param scoring which scoring system is selected
+#' @param min how long did the sample take, if 0, considered NA. 
 #'
 #' @return
 #' @export
@@ -11,6 +15,7 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
   acc = norms$acc
   eff = norms$eff
   
+  # points - scoring systems
   vals <- 
     if(scoring == "dalton_richardson"){
       tibble::tibble(
@@ -30,11 +35,13 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
       )
     }
   
+  # grab the reusults
   df = results %>%
     dplyr::select(Concept = concept,
                   Code = Result#,
                   #Score = score
                   ) %>%
+    # count the number of codes in each category
     dplyr::summarize(
               `Composite` = NA,#sum(Score),
               `AC` = sum(Code == 'AC'),
@@ -44,14 +51,16 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
               Absent = sum(Code == 'Absent'),
               `Attempts` = sum(Code == 'AC'|Code == 'AI'|Code == 'IC'| Code == 
                                  'II'),
-              #`Composite/min` = NA,
               `AC/min` = NA
     ) %>% 
+    # go long
     tidyr::pivot_longer(cols = everything(), names_to = 'Variable', values_to = 'Count') %>%
     dplyr::mutate(Count = as.character(Count))
   
+  # score is NA to start, then will fill it out. 
   df$Score = NA
 
+  # number of each code * the value in the scoring system (vals above)
   df[[1,2]] = NA
   df[[2,3]] = round(as.numeric(df[2,2])*vals$AC)
   df[[3,3]] = round(as.numeric(df[3,2])*vals$AI)
@@ -63,17 +72,15 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
   comp = sum(df[,3], na.rm = T)
   df[[1,3]] = round(as.numeric(comp))
   
+  # calculate efficiency scores if time > 0 seconds
   if(min >0){
-    # comp_min = comp/(min/60)
-    # df[[8,2]] = paste0(round(comp_min,1), "/min")
     ac_min = as.numeric(df[2,2])/(min/60)
     df[[8,2]] = paste0(as.character(round(ac_min,1)), "/min")
   } else {
     df[[8,2]] = NA
-    #df[[9,2]] = NA
   }
 
-  
+  # percentiles start as NA
   df$`Percentile (Aphasia)` = NA
   df$`Percentile (Control)` = NA
   
@@ -87,12 +94,8 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
     df[[7,4]] = ecdf_fun(subset(acc, Aphasia==1)$`MC Attempts`, as.numeric(df[7,2]))
     
          if(min >0){
-           # composite/min
-        #     df[[8,4]] = ecdf_fun(subset(eff, Aphasia==1)$COMP_min, comp_min)
-    # AC/min
             df[[8,4]] = ecdf_fun(subset(eff, Aphasia==1)$AC_min, ac_min)
         } else {
-          #df[[8,4]] = NA
           df[[8,4]] = NA
         }
     
@@ -105,15 +108,10 @@ get_summary_table <- function(results, norms, scoring = "dalton_richardson", min
     df[[7,5]] = ecdf_fun(subset(acc, Aphasia==0)$`MC Attempts`, as.numeric(df[7,2]))
     # composite/min
     if(min >0){
-        #df[[8,5]] = ecdf_fun(subset(eff, Aphasia==0)$COMP_min, comp_min)
         # AC/min
         df[[8,5]] = ecdf_fun(subset(eff, Aphasia==0)$AC_min, ac_min)
     } else {
-      #df[[8,5]] = NA
-      
       df[[8,5]] = NA
-     
-      
     }
     
   } else {
