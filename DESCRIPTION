@@ -9,10 +9,11 @@ Authors@R:
            role = c('cre', 'aut')),
     person(given = "Jessica",
            family = "Richardson",
-           role = "ctb"),
+           role = "aut"),
     person(given = "Sarah Grace",
            family = "Dalton",
-           role = "ctb"))
+           role = "aut")
+    )
 Description: Shiny app for main concept analysis.
 License: AGPL (>= 3)
 Depends:
