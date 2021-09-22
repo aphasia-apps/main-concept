@@ -1,9 +1,10 @@
 Package: mainConcept
 Title: An open-source web-app for scoring main concept analysis
+Date: 2021-09-21
 Version: 0.0.1.0000
 Authors@R: 
     c(
-    person(given = 'Rob',
+    person(given = 'Robert',
            family = 'Cavanaugh',
            email = 'rob.cavanaugh@pitt.edu',
            role = c('cre', 'aut')),
