@@ -1,6 +1,6 @@
 Package: mainConcept
-Title: Shiny Main Concept Analysis
-Version: 0.0.0.9000
+Title: An open-source web-app for scoring main concept analysis
+Version: 0.0.1.0000
 Authors@R: 
     c(
     person(given = 'Rob',
@@ -14,7 +14,7 @@ Authors@R:
            family = "Dalton",
            role = "aut")
     )
-Description: Shiny app for main concept analysis.
+Description: A Shiny web-app for main concept analysis.
 License: AGPL (>= 3)
 Depends:
     R (>= 2.10),
