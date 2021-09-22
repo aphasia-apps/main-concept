@@ -1,7 +1,18 @@
 Package: mainConcept
 Title: Shiny Main Concept Analysis
 Version: 0.0.0.9000
-Authors@R: person('Rob', 'Cavanaugh', email = 'rob.cavanaugh@pitt.edu', role = c('cre', 'aut'))
+Authors@R: 
+    c(
+    person(given = 'Rob',
+           family = 'Cavanaugh',
+           email = 'rob.cavanaugh@pitt.edu',
+           role = c('cre', 'aut')),
+    person(given = "Jessica",
+           family = "Richardson",
+           role = "ctb"),
+    person(given = "Sarah Grace",
+           family = "Dalton",
+           role = "ctb"))
 Description: Shiny app for main concept analysis.
 License: AGPL (>= 3)
 Depends:
