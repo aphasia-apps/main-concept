@@ -12,19 +12,19 @@ get_results_div <- function() {
               column(
                 width = 10,
                 offset = 1,
-                fluidRow(column(
-                  align = "center",
-                  width = 12,
-                  h2("Results", style = "padding-bottom:5px;")
-                )),
-          # missing some results text here.....
+                # fluidRow(column(
+                #   align = "center",
+                #   width = 12,
+                #   h2("Results", style = "padding-bottom:5px;")
+                #   )
+                # ),
                 fluidRow(
                   # this column is for the table. 
                   column(
                     width = 5,
                     align = "center",
                     div(
-                      h4("Results summary", style = "float:left"),
+                      h4("Results", style = "float:left"),
                       div(
                         style = "float:right;margin-top:1rem;margin-bottom:.5rem;",
                         # this is for the little i with information about the table
@@ -106,6 +106,14 @@ get_results_div <- function() {
                       )
                     )
                     
+                  )
+                ),br(),
+                fluidRow(
+                  column(
+                    align = "left",
+                    width = 12, 
+                    h4("Summary:"),
+                    uiOutput("results_text")
                   )
                 )
               )))

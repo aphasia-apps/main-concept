@@ -545,6 +545,18 @@ app_server <- function( input, output, session ) {
                       min = input$input_duration)
   })
   
+  output$results_text <- renderUI({
+    req(results_mca_tab())
+    return(
+      p(
+        get_results_text(results = results_mca_tab(),
+                         num_concepts = values$stim_task$num_slides,
+                         time = input$input_duration)
+      )
+    )
+    
+  })
+  
   # outputs summmary table 
   output$results_mca_table <- renderTable({
     req(results_mca_tab())
