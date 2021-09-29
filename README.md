@@ -26,7 +26,7 @@ This web-app is also an R package! You can install the app locally with:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("aphasia-apps/mainconcept")
+remotes::install_github("aphasia-apps/mainConcept")
 ```
 
 ## Using
