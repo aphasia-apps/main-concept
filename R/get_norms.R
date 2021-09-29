@@ -12,16 +12,15 @@
 #' @export
 get_norms <- function(stimulus, google_sheets = F){
   
-  if(isTruthy(google_sheets)){
+  if(!isTruthy(google_sheets)){
     
     norms = list(
-      acc = static_norms %>%
-        dplyr::filter(stim==stimulus),
+      acc = acc_norms %>% dplyr::filter(stim==stimulus),
       eff = eff_norms %>% dplyr::filter(stim == stimulus)
     )
     
     return(norms)
-  }
+  } else {
 
   # links to google sheets for norms:
   refused_umbrella = "1oYiwnUdO0dOsFVTmdZBCxkAQc5Ui-71GhUSchK_YY44"
@@ -44,12 +43,13 @@ get_norms <- function(stimulus, google_sheets = F){
   )
 
   if(is.character(acc)){
-    norms$acc = static_norms %>%
+    norms$acc = acc_norms %>%
              dplyr::filter(stim==stimulus)
   } 
     
   
   return(norms)
+  }
   
 
 }
@@ -58,22 +58,41 @@ get_norms <- function(stimulus, google_sheets = F){
 
 # This is code to update the static norms...
 
-# update_static_norms <- function() {
-#   load(here::here("R", "sysdata.rda"))
+# update_acc_norms <- function() {
 #   refused_umbrella = get_norms("refused_umbrella")
 #   cat_rescue = get_norms("cat_rescue")
 #   cinderella = get_norms("cinderella")
 #   sandwich = get_norms("sandwich")
 #   broken_window = get_norms("broken_window")
 # 
-#   static_norms <- dplyr::bind_rows(tibble::lst(refused_umbrella$acc, cat_rescue$acc,
+#   acc_norms <- dplyr::bind_rows(tibble::lst(refused_umbrella$acc, cat_rescue$acc,
 #                                                cinderella$acc, sandwich$acc, broken_window$acc),
 #                                    .id = "stim") %>%
 #                   dplyr::mutate(stim = stringr::str_remove(stim, "[$]acc"))
-#   eff_norms <- dplyr::bind_rows(tibble::lst(refused_umbrella$eff, cat_rescue$eff,
-#                                             cinderella$eff, sandwich$eff, broken_window$eff),
-#                                 .id = "stim") %>%
-#     dplyr::mutate(stim = stringr::str_remove(stim, "[$]eff"))
-#   usethis::use_data(static_norms, eff_norms, main_concepts, mc_reference,scoring_mca, transcriptDefault, sty, internal = T, overwrite = T)
 # 
+#   return(
+#     acc_norms
+#   )
+#   
 # }
+# 
+# acc_norms <- update_acc_norms()
+# 
+# load(here::here("R", "sysdata.rda"))
+# # make sure this is up to date...
+# usethis::use_data(
+#   answers,
+#   elements,
+#   keys,
+#   main_concepts,
+#   mc_reference,
+#   scoring_mca,
+#   transcriptDefault,
+#   sty,
+#   # norms
+#   eff_norms,
+#   acc_norms,
+#   #other args
+#   internal = T,
+#   overwrite = T
+#   )

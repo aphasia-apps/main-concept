@@ -80,9 +80,7 @@ app_server <- function( input, output, session ) {
     # log the time and date for record keeping
     values$time = Sys.time()
     # show waiter while waiting for norms to load from google sheets. 
-    w$show()
     values$norms = get_norms(stimulus = input$input_stimulus)
-    w$hide()
     updateTabsetPanel(session, "glide", "glide4")
   })
   
@@ -231,7 +229,6 @@ app_server <- function( input, output, session ) {
         # only do this part here if not trianing
         # go to results if the scoring is done. 
         if (values$i == values$stim_task$num_slides) {
-          w1$show()
           updateNavbarPage(session, "mainpage", selected = "results")
         } else{
           # otherwise iterate values$i and move on to the next item. 
@@ -550,9 +547,9 @@ app_server <- function( input, output, session ) {
   
   # outputs summmary table 
   output$results_mca_table <- renderTable({
+    req(results_mca_tab())
     tab = results_mca_tab() %>%
       dplyr::mutate(Score = as.character(Score))
-    w1$hide()
     return(tab)
   },
   align = "c", 
@@ -560,9 +557,10 @@ app_server <- function( input, output, session ) {
   spacing = "s",
   width = "100%",
   na = "-")
-  
+
   # outputs summary plot
   output$plot <- renderPlot({
+    req(results_mca_tab())
     get_plot(norms = values$norms$acc,
              current_score = as.numeric(c(
                results_mca_tab()[[1,3]], # composite
@@ -576,6 +574,7 @@ app_server <- function( input, output, session ) {
              norm_var = input$norm_variable,
              basesize=14)
   })
+
   
   ################################## TRAINING #################################
   # --------------------------------------------------------------------------
@@ -640,8 +639,7 @@ app_server <- function( input, output, session ) {
       } else {0}
     )
     values$transcript = get(paste0("training_transcript", input$training_module))
-    values$norms = get_norms(stimulus = stim_in, google_sheets = T) 
-    # static_norms %>% dplyr::filter(stim==input$input_stimulus)
+    values$norms = get_norms(stimulus = stim_in, google_sheets = F) 
     removeModal()
     updateTabsetPanel(session, "glide", "glide4_training")
   })
@@ -661,7 +659,6 @@ app_server <- function( input, output, session ) {
   observeEvent(input$alert_correct_answer,{
     req(isTruthy(input$alert_correct_answer))
     if (values$i == values$stim_task$num_slides) {
-      w1$show()
       updateNavbarPage(session, "mainpage", selected = "results")
     } else{
       # otherwise iterate values$i and move on to the next item. 
@@ -717,9 +714,11 @@ app_server <- function( input, output, session ) {
   ##################################### REPORT #################################
   
   output$report <- downloadHandler(
+   
     # For PDF output, change this to "report.pdf"
     filename = "report.pdf",
     content = function(file) {
+      withProgress(message = 'Rendering, please wait!', {
       # Copy the report file to a temporary directory before processing it, in
       # case we don't have write permissions to the current working dir (which
       # can happen when deployed).
@@ -752,6 +751,7 @@ app_server <- function( input, output, session ) {
                         params = params,
                         envir = new.env(parent = globalenv())
       )
+      })
     }
   )
   
