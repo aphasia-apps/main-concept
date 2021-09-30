@@ -28,7 +28,6 @@ Imports:
     ggplot2,
     googlesheets4,
     here,
-    openxlsx,
     shinipsum,
     shinyjs,
     shinyWidgets,
@@ -44,7 +43,8 @@ Imports:
     DT,
     knitr,
     kableExtra,
-    cowplot
+    cowplot,
+    glue
 URL: https://github.com/aphasia-apps/mainConcept
 BugReports: https://github.com/aphasia-apps/mainConcept/issues
 Encoding: UTF-8
