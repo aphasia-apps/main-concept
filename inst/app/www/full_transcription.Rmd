@@ -127,6 +127,32 @@ output:
     ::: {style="color: green;"}
     - Final: P: And they lived. ~~C: happily... P: Ever after.~~
     :::
+    
+10. Exclude onomatopoeic non-words.
+Original 	= it was loud, bang, and then it crashed. 
+Final	= it was loud bang and then it crashed.
+
+    ::: {style="color: #00008b;"}
+    - Original: "it was loud, bang, and then it crashed."
+    :::
+
+    ::: {style="color: green;"}
+    - Final: "it was loud bang and then it crashed."
+    :::
+    
+    *nothing was deleted here b/c while “bang” is often categorized as an onomatopoeia, it is also a real word*
+    
+    ::: {style="color: #00008b;"}
+    - Original: "and it went [prolonged “sh” sound] then doodoodoo through the glass"
+    :::
+
+    ::: {style="color: green;"}
+    - Final: "and it went ~~[prolonged “sh” sound]~~ then ~~doodoodoo~~ through the glass."
+    :::
+    
+
+
+
 
 ### Segmenting Utterances
 

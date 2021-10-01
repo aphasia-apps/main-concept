@@ -51,11 +51,11 @@ Main Concept Analysis (MCA) is a hybrid discourse measure that provides some inf
 
 ### Results
 
-This test was completed by `r params$name` and scored on `r format(params$start_time, format="%B %d %Y %R %Z")`. These results are specific to the ***`r paste(unlist(strsplit(params$stim, split = "_")), collapse = " ")` stimulus.*** 
+This test was completed by `r params$name` and scored on `r format(params$start_time, format="%B %d %Y %R %Z")`. These results are specific to the ***`r stringr::str_to_title(paste(unlist(strsplit(params$stim, split = "_")), collapse = " "))` stimulus.*** 
 
-Main Concept Composite Score: The main concept score for this person is `r params$summary_table[1,3]`. This is in the `r params$summary_table[1,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[1,4]` percent of the PWAs in the sample scored lower than your patient/participant. This is in the `r params$summary_table[1,5]` percentile of controls, meaning that `r params$summary_table[1,5]` percent of controls in the sample scored lower than your patient/participant. 
+Main Concept Composite Score: The main concept score for this person is `r params$summary_table[1,3]`. This is in the `r params$summary_table[1,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[1,4]` percent of the PWAs in the sample scored lower than or equal to your patient/participant. This is in the `r params$summary_table[1,5]` percentile of controls, meaning that `r params$summary_table[1,5]` percent of controls in the sample scored lower than or equal to your patient/participant. 
 
-Accurate and Complete (AC) Codes: Out of `r params$num_concepts` main concepts for this task, your patient/participant produced `r params$summary_table[2,2]` AC codes. This is in the `r params$summary_table[2,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[2,4]` percent of the PWAs in the sample scored lower than your patient/participant. This is in the `r params$summary_table[2,5]` percentile of controls, meaning that `r params$summary_table[2,5]` percent of controls in the sample scored lower than your patient/participant. 
+Accurate and Complete (AC) Codes: Out of `r params$num_concepts` main concepts for this task, your patient/participant produced `r params$summary_table[2,2]` AC codes. This is in the `r params$summary_table[2,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[2,4]` percent of the PWAs in the sample scored scored lower than or equal to your patient/participant. This is in the `r params$summary_table[2,5]` percentile of controls, meaning that `r params$summary_table[2,5]` percent of controls in the sample scored scored lower than or equal to your patient/participant. 
 
 Accurate and Incomplete (AI) Codes: Out of `r params$num_concepts` main concepts for this task, your patient/participant produced `r params$summary_table[3,2]` AI codes.
 
@@ -65,13 +65,11 @@ Inaccurate and Complete (II) Codes: Out of`r params$num_concepts` main concepts 
 
 Absent (AB) Codes: Out of `r params$num_concepts` main concepts for this task, `r params$summary_table[6,2]` were absent/not attempted. 
 
-Attempts: Your patient/participant attempted to produce `r params$summary_table[7,2]` of of `r params$num_concepts` main concepts for this task. This is in the `r params$summary_table[7,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[7,4]` percent of the PWAs in the sample had fewer attempts than your patient/participant. This is in the `r params$summary_table[7,5]` percentile of controls, meaning that `r params$summary_table[7,5]` percent of controls in the sample had fewer attempts than your patient/participant. 
+Attempts: Your patient/participant attempted to produce `r params$summary_table[7,2]` of of `r params$num_concepts` main concepts for this task. This is in the `r params$summary_table[7,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[7,4]` percent of the PWAs in the sample had equal to or fewer attempts than your patient/participant. This is in the `r params$summary_table[7,5]` percentile of controls, meaning that `r params$summary_table[7,5]` percent of controls in the sample had  equal to or fewer attempts than your patient/participant. 
 
 *Main Concept efficiency scores are only available if a time was entered into the app prior to scoring.*
 
-Accurate and Complete Codes per minute (AC/min): AC/min is a measure of discourse efficiency, specifically how many accurate and complete main concepts were produced per minute. Derived efficiency measures are “useful in examining the effort needed by the speaker to produce discourse and the consequent effort needed by the listener in receiving the information effectively” (Armstrong, 2000). Your patient/participant produced `r params$summary_table[8,2]`. This is in the `r params$summary_table[8,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[8,4]` percent of the PWAs in the sample produced fewer AC concepts per minute than your patient/participant. This is in the `r params$summary_table[8,5]` percentile of controls, meaning that `r params$summary_table[8,5]` percent of controls in the sample produced fewer AC concepts per minute than your patient/participant. 
-
-### Summary Table
+Accurate and Complete Codes per minute (AC/min): AC/min is a measure of discourse efficiency, specifically how many accurate and complete main concepts were produced per minute. Derived efficiency measures are “useful in examining the effort needed by the speaker to produce discourse and the consequent effort needed by the listener in receiving the information effectively” (Armstrong, 2000). Your patient/participant produced `r params$summary_table[8,2]`. This is in the `r params$summary_table[8,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[8,4]` percent of the PWAs in the sample produced equal to or fewer AC concepts per minute than your patient/participant. This is in the `r params$summary_table[8,5]` percentile of controls, meaning that `r params$summary_table[8,5]` percent of controls in the sample produced equal to or fewer AC concepts per minute than your patient/participant. 
 
 ```{r, echo = F}
 kableExtra::kbl(params$summary_table,
@@ -85,18 +83,12 @@ shiny::setProgress(0.3)
 **About this table:**
 
 - *Column 1 lists the following discourse variables: Main Concept Composite score, Accurate and Complete (AC) concepts, Accurate and Incomplete (AI) concepts, Inaccurate and Complete (IC) concepts, Inaccurate and Incomplete (II) concepts, Absent concepts, Main Concept Attempts, and Accurate and Complete concepts per minute (AC/min).*
-
 - *Column 2 shows the counts for the discourse variables. *
-
 - *Column 3 shows the calculated score for the discourse variables, based upon the scoring system for either Dalton & Richardson (2016) or Kong (2009) (select scoring system option at bottom of table).*
-
 - *Column 4 shows a percentile score that corresponds to the vertical red dashed line and the orange density plot and is the percentage of scores for the sample of people with aphasia that are lower than your patient’s/participant’s score.*
-
 - *Column 5 shows a percentile score that corresponds to the vertical red dashed line and the purple density plot and is the percentage of control scores that are lower than your patient’s/participant’s score. Columns 4 and 5 are only available when using the Dalton & Richardson (2016) scoring system.*
 
-### Plots
-
-```{r, echo=F, fig.height=6, fig.width=7, warning = F}
+```{r, echo=F, fig.height=6, fig.width=7, warning = F, fig.cap="Results relative to normative samples"}
 library(cowplot)
 
 p1 <- get_plot_report(norms = params$norms,
@@ -167,9 +159,7 @@ shiny::setProgress(0.8)
 **About these plots:**
 
 - *The figure shows two density plots that represent the distribution of the discourse variables. (A density plot is essentially a smoothed version of a histogram.)*
-
 - *The orange plot is the density plot for persons with aphasia. The purple plot is the density plot for controls. (These plots closely correspond to the values in our publications [Richardson & Dalton, 2015, 2019; Dalton & Richardson, 2018; Dalton et al., 2020], but are updated several times a year with additional participants scored in Dr. Richardson’s lab.)*
-
 - *The vertical red dashed line represents the discourse variable score for your patient/participant. You can select different discourse variables (Composite, AC, Attempts, AC/min) by selecting the variable of interest below the plots.*
 
 ### Administration notes 
@@ -192,7 +182,11 @@ Richardson, J. D., & Dalton, S. G. H. (2020). Main concepts for two picture desc
 
 ### About this report
 
-This report was generated by the mainConcept shiny web app located at https://aphasia-apps.shinyapps.io/mainConcept/. This web-app is open source and the source code is located at https://github.com/aphasia-apps/mainConcept. Comments, feedback, and bug-reports can be made on the github page. The app was developed by Robert Cavanaugh, Jessica Richardson, and Sarah Grace Dalton. 
+This report was generated by the mainConcept shiny web app located at https://aphasia-apps.shinyapps.io/mainConcept/. This web-app is open source and the source code is located at https://github.com/aphasia-apps/mainConcept. Comments, feedback, and bug-reports are encouraged and can be made on the github page. The app was developed by Robert Cavanaugh, Jessica Richardson, and Sarah Grace Dalton. 
+
+This software can be cited as such:
+
+Cavanaugh, R., Richardson, J. & Dalton, S.G. (2021). mainConcept: An open-source web-app for scoring main concept analysis. R package version 0.0.1.0000. https://github.com/aphasia-apps/mainConcept.
 
 ```{r, echo = F}
 shiny::setProgress(0.95)
