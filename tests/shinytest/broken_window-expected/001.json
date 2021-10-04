@@ -1,0 +1,257 @@
+{
+  "input": {
+    "about": 0,
+    "accuracy1": "Accurate",
+    "accuracy2": "Accurate",
+    "accuracy3": "Accurate",
+    "drop312928385": 0,
+    "drop66608964": 0,
+    "full_transcription": 1,
+    "full_transcription2": 0,
+    "glide": "glide4",
+    "glide_back1": 0,
+    "glide_back2": 0,
+    "glide_back3": 0,
+    "glide_next1": 1,
+    "glide_next2": 1,
+    "glide_next3": 1,
+    "glide_training": 0,
+    "info": 0,
+    "input_duration": 5,
+    "input_stimulus": "broken_window",
+    "input_transcript": "Okay. I’ve done this before. He kicked the ball. It went doodoodoo and went through the glass. It’s his dad sitting in the the couch. It’s not good.",
+    "instructions": "Transcribing",
+    "mainpage": "results",
+    "name": "test",
+    "norm_variable": "MC COMPOSITE",
+    "notes": "test",
+    "nxt": 8,
+    "prev": 0,
+    "references": 0,
+    "referent": false,
+    "score_mca": null,
+    "scoring_system": "dalton_richardson",
+    "show_transcript_answer": 0,
+    "source": 0,
+    "start": 1,
+    "start_over": 0,
+    "start_training_scoring": 0
+  },
+  "output": {
+    "intro_div": {
+      "html": "<div class=\"col-sm-12\">\n  <div class=\"tabbable\">\n    <ul class=\"nav nav-hidden shiny-tab-input\" id=\"glide\" data-tabsetid=\"7140\">\n      <li class=\"active\">\n        <a href=\"#tab-7140-1\" data-toggle=\"tab\" data-value=\"glide1\"><\/a>\n      <\/li>\n      <li>\n        <a href=\"#tab-7140-2\" data-toggle=\"tab\" data-value=\"glide2\"><\/a>\n      <\/li>\n      <li>\n        <a href=\"#tab-7140-3\" data-toggle=\"tab\" data-value=\"glide3\"><\/a>\n      <\/li>\n      <li>\n        <a href=\"#tab-7140-4\" data-toggle=\"tab\" data-value=\"glide4\"><\/a>\n      <\/li>\n      <li>\n        <a href=\"#tab-7140-5\" data-toggle=\"tab\" data-value=\"glide4_training\"><\/a>\n      <\/li>\n    <\/ul>\n    <div class=\"tab-content\" data-tabsetid=\"7140\">\n      <div class=\"tab-pane active\" data-value=\"glide1\" id=\"tab-7140-1\">\n        <div class=\"col-sm-10 offset-md-1 col-sm-offset-1\">\n          <div><h2>Welcome to the Main Concept Analysis Web-app<\/h2>\n\n<p>Main Concept Analysis (MCA) is a discourse assessment originally developed by Nicholas and Brookshire (1995) that measures the informativeness of a discourse sample on a given topic. This web-app is intended to facilitate efficient and accurate scoring of main concepts for both research and clinical practice. <\/p>\n\n<p>Click next to review scoring information for MCA, and get started scoring. There is also a training mode available for those unfamiliar with MCA, but we recommended that anyone unfamiliar with MCA start by reading the manual. Additional resources including the manual are located on <a href=\"https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ/\" target=\"_blank\">google drive<\/a> and at <a href=\"https://aphasia.talkbank.org/discourse/MainConcepts\" target=\"_blank\">talkbank.org<\/a><\/p>\n\n<h3>About Main Concept Analysis<\/h3>\n\n<p>Main concept checklists for several widely used tasks (including picture description, picture sequence, story retell, and procedural stimuli) have been developed based on discourse samples of control speakers (Richardson &amp; Dalton, 2016; 2020). MCA is a hybrid discourse measure that provides some information on micro-linguistic features of the discourse sample as well as more macro-linguistic features about the overall adequacy of the discourse sample to communicate an intended message.<\/p>\n\n<p>MCA has shown good sensitivity in differentiating between controls and individuals with communication disorders (e.g., Kong, Whiteside, &amp; Bargmann, 2016; Dalton &amp; Richardson, 2019) and between individuals with fluent and non-fluent aphasia (Kong et al., 2016). Importantly, studies have shown that changes in informativeness are associated with treatment performance (Albright &amp; Purves, 2008; Avent &amp; Austermann, 2003; Coelho, McHugh, &amp; Boyle, 2000; Cupit, Rochon, Leonard, &amp; Laird, 2010; Stark, 2010) and are associated with listener&#39;s perceptions of communication quality (Cupit et al., 2010; Ross &amp; Wertz, 1999).<\/p>\n<\/div>\n          <div align=\"center\">\n            <button id=\"glide_next1\" type=\"button\" class=\"btn btn-default action-button\">Next<\/button>\n          <\/div>\n        <\/div>\n      <\/div>\n      <div class=\"tab-pane\" data-value=\"glide2\" id=\"tab-7140-2\">\n        <div class=\"col-sm-10 offset-md-1 col-sm-offset-1\">\n          <div class=\"ox-hugo-table basic-styling\"><h3>Scoring Main Concept Analysis<\/h3>\n\n<p>Each main concept consists of several essential elements, corresponding to the subject, main verb, object (if appropriate), and any subordinate clauses (Nicholas &amp; Brookshire, 1995). The main concept is assigned one of 5 codes depending on accuracy and completeness. Nicholas and Brookshire developed a series of coding rules to assist in determining the accuracy and completeness of main concepts. These rules are now supplemented with published checklists, which provide common alternatives and are used in this web-app.<\/p>\n\n<p><center><\/p>\n\n<table><thead>\n<tr>\n<th>Code<\/th>\n<th>Description<\/th>\n<th align=\"center\"><strong>Richardson and Dalton, 2016<\/strong><\/th>\n<th align=\"center\"><strong>Kong, 2009<\/strong><\/th>\n<\/tr>\n<\/thead><tbody>\n<tr>\n<td>Accurate &amp; Complete (AC)<\/td>\n<td>contains all elements of the main concept on the checklist with no incorrect information<\/td>\n<td align=\"center\">3 Points<\/td>\n<td align=\"center\">3 Points<\/td>\n<\/tr>\n<tr>\n<td>Accurate &amp; Incomplete (AI)<\/td>\n<td>contains no incorrect information, but leaves out at least one essential element of the main concept on the checklist<\/td>\n<td align=\"center\">2 Points<\/td>\n<td align=\"center\">2 Point<\/td>\n<\/tr>\n<tr>\n<td>Inaccurate &amp; Complete (IC)<\/td>\n<td>contains at least one incorrect piece of essential information (e.g., &ldquo;knight&rdquo; for &ldquo;prince&rdquo;) but includes all essential elements of the main concept on the checklist<\/td>\n<td align=\"center\">2 Points<\/td>\n<td align=\"center\">1 Point<\/td>\n<\/tr>\n<tr>\n<td>Inaccurate &amp; Incomplete (II)<\/td>\n<td>clearly corresponds with a main concept on the checklist but includes at least one incorrect essential element and fails to include at least one essential element<\/td>\n<td align=\"center\">1 Point<\/td>\n<td align=\"center\">1 Point<\/td>\n<\/tr>\n<tr>\n<td>Absent (AB)<\/td>\n<td>did not produce the main concept<\/td>\n<td align=\"center\">0 Points<\/td>\n<td align=\"center\">0 Points<\/td>\n<\/tr>\n<\/tbody><\/table>\n\n<p><\/center><\/p>\n\n<p>Get started using the app by selecting &#39;Training&#39; to begin the training modules or &#39;Start scoring&#39; to begin scoring a transcript. <\/p>\n<\/div>\n          <div align=\"center\">\n            <button id=\"glide_back1\" type=\"button\" class=\"btn btn-default action-button\">Back<\/button>\n            <button id=\"glide_training\" type=\"button\" class=\"btn btn-default action-button\">Training Modules<\/button>\n            <button id=\"glide_next2\" type=\"button\" class=\"btn btn-default action-button\">Score Transcript<\/button>\n          <\/div>\n        <\/div>\n      <\/div>\n      <div class=\"tab-pane\" data-value=\"glide3\" id=\"tab-7140-3\">\n        <div class=\"col-sm-10 offset-md-1 col-sm-offset-1\">\n          <div align=\"center\">\n            <div style=\"display: inline-block; text-align: left;\">\n              <br/>\n              <h5>Enter participant information<\/h5>\n              <br/>\n              <div class=\"form-group shiny-input-container\">\n                <label class=\"control-label\" id=\"name-label\" for=\"name\">Enter a Name<\/label>\n                <input id=\"name\" type=\"text\" class=\"form-control\" value=\"\"/>\n              <\/div>\n              <div class=\"form-group shiny-input-container\">\n                <label class=\"control-label\" id=\"input_stimulus-label\" for=\"input_stimulus\">Select stimulus<\/label>\n                <div>\n                  <select id=\"input_stimulus\"><option value=\"broken_window\" selected>Broken Window<\/option>\n<option value=\"cat_rescue\">Cat Rescue<\/option>\n<option value=\"refused_umbrella\">Refused Umbrella<\/option>\n<option value=\"cinderella\">Cinderella<\/option>\n<option value=\"sandwich\">Sandwich<\/option><\/select>\n                  <script type=\"application/json\" data-for=\"input_stimulus\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n                <\/div>\n              <\/div>\n              <div class=\"form-group shiny-input-container\">\n                <label class=\"control-label\" id=\"input_duration-label\" for=\"input_duration\">Enter Duration (seconds)<\/label>\n                <input id=\"input_duration\" type=\"number\" class=\"form-control\" value=\"0\" min=\"0\" max=\"720\"/>\n              <\/div>\n              <div class=\"form-group shiny-input-container\" style=\"width: 100%;\">\n                <label class=\"control-label\" id=\"notes-label\" for=\"notes\">Enter any notes<\/label>\n                <textarea id=\"notes\" class=\"form-control\" style=\"width:width: 100%;;height:100px;\"><\/textarea>\n              <\/div>\n              <br/>\n              <p style=\"max-width:300px;\">\n                <em>Note, for privacy reasons, data is not\n                             retained after the page is closed or refreshed.<\/em>\n              <\/p>\n              <br/>\n            <\/div>\n          <\/div>\n          <div align=\"center\">\n            <button id=\"glide_back2\" type=\"button\" class=\"btn btn-default action-button\">Back<\/button>\n            <button id=\"glide_next3\" type=\"button\" class=\"btn btn-default action-button\">Next<\/button>\n          <\/div>\n        <\/div>\n      <\/div>\n      <div class=\"tab-pane\" data-value=\"glide4\" id=\"tab-7140-4\">\n        <div class=\"row\">\n          <div class=\"col-sm-5 offset-md-1 col-sm-offset-1\">\n            <div class=\"tabbable\">\n              <ul class=\"nav nav-tabs shiny-tab-input\" id=\"instructions\" data-tabsetid=\"9733\">\n                <li class=\"active\">\n                  <a href=\"#tab-9733-1\" data-toggle=\"tab\" data-value=\"Transcribing\">Transcribing<\/a>\n                <\/li>\n                <li>\n                  <a href=\"#tab-9733-2\" data-toggle=\"tab\" data-value=\"Segmenting\">Segmenting<\/a>\n                <\/li>\n              <\/ul>\n              <div class=\"tab-content\" data-tabsetid=\"9733\">\n                <div class=\"tab-pane active\" data-value=\"Transcribing\" id=\"tab-9733-1\">\n                  <br/>\n                  <div style=\"height:500px; overflow:auto;\"><ol>\n<li>Include words/phrases even if they are repeated or part of revisions <\/li>\n<li>Include the standard version of nonstandard productions (e.g., “outta” -&gt; “out of”; “gonna” -&gt; “going to”)<\/li>\n<li>Include words with non-typical sounds (e.g., slurred, distorted) and type as the target word as long as it is recognizable/intelligible <\/li>\n<li>Include words with sound errors (substitutions, omissions, phonological errors, etc.) as long as the target is recognizable/intelligible with context and approximately 50% of phonemes are correct (as shorter words or words with odd numbers of phonemes may have &lt;50% of phonemes correct but still be intelligible). Use your best clinical judgement to determine intelligibility within context. <\/li>\n<li>Exclude part-words, false starts, sounds/syllables produced as a participant attempts to say a word<\/li>\n<li>Exclude neologisms (less than 50% of phonemes correct). (See also rule #4.)<\/li>\n<li>Exclude fillers – meaningless non-words such as “uh”, “um”, “er”. (Some real words may serve a filler function [e.g., to stall while thinking of what to say; “you know”, “like”, “so”, “okay”], but for the sake of reliability, leave them in the transcript.) <\/li>\n<li>Exclude information/words/phrases/sentences spoken by the clinician or assessor. You are only focusing on the participant<\/li>\n<li>Exclude utterances prompted by the clinician. <\/li>\n<li>Exclude onomatopoeic non-words.<\/li>\n<\/ol>\n<\/div>\n                <\/div>\n                <div class=\"tab-pane\" data-value=\"Segmenting\" id=\"tab-9733-2\">\n                  <br/>\n                  <p>Separate utterances by periods. Follow utterance segmentation rules below, adapted from CHAT Transcription Training/AphasiaBank<\/p>\n\n<p>In general, an utterance can be defined as a segment of running speech that appears to form a coherent unit (Saffran et al., 1989). When in doubt, err on the side of creating shorter rather than longer utterances. The following indicators are recommended, with primary weight given to syntax and intonation:<\/p>\n\n<ul>\n<li>Syntax – Unless there are strong prosodic counter-indications, a well-formed sentence is considered to be an utterance. However, an utterance may not necessarily be grammatically correct to be considered an utterance.<\/li>\n<li>Intonation – Falling intonation (or rising intonation in the case of a question) suggests the end of an utterance. <\/li>\n<li>Pauses – Pauses may not be a reliable guide to utterance boundaries. When pauses occur in what appear to be otherwise well-formed utterances, disregard them. <\/li>\n<li>Semantics – Semantic criteria cannot be stringently applied in marking utterance boundaries in this population.<\/li>\n<\/ul>\n\n                <\/div>\n              <\/div>\n            <\/div>\n          <\/div>\n          <div class=\"col-sm-5\">\n            <div class=\"form-group shiny-input-container\" style=\"width: 100%;\">\n              <label class=\"control-label\" id=\"input_transcript-label\" for=\"input_transcript\">Enter transcript (separate utterances with a period)<\/label>\n              <textarea id=\"input_transcript\" class=\"form-control\" style=\"width:width: 100%;;height:400px;\"><\/textarea>\n            <\/div>\n            <button id=\"full_transcription\" type=\"button\" class=\"btn btn-default action-button\">Detailed transcription rules<\/button>\n          <\/div>\n        <\/div>\n        <br/>\n        <div class=\"row\">\n          <div class=\"col-sm-10 offset-md-1 col-sm-offset-1\">\n            <div align=\"center\">\n              <button id=\"glide_back3\" type=\"button\" class=\"btn btn-default action-button\">Back<\/button>\n              <button id=\"start\" type=\"button\" class=\"btn btn-default action-button\">Begin Scoring<\/button>\n            <\/div>\n          <\/div>\n        <\/div>\n      <\/div>\n      <div class=\"tab-pane\" data-value=\"glide4_training\" id=\"tab-7140-5\">\n        <div id=\"training_div2\">\n          <div class=\"row\">\n            <div id=\"training_markdown\" class=\"shiny-html-output\"><\/div>\n          <\/div>\n        <\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "selectize",
+          "version": "0.12.4",
+          "src": {
+            "href": "selectize-0.12.4"
+          },
+          "meta": null,
+          "script": [
+            "selectize.min.js",
+            "selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": "selectize.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "plot": {
+      "src": "[image data sha1: 1eac8438db0097e0a0807a353514c2e2b900e7ab]",
+      "width": 371,
+      "height": 360,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "domain": {
+              "left": -1.2,
+              "right": 25.2,
+              "bottom": -0.00443087859642961,
+              "top": 0.0930484505250218
+            },
+            "mapping": {
+              "y": null,
+              "xintercept": "vert_line",
+              "x": "score",
+              "fill": "group",
+              "group": "group"
+            },
+            "range": {
+              "left": 10.4607721046077,
+              "right": 364.026151930262,
+              "bottom": 319.9207726218,
+              "top": 6.97384806973848
+            }
+          }
+        ],
+        "dims": {
+          "width": 371,
+          "height": 360
+        }
+      }
+    },
+    "results_div": {
+      "html": "<div id=\"waiter\">\n  <div class=\"col-sm-10 offset-md-1 col-sm-offset-1\">\n    <div class=\"row\">\n      <div class=\"col-sm-5\" align=\"center\">\n        <div>\n          <h4 style=\"float:left\">Results<\/h4>\n          <div style=\"float:right;margin-top:1rem;margin-bottom:.5rem;\">\n            <div class=\"dropdown btn-dropdown-input\" id=\"drop66608964_state\">\n              <button aria-expanded=\"true\" aria-haspopup=\"true\" class=\"btn btn-default action-button dropdown-toggle  btn-sm\" data-toggle=\"dropdown\" id=\"drop66608964\" type=\"button\">\n                <i class=\"fa fa-info\" role=\"presentation\" aria-label=\"info icon\"><\/i>\n                <span class=\"caret\"><\/span>\n              <\/button>\n              <ul aria-labelledby=\"drop66608964\" class=\"dropdown-menu  dropdown-shinyWidgets\" id=\"dropdown-menu-drop66608964\" style=\"width: 500px;\">\n                <li style=\"margin-left: 10px; margin-right: 10px;\"><ul>\n<li><p>Column 1 lists the following discourse variables: Main Concept Composite score, Accurate and Complete (AC) concepts, Accurate and Incomplete (AI) concepts, Inaccurate and Complete (IC) concepts, Inaccurate and Incomplete (II) concepts, Absent concepts, Main Concept Attempts, and Accurate and Complete concepts per minute (AC/min). <\/p><\/li>\n<li><p>Column 2 shows the counts for the discourse variables. <\/p><\/li>\n<li><p>Column 3 shows the calculated score for the discourse variables, based upon the scoring system for either Dalton &amp; Richardson (2016) or Kong (2009) (select scoring system option at bottom of table). <\/p><\/li>\n<li><p>Column 4 shows a percentile score that corresponds to the vertical red dashed line and the orange density plot and is the percentage of scores for the sample of people with aphasia that are lower than your patient’s/participant’s score. <\/p><\/li>\n<li><p>Column 5 shows a percentile score that corresponds to the vertical red dashed line and the purple density plot and is the percentage of control scores that are lower than your patient’s/participant’s score. Columns 4 and 5 are only available when using the Dalton &amp; Richardson (2016) scoring system.<\/p><\/li>\n<\/ul>\n<\/li>\n              <\/ul>\n              <script>$('#drop66608964').tooltip({ placement: 'right', title: 'Interpreting this table', html: false, trigger: 'hover' });<\/script>\n            <\/div>\n          <\/div>\n        <\/div>\n        <div id=\"results_mca_table\" class=\"shiny-html-output\"><\/div>\n        <div>\n          <div style=\"display: inline-block;\">\n            <b>\n              Scoring system: \n              &nbsp;\n            <\/b>\n          <\/div>\n          <div style=\"display: inline-block;\">\n            <div class=\"form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline\">\n              <label class=\"control-label shiny-label-null\" for=\"scoring_system\" id=\"scoring_system-label\"><\/label>\n              <div id=\"scoring_system\" class=\"radioGroupButtons\">\n                <div aria-labelledby=\"scoring_system-label\" class=\"btn-group btn-group-sm btn-group-container-sw\" data-toggle=\"buttons\" role=\"group\">\n                  <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n                    <button class=\"btn radiobtn btn-default active\">\n                      <input type=\"radio\" autocomplete=\"off\" name=\"scoring_system\" value=\"dalton_richardson\" checked=\"checked\"/>\n                      Dalton & Richardson 2016\n                    <\/button>\n                  <\/div>\n                  <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n                    <button class=\"btn radiobtn btn-default\">\n                      <input type=\"radio\" autocomplete=\"off\" name=\"scoring_system\" value=\"kong\"/>\n                      Kong 2009\n                    <\/button>\n                  <\/div>\n                <\/div>\n              <\/div>\n            <\/div>\n          <\/div>\n        <\/div>\n      <\/div>\n      <div class=\"col-sm-6 offset-md-1 col-sm-offset-1\" align=\"center\">\n        <div>\n          <h4 style=\"float:left\">Scores relative to norms<\/h4>\n          <div style=\"float:right;margin-top:1rem;margin-bottom:.5rem;\">\n            <div class=\"dropdown btn-dropdown-input\" id=\"drop312928385_state\">\n              <button aria-expanded=\"true\" aria-haspopup=\"true\" class=\"btn btn-default action-button dropdown-toggle  btn-sm\" data-toggle=\"dropdown\" id=\"drop312928385\" type=\"button\">\n                <i class=\"fa fa-info\" role=\"presentation\" aria-label=\"info icon\"><\/i>\n                <span class=\"caret\"><\/span>\n              <\/button>\n              <ul aria-labelledby=\"drop312928385\" class=\"dropdown-menu dropdown-menu-right dropdown-shinyWidgets\" id=\"dropdown-menu-drop312928385\" style=\"width: 500px;\">\n                <li style=\"margin-left: 10px; margin-right: 10px;\"><ul>\n<li><p>The figure shows two density plots that represent the distribution of the discourse variables. (A density plot is essentially a smoothed version of a histogram.) <\/p><\/li>\n<li><p>The orange plot is the density plot for persons with aphasia. The purple plot is the density plot for controls. (These plots closely correspond to the values in our publications [Richardson &amp; Dalton, 2015, 2019; Dalton &amp; Richardson, 2018; Dalton et al., 2020], but are updated several times a year with additional participants scored in Dr. Richardson’s lab.) <\/p><\/li>\n<li><p>The vertical red dashed line represents the discourse variable score for your patient/participant. You can select different discourse variables (Composite, AC, Attempts, AC/min) by selecting the variable of interest below the plots.<\/p><\/li>\n<\/ul>\n<\/li>\n              <\/ul>\n              <script>$('#drop312928385').tooltip({ placement: 'right', title: 'Interpreting this plot', html: false, trigger: 'hover' });<\/script>\n            <\/div>\n          <\/div>\n        <\/div>\n        <div id=\"plot\" class=\"shiny-plot-output\" style=\"width:100%;height:360px;\"><\/div>\n        <br/>\n        <br/>\n        <div>\n          <div style=\"display: inline-block;\">\n            <b>\n              Variable:\n              &nbsp;\n            <\/b>\n          <\/div>\n          <div style=\"display: inline-block;\">\n            <div class=\"form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline\">\n              <label class=\"control-label shiny-label-null\" for=\"norm_variable\" id=\"norm_variable-label\"><\/label>\n              <div id=\"norm_variable\" class=\"radioGroupButtons\">\n                <div aria-labelledby=\"norm_variable-label\" class=\"btn-group btn-group-sm btn-group-container-sw\" data-toggle=\"buttons\" role=\"group\">\n                  <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n                    <button class=\"btn radiobtn btn-default active\">\n                      <input type=\"radio\" autocomplete=\"off\" name=\"norm_variable\" value=\"MC COMPOSITE\" checked=\"checked\"/>\n                      Composite\n                    <\/button>\n                  <\/div>\n                  <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n                    <button class=\"btn radiobtn btn-default\">\n                      <input type=\"radio\" autocomplete=\"off\" name=\"norm_variable\" value=\"AC\"/>\n                      AC\n                    <\/button>\n                  <\/div>\n                  <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n                    <button class=\"btn radiobtn btn-default\">\n                      <input type=\"radio\" autocomplete=\"off\" name=\"norm_variable\" value=\"MC Attempts\"/>\n                      Attempts\n                    <\/button>\n                  <\/div>\n                  <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n                    <button class=\"btn radiobtn btn-default\">\n                      <input type=\"radio\" autocomplete=\"off\" name=\"norm_variable\" value=\"AC_min\"/>\n                      AC/min\n                    <\/button>\n                  <\/div>\n                <\/div>\n              <\/div>\n            <\/div>\n          <\/div>\n        <\/div>\n      <\/div>\n    <\/div>\n    <br/>\n    <div class=\"row\">\n      <div class=\"col-sm-12\" align=\"left\">\n        <h4>Summary:<\/h4>\n        <div id=\"results_text\" class=\"shiny-html-output\"><\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "font-awesome",
+          "version": "5.13.0",
+          "src": {
+            "href": "font-awesome-5.13.0"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "css/all.min.css",
+            "css/v4-shims.min.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyWidgets",
+          "version": "0.6.0",
+          "src": {
+            "href": "shinyWidgets"
+          },
+          "meta": null,
+          "script": "shinyWidgets-bindings.min.js",
+          "stylesheet": "shinyWidgets.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "dropdown-patch",
+          "version": "0.6.0",
+          "src": {
+            "href": "shinyWidgets/dropdown"
+          },
+          "meta": null,
+          "script": "dropdown-click.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "results_mca_table": "<table  class = 'table shiny-table table- spacing-s' style = 'width:100%;'>\n<thead> <tr> <th style='text-align: center;'> Variable <\/th> <th style='text-align: center;'> Count <\/th> <th style='text-align: center;'> Score <\/th> <th style='text-align: center;'> Percentile (Aphasia) <\/th> <th style='text-align: center;'> Percentile (Control) <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"center\"> Composite <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\"> 18 <\/td> <td align=\"center\"> 98% <\/td> <td align=\"center\"> 69% <\/td> <\/tr>\n  <tr> <td align=\"center\"> AC <\/td> <td align=\"center\"> 4 <\/td> <td align=\"center\"> 12 <\/td> <td align=\"center\"> 90% <\/td> <td align=\"center\"> 29% <\/td> <\/tr>\n  <tr> <td align=\"center\"> AI <\/td> <td align=\"center\"> 0 <\/td> <td align=\"center\"> 0 <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\" class='NA'> - <\/td> <\/tr>\n  <tr> <td align=\"center\"> IC <\/td> <td align=\"center\"> 3 <\/td> <td align=\"center\"> 6 <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\" class='NA'> - <\/td> <\/tr>\n  <tr> <td align=\"center\"> II <\/td> <td align=\"center\"> 0 <\/td> <td align=\"center\"> 0 <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\" class='NA'> - <\/td> <\/tr>\n  <tr> <td align=\"center\"> Absent <\/td> <td align=\"center\"> 1 <\/td> <td align=\"center\"> 0 <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\" class='NA'> - <\/td> <\/tr>\n  <tr> <td align=\"center\"> Attempts <\/td> <td align=\"center\"> 7 <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\"> 99% <\/td> <td align=\"center\"> 91% <\/td> <\/tr>\n  <tr> <td align=\"center\"> AC/min <\/td> <td align=\"center\"> 48/min <\/td> <td align=\"center\" class='NA'> - <\/td> <td align=\"center\"> 100% <\/td> <td align=\"center\"> 100% <\/td> <\/tr>\n   <\/tbody> <\/table>",
+    "results_text": {
+      "html": "<p>   \nThe main concept score for this person is 18. This is in the 98% percentile of PWAs and the 69% percentile of controls. This individual produced 4/8 accurate/complete main concepts, which is in the 90% percentile of PWAs and the 29% percentile of controls. This individual produced 0/8 accurate/incomplete main concepts, 3/8 inaccurate/complete main concepts, and 0/8 inaccurate/incomplete main concepts. There were 7/8 main concept attempts, which is in the 99% percentile of PWAs and 91% percentile of controls. Finally, 1/8 main concepts were absent in this individual’s sample.   This individual produced 48/min main concepts/minute, which is in the 100% percentile of PWAs and the 100% percentile of controls.   Please download the report for a detailed explanation of these results.<\/p>",
+      "deps": [
+
+      ]
+    },
+    "score_sentences": {
+      "html": "<div class=\"row\">\n  <div class=\"col-sm-4\" align=\"center\">\n    <div id=\"score1\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n  <div class=\"col-sm-4\" align=\"center\">\n    <div id=\"score2\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n  <div class=\"col-sm-4\" align=\"center\">\n    <div id=\"score3\" class=\"shiny-html-output\"><\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "score1": {
+      "html": "<div class=\"form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline\">\n  <label id=\"accuracy1-label\" class=\"control-label\" for=\"accuracy1\">The man<\/label>\n  <br/>\n  <div id=\"accuracy1\" class=\"radioGroupButtons\">\n    <div aria-labelledby=\"accuracy1-label\" class=\"btn-group-vertical btn-group-container-sw\" data-toggle=\"buttons\" role=\"group\">\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default active\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy1\" value=\"Accurate\" checked=\"checked\"/>\n          Accurate\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy1\" value=\"Inaccurate\"/>\n          Inaccurate\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy1\" value=\"Absent\"/>\n          Absent\n        <\/button>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "shinyWidgets",
+          "version": "0.6.0",
+          "src": {
+            "href": "shinyWidgets"
+          },
+          "meta": null,
+          "script": "shinyWidgets-bindings.min.js",
+          "stylesheet": "shinyWidgets.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "score2": {
+      "html": "<div class=\"form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline\">\n  <label id=\"accuracy2-label\" class=\"control-label\" for=\"accuracy2\">looked<\/label>\n  <br/>\n  <div id=\"accuracy2\" class=\"radioGroupButtons\">\n    <div aria-labelledby=\"accuracy2-label\" class=\"btn-group-vertical btn-group-container-sw\" data-toggle=\"buttons\" role=\"group\">\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default active\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy2\" value=\"Accurate\" checked=\"checked\"/>\n          Accurate\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy2\" value=\"Inaccurate\"/>\n          Inaccurate\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy2\" value=\"Absent\"/>\n          Absent\n        <\/button>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "shinyWidgets",
+          "version": "0.6.0",
+          "src": {
+            "href": "shinyWidgets"
+          },
+          "meta": null,
+          "script": "shinyWidgets-bindings.min.js",
+          "stylesheet": "shinyWidgets.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "score3": {
+      "html": "<div class=\"form-group shiny-input-container shiny-input-radiogroup shiny-input-container-inline\">\n  <label id=\"accuracy3-label\" class=\"control-label\" for=\"accuracy3\">out of the window<\/label>\n  <br/>\n  <div id=\"accuracy3\" class=\"radioGroupButtons\">\n    <div aria-labelledby=\"accuracy3-label\" class=\"btn-group-vertical btn-group-container-sw\" data-toggle=\"buttons\" role=\"group\">\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default active\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy3\" value=\"Accurate\" checked=\"checked\"/>\n          Accurate\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy3\" value=\"Inaccurate\"/>\n          Inaccurate\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle\" role=\"group\">\n        <button class=\"btn radiobtn btn-default\">\n          <input type=\"radio\" autocomplete=\"off\" name=\"accuracy3\" value=\"Absent\"/>\n          Absent\n        <\/button>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "shinyWidgets",
+          "version": "0.6.0",
+          "src": {
+            "href": "shinyWidgets"
+          },
+          "meta": null,
+          "script": "shinyWidgets-bindings.min.js",
+          "stylesheet": "shinyWidgets.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "scoring_div": {
+      "html": "<div class=\"row\">\n  <div class=\"col-sm-10 offset-md-1 col-sm-offset-1\">\n    <div class=\"row\" style=\"margin-bottom: 5px;\">\n      <div class=\"col-sm-12\" style=\"max-height: 200px; overflow: scroll;\">\n        <div id=\"scoring_info\" class=\"shiny-html-output\"><\/div>\n      <\/div>\n    <\/div>\n    <div class=\"row\" style=\"max-height: 250px; overflow: auto;\">\n      <div class=\"col-sm-12\" style=\"min-height: 101%;\">\n        <h5>Select the sentences that match the concept.<\/h5>\n        <div id=\"sentence_buttons\" class=\"shiny-html-output\"><\/div>\n      <\/div>\n    <\/div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <h5>Score each concept noted above.<\/h5>\n      <\/div>\n      <div class=\"col-sm-6\" align=\"right\">\n        <div class=\"form-group shiny-input-container\">\n          <div class=\"checkbox\">\n            <label>\n              <input id=\"referent\" type=\"checkbox\"/>\n              <span>Used prior referent<\/span>\n            <\/label>\n          <\/div>\n        <\/div>\n      <\/div>\n    <\/div>\n    <div class=\"row\">\n      <div class=\"col-sm-8 offset-md-2 col-sm-offset-2\" align=\"center\">\n        <div id=\"score_sentences\" class=\"shiny-html-output\"><\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "scoring_info": {
+      "html": "<div style=\"background-color: #e9ecef; padding: 5px; margin-bottom: 5px; border-radius: 5px;font-size:1.25rem;\"><p>8.<sup>1<\/sup><strong><em>The man<\/em><\/strong> <sup>1<\/sup><strong><em>looked<\/em><\/strong> <sup>1<\/sup><strong><em>out of the window<\/em><\/strong>.<\/p>\n\n<ol>\n<li>See 4.1<\/li>\n<li>Looks, is looking<\/li>\n<li>Outside, out, out of the glass<\/li>\n<\/ol>\n\n<ul>\n<li>Note: “The man goes to the window,” “The man went to the window,” or “The man goes outside”, etc., did not count towards this concept. These were separate relevant concepts that did not meet criterion.<\/li>\n<\/ul>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "sentence_buttons": {
+      "html": "<div class=\"form-group shiny-input-container shiny-input-checkboxgroup shiny-input-container-inline\">\n  <label class=\"control-label shiny-label-null\" for=\"score_mca\" id=\"score_mca-label\"><\/label>\n  <div id=\"score_mca\" class=\"checkboxGroupButtons\" style=\"width: 100%;\">\n    <div aria-labelledby=\"score_mca-label\" class=\" btn-group-justified btn-group-sm btn-group-container-sw\" data-toggle=\"buttons\" role=\"group\">\n      <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n        <button class=\"btn checkbtn btn-default\">\n          <input type=\"checkbox\" autocomplete=\"off\" name=\"score_mca\" value=\"Okay.\"/>\n          Okay.\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n        <button class=\"btn checkbtn btn-default\">\n          <input type=\"checkbox\" autocomplete=\"off\" name=\"score_mca\" value=\"I’ve done this before.\"/>\n          I’ve done this before.\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n        <button class=\"btn checkbtn btn-default\">\n          <input type=\"checkbox\" autocomplete=\"off\" name=\"score_mca\" value=\"He kicked the ball.\"/>\n          He kicked the ball.\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n        <button class=\"btn checkbtn btn-default\">\n          <input type=\"checkbox\" autocomplete=\"off\" name=\"score_mca\" value=\"It went doodoodoo and went through the glass.\"/>\n          It went doodoodoo and went through the glass.\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n        <button class=\"btn checkbtn btn-default\">\n          <input type=\"checkbox\" autocomplete=\"off\" name=\"score_mca\" value=\"It’s his dad sitting in the the couch.\"/>\n          It’s his dad sitting in the the couch.\n        <\/button>\n      <\/div>\n      <div class=\"btn-group btn-group-toggle btn-group-sm\" role=\"group\">\n        <button class=\"btn checkbtn btn-default\">\n          <input type=\"checkbox\" autocomplete=\"off\" name=\"score_mca\" value=\"It’s not good.\"/>\n          It’s not good.\n        <\/button>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>",
+      "deps": [
+        {
+          "name": "shinyWidgets",
+          "version": "0.6.0",
+          "src": {
+            "href": "shinyWidgets"
+          },
+          "meta": null,
+          "script": "shinyWidgets-bindings.min.js",
+          "stylesheet": "shinyWidgets.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    }
+  },
+  "export": {
+
+  }
+}

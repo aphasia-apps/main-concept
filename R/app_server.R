@@ -615,14 +615,14 @@ app_server <- function( input, output, session ) {
     ))
   })
   
-  training_transcript1 <- "Okay. I’ve done this before. He kicked the ball. It went doodoodoo and went through the glass. It’s his dad sitting in the the couch. It’s not good."
-  training_transcript2 <- "He kicking ball. And the lamp it hits. Man yelled."
-  training_transcript3 <- "Looks like the problem is the cat is stuck up in a tree. Father is out on the and. he's kind of stuck himself I think. The little girl is crying for the cat. She's got an umbrella. There's a guy up in the or. a dog barking up the tree. And the fire department is coming. A little girl was trying to reach him I guess. I don't know if she was trying to get this ladder or not. I have no idea about that. But anyway the firemen are coming. The fire truck is there. And they're coming out with a ladder apparently to help get the cat and father out of the tree."
+  # training_transcript1 <- "Okay. I’ve done this before. He kicked the ball. It went doodoodoo and went through the glass. It’s his dad sitting in the the couch. It’s not good."
+  # training_transcript2 <- "He kicking ball. And the lamp it hits. Man yelled."
+  # training_transcript3 <- "Looks like the problem is the cat is stuck up in a tree. Father is out on the and. he's kind of stuck himself I think. The little girl is crying for the cat. She's got an umbrella. There's a guy up in the or. a dog barking up the tree. And the fire department is coming. A little girl was trying to reach him I guess. I don't know if she was trying to get this ladder or not. I have no idea about that. But anyway the firemen are coming. The fire truck is there. And they're coming out with a ladder apparently to help get the cat and father out of the tree."
   # All the things that need to start happening for training to work. 
   observeEvent(input$start_training,{
     values$training = T #are we in training mode?
     values$i = 1
-    values$key =keys[[as.numeric(input$training_module)]] # not sure why I made this
+    values$key =keys[[as.numeric(input$training_module)]] # this is the vector of keys for the module.
     values$datetime <- Sys.time() # log the time and date. 
     
     stim_in <- if(input$training_module == "1"){"broken_window"
