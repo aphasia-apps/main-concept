@@ -431,8 +431,8 @@ app_server <- function( input, output, session ) {
         selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
           values$concept_accuracy[[values$i]][1,1]
         } else {
-          #NA
-          sample(choice_tests, 1)
+          NA
+          #sample(choice_tests, 1)
           }
       )
     } else {}
@@ -450,8 +450,8 @@ app_server <- function( input, output, session ) {
         selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
           values$concept_accuracy[[values$i]][2,1]
         } else {
-          #NA
-          sample(choice_tests, 1)
+          NA
+          #sample(choice_tests, 1)
         }
       )
     }else{}
@@ -470,8 +470,8 @@ app_server <- function( input, output, session ) {
           selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
             values$concept_accuracy[[values$i]][3,1]
           } else {
-            #NA
-            sample(choice_tests, 1)
+            NA
+            #sample(choice_tests, 1)
           }        
           )
       } 
@@ -490,8 +490,8 @@ app_server <- function( input, output, session ) {
       selected = if (length(values$concept_accuracy)>=values$i && values$i>0){
         values$concept_accuracy[[values$i]][4,1]
       } else {
-        #NA
-        sample(choice_tests, 1)
+        NA
+        #sample(choice_tests, 1)
       }    )
   })
   

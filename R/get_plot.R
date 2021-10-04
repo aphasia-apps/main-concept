@@ -24,6 +24,7 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
         dplyr::rename(score = norm_var)
       
       val = max(dat$score)
+      seq_breaks = 4
       
     } else if (norm_var == "AC"){
       vert_line <- current_score[2]
@@ -32,8 +33,10 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
       dat = norms %>%
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
         dplyr::rename(score = norm_var)
+      print(max(dat$score))
       
-      val = max(dat$score)
+      val = max(dat$score, na.rm = T)
+      seq_breaks = 2
       
     } else if (norm_var == "MC Attempts"){
       vert_line <- current_score[3]
@@ -43,7 +46,8 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
         dplyr::rename(score = norm_var)
       
-      val = max(dat$score)
+      val = max(dat$score, na.rm = T)
+      seq_breaks = 2
       
     # } else if (norm_var == "COMP_min"){
     #   vert_line <- current_score[4]
@@ -64,6 +68,7 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
         dplyr::rename(score = norm_var)
       
       val = quantile(dat$score, probs = .97)
+      seq_breaks = 2
       
     } else {
       vert_line <- 0
@@ -80,7 +85,7 @@ get_plot <- function(norms, current_score, stim, scoring = "dalton_richardson", 
     ggplot2::theme_minimal(base_size = basesize) +
     ggplot2::scale_x_continuous(
       limits = c(0,val),
-      breaks = seq(0,val, 2)) +
+      breaks = seq(0,val, seq_breaks)) +
     ggplot2::theme(
           axis.text.y=ggplot2::element_blank(),
           axis.ticks.y = ggplot2::element_blank(),

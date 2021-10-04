@@ -161,7 +161,7 @@ get_intro_div <- function() {
                          "Enter transcript (separate utterances with a period)",
                          height = "400px",
                          width = "100%",
-                         value = transcriptDefault
+                         value = "",#transcriptDefault
                        ),
                        # these are the detailed transcription instructions
                        # opens a modal from app_server.R
