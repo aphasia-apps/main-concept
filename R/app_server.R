@@ -299,6 +299,19 @@ app_server <- function( input, output, session ) {
     
   })
   
+  # Footer modal for feedback:
+  observeEvent(input$feedback, {
+    showModal(modalDialog(
+          tags$iframe(src = "https://docs.google.com/forms/d/e/1FAIpQLSf6Ml8j4_NtSuiUy35D8Ue1O14PWIJ8vcV1RI8U-pXfp84mpg/viewform?embedded=true",
+                      frameBorder="0",
+                      height = "650px",
+                      width = "950px"),
+      size = "l",
+      easyClose = TRUE
+    ))
+    
+  })
+  
   ################################### OTHER MODALS ############################
   #trascription rules
   observeEvent(input$full_transcription, {

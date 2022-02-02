@@ -23,10 +23,13 @@ get_intro_div <- function() {
                      div(includeMarkdown(
                        system.file("app/www/intro.md",
                                    package = "mainConcept")
-                     )),
+                     )),br(),
                      # buttons to progress
                      div(align = "center",
-                         actionButton("glide_next1", "Next"))
+                         actionButton("glide_next1", "Get Started")),
+                     div(style = "margin-top: 30px;",
+                         tags$em("Note: This app is currently under development and is not ready for clinical or research use. Please leave us any feedback using the link at the bottom of the page.", style = "color: red;")
+                     )
                    )),
       # UI for second intro page
       tabPanelBody(value = "glide2",
@@ -166,7 +169,7 @@ get_intro_div <- function() {
                        # these are the detailed transcription instructions
                        # opens a modal from app_server.R
                        actionButton("full_transcription",
-                                    "Detailed transcription rules")
+                                    "Detailed transcription rules"),
                      )
                    ),
                    br(),
