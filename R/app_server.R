@@ -19,17 +19,6 @@ app_server <- function( input, output, session ) {
   values$num_previous <- 0 # number of previous tests
   values$datetime <- Sys.time() # establishes datetime when app opens for saving
   
-  # this is for loading screens
-  w <- waiter::Waiter$new(
-    color = waiter::transparent(0.1),
-    html = waiter::spin_refresh()
-  )
-  # this is for loading screens
-  w1 <- waiter::Waiter$new(
-    color = waiter::transparent(0.1),
-    html = waiter::spin_refresh()
-  )
-  
   ################################## OBSERVERS ###################################
   # ------------------------------------------------------------------------------
   ################################################################################
@@ -116,6 +105,7 @@ app_server <- function( input, output, session ) {
     # go to the scoring page
     # save the transcript
     values$transcript = input$input_transcript
+    cat("start button pressed.")
     updateNavbarPage(session, "mainpage", selected = "scoring")
   })
   
