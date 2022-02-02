@@ -10,28 +10,13 @@ app_ui <- function(request) {
       golem_add_external_resources(),
       # use the shinyjs functions
       shinyjs::useShinyjs(),
-      # for the loading screens/icons
-      waiter::useWaiter(), 
-      waiter::autoWaiter("waiter"),
-      waiter::waiterPreloader(html=waiter::spin_dots(),color="white"),
       # this css when added to custom.css did not load in the right priority, 
       # so now its here
       tags$style(".swal2-popup {font-size: 1rem !important;}"),
       # UI starts here
       navbarPage(
               # Navbar content
-              title = div(
-                            div("Main Concept Analysis"), # title
-                            div(id = "navbar-right",
-                                # buttons on the right
-                                # not always shown
-                                downloadButton("report", "Download Report"),
-                                downloadButton("downloadData", "Download Data"),
-                                actionButton("start_over",
-                                             "Start Over",
-                                             icon = icon("undo")),
-                                style = "position: absolute; right: 5px; top: 8px;")
-                ),
+              title = "Main Concept Analysis",
                   # when referencing status of navbar, id is mainpage (input$mainpage == "...")
                  id = "mainpage",
                   # footer div
@@ -54,7 +39,16 @@ app_ui <- function(request) {
                  ############################ Results ###################################
                  tabPanel(value = "results", title = "Results", 
                           uiOutput("results_div")
-                 )   
+                 ),
+                !!!list(bslib::nav_spacer(),
+                        bslib::nav_item(pagetitle()),
+                        bslib::nav_item(
+                         tags$a(icon("github"),
+                                 href = "https://github.com/aphasia-apps/mainConcept",
+                                 target = "_blank",
+                                 style = "color:black;")
+                        )
+                )
       )
     )
 }
