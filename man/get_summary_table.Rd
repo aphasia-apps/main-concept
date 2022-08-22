@@ -15,9 +15,6 @@ get_summary_table(results, norms, scoring = "dalton_richardson", min = 0)
 
 \item{min}{how long did the sample take, if 0, considered NA.}
 }
-\value{
-
-}
 \description{
 creates the summary table for the results page.
 }

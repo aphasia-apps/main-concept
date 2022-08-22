@@ -11,9 +11,6 @@ ecdf_fun(x, perc)
 
 \item{perc}{percent}
 }
-\value{
-
-}
 \description{
 Ecdf function
 }

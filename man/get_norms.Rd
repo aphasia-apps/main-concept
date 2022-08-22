@@ -11,9 +11,6 @@ get_norms(stimulus, google_sheets = F)
 
 \item{google_sheets}{should the functionget norms from google sheets?}
 }
-\value{
-
-}
 \description{
 Note that if googlesheets fails, static norms will be used.
 }

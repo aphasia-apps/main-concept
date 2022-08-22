@@ -6,9 +6,6 @@
 \usage{
 get_intro_div()
 }
-\value{
-
-}
 \description{
 This function renders the UI for input$mainpage == "intro" on the navbar.
 }

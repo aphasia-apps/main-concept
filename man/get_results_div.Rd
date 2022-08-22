@@ -6,9 +6,6 @@
 \usage{
 get_results_div()
 }
-\value{
-
-}
 \description{
 this function generates the UI for the results page.
 }

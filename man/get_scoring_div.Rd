@@ -9,9 +9,6 @@ get_scoring_div(num)
 \arguments{
 \item{num}{current item to be shown}
 }
-\value{
-
-}
 \description{
 This function renders the UI for input$mainpage == "intro" on the navbar.
 }

@@ -9,9 +9,6 @@ get_sentence_data(rds_list)
 \arguments{
 \item{rds_list}{a list sentences}
 }
-\value{
-
-}
 \description{
 Not currently used as far as I can tell
 But not deleting it until I confirm that for sure

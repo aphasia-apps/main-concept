@@ -6,9 +6,6 @@
 \usage{
 footer_div()
 }
-\value{
-
-}
 \description{
 Function to return the footer. Buttons hidden unless scoring.
 }
