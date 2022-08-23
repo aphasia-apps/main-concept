@@ -33,12 +33,15 @@ app_server <- function( input, output, session ) {
       # shows download report button only on the results page. 
       if(input$mainpage != "results"){
         shinyjs::hide("report")
+        shinyjs::hide("downloadData")
       } else {
         shinyjs::show("report")
+        shinyjs::show("downloadData")
       }
       # buttons to advance scoring. dont delete you bozo. 
       if(input$mainpage == "scoring"){
         shinyjs::show("footer_buttons")
+        shinyjs::show("start_over")
       } else {
         shinyjs:: hide("footer_buttons")
       }
@@ -340,6 +343,26 @@ app_server <- function( input, output, session ) {
     get_intro_div()
   })
   
+  output$scoring_table_output <- DT::renderDataTable({
+                          DT::datatable(
+                            scoring_table,
+                            rownames = FALSE,
+                            options = list(paging = FALSE,    ## paginate the output
+                                           pageLength = 5,  ## number of rows to output for each page
+                                           scrollX = FALSE,   ## enable scrolling on X axis
+                                           scrollY = FALSE,   ## enable scrolling on Y axis
+                                           autoWidth = FALSE, ## use smart column width handling
+                                           server = FALSE,   ## use client-side processing
+                                           ordering = FALSE,
+                                           dom = '',
+                                           columnDefs = list(list(width = '25%', targets = c(0)),
+                                                             list(width = '15%', targets = c(2,3)),
+                                                             list(width = '45%', targets = c(1)))
+    ),
+                            class = "table"
+                            )
+                     })
+  
   # this is the UI For the scoring tab
   
   output$scoring_div <- renderUI({
@@ -383,7 +406,7 @@ app_server <- function( input, output, session ) {
     df = tibble::tibble(txt = stringr::str_trim(unlist(strsplit(values$transcript, "(?<=\\.)", perl = T))))
     shinyWidgets::checkboxGroupButtons(
       inputId = "score_mca",
-      justified = T, size = "sm",
+      justified = F, size = "sm",
       individual = T,
       choices = unique(df$txt),
       selected = if (length(values$selected_sentences)>=values$i && values$i>0){
@@ -520,13 +543,13 @@ app_server <- function( input, output, session ) {
     } else {
       tagList(
         fluidRow(
-          column(width = 4, align = "center", 
+          column(width = 3, align = "center", offset = 1,
                  uiOutput("score1")
           ),
           column(width = 4, align = "center",
                  uiOutput("score2")
           ),
-          column(width = 4, align = "center",
+          column(width = 3, align = "center",
                  uiOutput("score3")
           )
         )
