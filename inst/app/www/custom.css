@@ -92,3 +92,7 @@ h5 {
 table.dataTable td, table.dataTable th {
     padding: 0.5rem 0.75rem;
 }
+
+#maintitle{
+  margin-bottom:2%;
+}

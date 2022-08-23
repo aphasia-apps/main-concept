@@ -1,5 +1,5 @@
 
-## Rules for orthographic transcription (long)
+## Rules for orthographic transcription
 
 1.  Include words/phrases even if they are repeated or part of revisions
 

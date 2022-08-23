@@ -181,6 +181,7 @@ app_server <- function( input, output, session ) {
             text = div(
               DT::DTOutput("training_table")
             ),
+            btn_labels = c("Return to Concept", "Go to Next Concept"),
             type = "success",
             width = "300px", 
             html = T
@@ -195,6 +196,7 @@ app_server <- function( input, output, session ) {
               tags$em("Your concepts are correct, but you didn't select the correct utterance."),br(),
               DT::DTOutput("training_table")
             ),
+            btn_labels = c("Try Again"),
             type = "error",
             width = "300px", 
             html = T
@@ -208,6 +210,7 @@ app_server <- function( input, output, session ) {
             text = div(
               DT::DTOutput("training_table")
             ),
+            btn_labels = c("Try Again"),
             type = "error",
             width = "300px", 
             html = T
@@ -264,23 +267,6 @@ app_server <- function( input, output, session ) {
     }
   )
   
-  
-  ################################## FOOTER MODAL ################################
-  # ------------------------------------------------------------------------------
-  ################################################################################
-
-  # Footer modal for feedback:
-  observeEvent(input$feedback, {
-    showModal(modalDialog(
-          tags$iframe(src = "https://docs.google.com/forms/d/e/1FAIpQLSf6Ml8j4_NtSuiUy35D8Ue1O14PWIJ8vcV1RI8U-pXfp84mpg/viewform?embedded=true",
-                      frameBorder="0",
-                      height = "650px",
-                      width = "950px"),
-      size = "l",
-      easyClose = TRUE
-    ))
-    
-  })
   
   ################################### OTHER MODALS ############################
   #trascription rules
@@ -635,6 +621,7 @@ app_server <- function( input, output, session ) {
     # premade table of answers for each of the training modules. 
     values$answers <- answers %>% dplyr::filter(module == input$training_module)
     
+    # this includes more options than needed for future training modules
     values$stim_task <- tibble::tibble(
       stim = stim_in,
       stim_num = if(stim_in == 'broken_window'){1
@@ -674,6 +661,17 @@ app_server <- function( input, output, session ) {
     req(isTruthy(input$alert_correct_answer))
     if (values$i == values$stim_task$num_slides) {
       updateNavbarPage(session, "mainpage", selected = "results")
+      showModal(modalDialog(
+        title = "Module Complete. Nice Work!",
+        div(
+          "You can review the final scores for the training module on this
+          page. Try downloading data to see what data is available after scoring MCA
+          or download the report to preview a sample report from the web app. 
+          Select 'start over' to return to the home page and complete another
+          module or score one of your own samples."
+        ),
+        size = "m",
+        easyClose = TRUE))
     } else{
       # otherwise iterate values$i and move on to the next item. 
       values$i <- values$i + 1
