@@ -28,7 +28,7 @@ get_intro_div <- function() {
                      div(align = "center",
                          actionButton("glide_next1", "Get Started")),
                      div(style = "margin-top: 30px;",
-                         tags$em("Note: This app is currently under development and is not ready for clinical or research use. Please leave us any feedback using the link at the bottom of the page.", style = "color: red;")
+                         tags$em("Note: This app is currently under development and is not ready for clinical or research use.", style = "color: red;")
                      )
                    )),
       # UI for second intro page
@@ -37,11 +37,21 @@ get_intro_div <- function() {
                      width = 10,
                      offset = 1,
                      # table stuff with styling
-                     div(class = "ox-hugo-table basic-styling",
-                         includeMarkdown(
-                           system.file("app/www/scoring.md",
-                                       package = "mainConcept")
-                         )),
+                     # div(class = "ox-hugo-table basic-styling",
+                     #     includeMarkdown(
+                     #       system.file("app/www/scoring.md",
+                     #                   package = "mainConcept")
+                     #     )),
+                     div(
+                       includeMarkdown(
+                               system.file("app/www/scoring.md",
+                                           package = "mainConcept")
+                             ),
+                       DT::dataTableOutput("scoring_table_output"), br()
+                       # tags$p("Get started using the app by selecting 'Training' to begin the training modules or
+                       #        'Start scoring' to begin scoring a transcript.")
+                     ),
+                     
                      # buttons
                      div(
                        align = "center",
@@ -66,11 +76,11 @@ get_intro_div <- function() {
                          h5("Enter participant information"),
                          br(),
                          # name
-                         textInput("name", "Enter a Name"),
+                         textInput("name", "Name:"),
                          # which stimulus you're scoring
                          selectInput(
                            inputId = "input_stimulus",
-                           label = "Select stimulus",
+                           label = "Stimulus:",
                            c(
                              "Broken Window" = 'broken_window',
                              "Cat Rescue" = 'cat_rescue',
@@ -86,7 +96,7 @@ get_intro_div <- function() {
                          # this could be a bit confusing...may have to change.
                          numericInput(
                            "input_duration",
-                           "Enter Duration (seconds)",
+                           "Sample Duration (seconds):",
                            value = 0,
                            min = 0,
                            max = 720
@@ -95,15 +105,13 @@ get_intro_div <- function() {
                          # report and downloaded data. 
                          textAreaInput(
                            "notes",
-                           "Enter any notes",
+                           "Notes:",
                            width = "100%",
                            height = "100px"
                          ),
-                         br(),
                          p(
                            tags$em(
-                             "Note, for privacy reasons, data is not
-                             retained after the page is closed or refreshed."
+                             "Note: data is not retained after the page is closed or refreshed."
                            ),
                            style = "max-width:300px;"
                          ),
@@ -168,8 +176,10 @@ get_intro_div <- function() {
                        ),
                        # these are the detailed transcription instructions
                        # opens a modal from app_server.R
-                       actionButton("full_transcription",
-                                    "Detailed transcription rules"),
+                       div(align = "center",
+                         actionButton("full_transcription",
+                                      "Detailed transcription rules")
+                         ),
                      )
                    ),
                    br(),

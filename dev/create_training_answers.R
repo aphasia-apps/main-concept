@@ -1,3 +1,25 @@
+
+
+usethis::use_data(
+  acc_norms,
+  answers,
+  eff_norms,
+  elements,
+  keys,
+  main_concepts,
+  mc_reference,
+  scoring_mca,
+  sty,
+  training_transcript1,
+  training_transcript2,
+  training_transcript3,
+  scoring_table,
+
+  internal = TRUE, overwrite = TRUE)
+
+
+
+
 # # make answers to training modules
 # load("~/Documents/github-repos/mainConcept/R/sysdata.rda")
 # 

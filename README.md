@@ -11,14 +11,12 @@ Beta, and is not yet ready for research or clinical deployment.
 
 It can be accessed here: <https://aphasia-apps.shinyapps.io/mainConcept>
 
-<!-- badges: start -->
-
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-<!-- badges: end -->
-
 Please note, the app ***does not save any data*** from each user
 session.
+
+Please provide feedback!
+
+<https://docs.google.com/forms/d/e/1FAIpQLSf6Ml8j4_NtSuiUy35D8Ue1O14PWIJ8vcV1RI8U-pXfp84mpg/viewform?embedded=true>
 
 ## Installation
 
@@ -26,7 +24,7 @@ This web-app is also an R package! You can install the app locally with:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("aphasia-apps/mainConcept")
+remotes::install_github("aphasia-apps/mainconcept")
 ```
 
 ## Using
@@ -56,7 +54,6 @@ follows:
 -   /inst: Holds resources for the app made available at app/www/…
 -   /man: Holds documentation for functions. fairly minimal.
 -   /dev: Holds developer functions
--   /tests: Holds files to test the app for breaking changes. 
 -   The list of dependencies can be found in the DESCRIPTION file.
 -   License can be found in the LICENSE.md file
 -   app.R is used to upload the app to shinyapps.io

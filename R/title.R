@@ -10,30 +10,22 @@ pagetitle <- function(){
      title = div(
        downloadButton("report", "Download Report"),
        downloadButton("downloadData", "Download Data"),
-       actionButton("start_over",
-                    "Start Over",
-                    ),
+       shinyjs::hidden(actionButton("start_over","Start Over")),
        actionButton(
          inputId = "info",
          label = "Scoring Manual",
          icon = icon("book"),
          onclick = "window.open('https://drive.google.com/drive/folders/1bxazjgQWx-WD8ELTJjwBm_5IToRpgQhQ', '_blank')",
        ),
+# 
+#        actionButton(
+#          inputId = "about",
+#          label = "About",
+#        ),
        # actionButton(
-       #   inputId = "references",
-       #   label = "References",
-       #   icon = icon("book"),
-       #   style = "background:transparent; border:none;"
-       #   
-       # ),
-       actionButton(
-         inputId = "about",
-         label = "About",
-       ),
-       actionButton(
-         inputId = "feedback",
-         label = "Give feedback",
-       )
+       #   inputId = "feedback",
+       #   label = "Give feedback",
+       # )
      )
 
   return(title)

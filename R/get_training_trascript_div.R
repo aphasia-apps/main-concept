@@ -16,15 +16,17 @@ get_training_trascript_div <- function(module_num) {
   get_answer = paste0("app/www/", "answer_module", module_num, ".md")
   
   return(
-    div(fluidRow(column(
-    width = 10,
-    offset = 1,
-    # this is the box holding the orthographic transcript
-    div(id = "transcript_box",
-        includeMarkdown(
-          system.file(get_ortho, package = "mainConcept")
-        ))
-  )),
+    fluidRow(
+      column(
+        width = 10,
+        offset = 1,
+        # this is the box holding the orthographic transcript
+        div(style = "margin-bottom: 16px;",
+          div(id = "transcript_box",
+            includeMarkdown(system.file(get_ortho, package = "mainConcept"))
+            )
+        )
+  ),
   fluidRow(
     column(
       width = 5,
@@ -65,6 +67,10 @@ get_training_trascript_div <- function(module_num) {
       ),
       br(),
       # hidden: the correct transcript. an action button in footer shows it. 
+      div(align = "center",
+        actionButton("show_transcript_answer",
+                   "Show Correct Transcription")
+        ),
       shinyjs::hidden(div(
         id = "correct_transcript",
         div(id = "transcript_box",
@@ -73,5 +79,18 @@ get_training_trascript_div <- function(module_num) {
             ))
       ))
     )
-  )))
+  ),
+  fluidRow(
+    column(
+      12,
+      align = "center",
+      style = "background-color: white; padding: 30px 0px;",
+      id = "footer_buttons_training",
+      actionButton("full_transcription2",
+                   "Detailed transcription rules"),
+      actionButton("start_training_scoring",
+                   "Begin Scoring")
+    )
+  )
+  ))
 }

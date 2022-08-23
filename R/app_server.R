@@ -33,12 +33,15 @@ app_server <- function( input, output, session ) {
       # shows download report button only on the results page. 
       if(input$mainpage != "results"){
         shinyjs::hide("report")
+        shinyjs::hide("downloadData")
       } else {
         shinyjs::show("report")
+        shinyjs::show("downloadData")
       }
       # buttons to advance scoring. dont delete you bozo. 
       if(input$mainpage == "scoring"){
         shinyjs::show("footer_buttons")
+        shinyjs::show("start_over")
       } else {
         shinyjs:: hide("footer_buttons")
       }
@@ -178,6 +181,7 @@ app_server <- function( input, output, session ) {
             text = div(
               DT::DTOutput("training_table")
             ),
+            btn_labels = c("Return to Concept", "Go to Next Concept"),
             type = "success",
             width = "300px", 
             html = T
@@ -192,6 +196,7 @@ app_server <- function( input, output, session ) {
               tags$em("Your concepts are correct, but you didn't select the correct utterance."),br(),
               DT::DTOutput("training_table")
             ),
+            btn_labels = c("Try Again"),
             type = "error",
             width = "300px", 
             html = T
@@ -205,6 +210,7 @@ app_server <- function( input, output, session ) {
             text = div(
               DT::DTOutput("training_table")
             ),
+            btn_labels = c("Try Again"),
             type = "error",
             width = "300px", 
             html = T
@@ -262,46 +268,6 @@ app_server <- function( input, output, session ) {
   )
   
   
-  ################################## FOOTER MODAL ################################
-  # ------------------------------------------------------------------------------
-  ################################################################################
-
-  # about hte app page
-  observeEvent(input$about, {
-    showModal(modalDialog(
-      div(style="margin:5%;",
-        includeMarkdown(system.file("app/www/bio.md", package = "mainConcept"))
-      ),
-      size = "l",
-      easyClose = TRUE
-    ))
-  })
-  
-  # dont delete this. uncomment it when you change the footer onclick
-  observeEvent(input$references, {
-    showModal(modalDialog(
-      div(style="margin:5%",
-          includeMarkdown(system.file("app/www/references.md", package = "mainConcept"))
-      ),
-      size = "l",
-      easyClose = TRUE
-    ))
-    
-  })
-  
-  # Footer modal for feedback:
-  observeEvent(input$feedback, {
-    showModal(modalDialog(
-          tags$iframe(src = "https://docs.google.com/forms/d/e/1FAIpQLSf6Ml8j4_NtSuiUy35D8Ue1O14PWIJ8vcV1RI8U-pXfp84mpg/viewform?embedded=true",
-                      frameBorder="0",
-                      height = "650px",
-                      width = "950px"),
-      size = "l",
-      easyClose = TRUE
-    ))
-    
-  })
-  
   ################################### OTHER MODALS ############################
   #trascription rules
   observeEvent(input$full_transcription, {
@@ -339,6 +305,26 @@ app_server <- function( input, output, session ) {
   output$intro_div <- renderUI({
     get_intro_div()
   })
+  
+  output$scoring_table_output <- DT::renderDataTable({
+                          DT::datatable(
+                            scoring_table,
+                            rownames = FALSE,
+                            options = list(paging = FALSE,    ## paginate the output
+                                           pageLength = 5,  ## number of rows to output for each page
+                                           scrollX = FALSE,   ## enable scrolling on X axis
+                                           scrollY = FALSE,   ## enable scrolling on Y axis
+                                           autoWidth = FALSE, ## use smart column width handling
+                                           server = FALSE,   ## use client-side processing
+                                           ordering = FALSE,
+                                           dom = '',
+                                           columnDefs = list(list(width = '25%', targets = c(0)),
+                                                             list(width = '15%', targets = c(2,3)),
+                                                             list(width = '45%', targets = c(1)))
+    ),
+                            class = "table"
+                            )
+                     })
   
   # this is the UI For the scoring tab
   
@@ -383,7 +369,7 @@ app_server <- function( input, output, session ) {
     df = tibble::tibble(txt = stringr::str_trim(unlist(strsplit(values$transcript, "(?<=\\.)", perl = T))))
     shinyWidgets::checkboxGroupButtons(
       inputId = "score_mca",
-      justified = T, size = "sm",
+      justified = F, size = "sm",
       individual = T,
       choices = unique(df$txt),
       selected = if (length(values$selected_sentences)>=values$i && values$i>0){
@@ -520,13 +506,13 @@ app_server <- function( input, output, session ) {
     } else {
       tagList(
         fluidRow(
-          column(width = 4, align = "center", 
+          column(width = 3, align = "center", offset = 1,
                  uiOutput("score1")
           ),
           column(width = 4, align = "center",
                  uiOutput("score2")
           ),
-          column(width = 4, align = "center",
+          column(width = 3, align = "center",
                  uiOutput("score3")
           )
         )
@@ -616,12 +602,9 @@ app_server <- function( input, output, session ) {
                        modalButton("Cancel")
       )
     ))
+    
   })
   
-  # training_transcript1 <- "Okay. I’ve done this before. He kicked the ball. It went doodoodoo and went through the glass. It’s his dad sitting in the the couch. It’s not good."
-  # training_transcript2 <- "He kicking ball. And the lamp it hits. Man yelled."
-  # training_transcript3 <- "Looks like the problem is the cat is stuck up in a tree. Father is out on the and. he's kind of stuck himself I think. The little girl is crying for the cat. She's got an umbrella. There's a guy up in the or. a dog barking up the tree. And the fire department is coming. A little girl was trying to reach him I guess. I don't know if she was trying to get this ladder or not. I have no idea about that. But anyway the firemen are coming. The fire truck is there. And they're coming out with a ladder apparently to help get the cat and father out of the tree."
-  # All the things that need to start happening for training to work. 
   observeEvent(input$start_training,{
     values$training = T #are we in training mode?
     values$i = 1
@@ -638,6 +621,7 @@ app_server <- function( input, output, session ) {
     # premade table of answers for each of the training modules. 
     values$answers <- answers %>% dplyr::filter(module == input$training_module)
     
+    # this includes more options than needed for future training modules
     values$stim_task <- tibble::tibble(
       stim = stim_in,
       stim_num = if(stim_in == 'broken_window'){1
@@ -657,12 +641,14 @@ app_server <- function( input, output, session ) {
     values$norms = get_norms(stimulus = stim_in, google_sheets = F) 
     removeModal()
     updateTabsetPanel(session, "glide", "glide4_training")
+    shinyjs::show("start_over")
   })
   
 
   # TRAINING OBSERVER show the correct transcript when button pushed
   observeEvent(input$show_transcript_answer,{
     shinyjs::show("correct_transcript")
+    shinyjs::hide("show_transcript_answer")
   })
   
   # TRAINING OBSERVER go to scoring page when button pushed
@@ -675,6 +661,17 @@ app_server <- function( input, output, session ) {
     req(isTruthy(input$alert_correct_answer))
     if (values$i == values$stim_task$num_slides) {
       updateNavbarPage(session, "mainpage", selected = "results")
+      showModal(modalDialog(
+        title = "Module Complete. Nice Work!",
+        div(
+          "You can review the final scores for the training module on this
+          page. Try downloading data to see what data is available after scoring MCA
+          or download the report to preview a sample report from the web app. 
+          Select 'start over' to return to the home page and complete another
+          module or score one of your own samples."
+        ),
+        size = "m",
+        easyClose = TRUE))
     } else{
       # otherwise iterate values$i and move on to the next item. 
       values$i <- values$i + 1
