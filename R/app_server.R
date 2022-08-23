@@ -269,29 +269,6 @@ app_server <- function( input, output, session ) {
   # ------------------------------------------------------------------------------
   ################################################################################
 
-  # about hte app page
-  observeEvent(input$about, {
-    showModal(modalDialog(
-      div(style="margin:5%;",
-        includeMarkdown(system.file("app/www/bio.md", package = "mainConcept"))
-      ),
-      size = "l",
-      easyClose = TRUE
-    ))
-  })
-  
-  # dont delete this. uncomment it when you change the footer onclick
-  observeEvent(input$references, {
-    showModal(modalDialog(
-      div(style="margin:5%",
-          includeMarkdown(system.file("app/www/references.md", package = "mainConcept"))
-      ),
-      size = "l",
-      easyClose = TRUE
-    ))
-    
-  })
-  
   # Footer modal for feedback:
   observeEvent(input$feedback, {
     showModal(modalDialog(
@@ -639,6 +616,7 @@ app_server <- function( input, output, session ) {
                        modalButton("Cancel")
       )
     ))
+    
   })
   
   observeEvent(input$start_training,{
@@ -676,6 +654,7 @@ app_server <- function( input, output, session ) {
     values$norms = get_norms(stimulus = stim_in, google_sheets = F) 
     removeModal()
     updateTabsetPanel(session, "glide", "glide4_training")
+    shinyjs::show("start_over")
   })
   
 
