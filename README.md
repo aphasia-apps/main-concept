@@ -9,14 +9,10 @@ for both research and clinical practice. The app is written in the
 [{shiny}](https://shiny.rstudio.com/) framework. The app is currently in
 Beta, and is not yet ready for research or clinical deployment.
 
-It can be accessed here: <https://aphasia-apps.shinyapps.io/mainConcept>
+It can be accessed here: <https://rb-cavanaugh.shinyapps.io/mainConcept>
 
 Please note, the app ***does not save any data*** from each user
 session.
-
-Please provide feedback!
-
-<https://docs.google.com/forms/d/e/1FAIpQLSf6Ml8j4_NtSuiUy35D8Ue1O14PWIJ8vcV1RI8U-pXfp84mpg/viewform?embedded=true>
 
 ## Installation
 
