@@ -8,8 +8,8 @@
 pagetitle <- function(){
   
      title = div(
-       downloadButton("report", "Download Report"),
-       downloadButton("downloadData", "Download Data"),
+       shinyjs::hidden(downloadButton("report", "Download Report")),
+       shinyjs::hidden(downloadButton("downloadData", "Download Data")),
        shinyjs::hidden(actionButton("start_over","Start Over")),
        actionButton(
          inputId = "info",

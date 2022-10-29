@@ -17,8 +17,8 @@ get_intro_div <- function() {
       # intro page of the navbar. input$glide == "glide1" for example. 
       tabPanelBody(value = "glide1",
                    column(
-                     width = 10,
-                     offset = 1,
+                     width = 8,
+                     offset = 2,
                      # content for first page
                      div(includeMarkdown(
                        system.file("app/www/intro.md",
@@ -26,13 +26,24 @@ get_intro_div <- function() {
                      )),br(),
                      # buttons to progress
                      div(align = "center",
-                         actionButton("glide_next1", "Get Started")),
-                     div(style = "margin-top: 30px;",
-                         tags$em("Note: This app is currently under development and is not ready for clinical or research use.", style = "color: red;")
-                     )
+                         actionButton("glide_next1", "Get Started"))
+                   )),
+      tabPanelBody(value = "glide2",
+                   column(
+                     width = 8,
+                     offset = 2,
+                     # content for first page
+                     div(includeMarkdown(
+                       system.file("app/www/intro2.md",
+                                   package = "mainConcept")
+                     )),br(),
+                     # buttons to progress
+                     div(align = "center",
+                         actionButton("glide_back2", "Back"),
+                         actionButton("glide_next2", "Next"))
                    )),
       # UI for second intro page
-      tabPanelBody(value = "glide2",
+      tabPanelBody(value = "glide3",
                    column(
                      width = 10,
                      offset = 1,
@@ -55,15 +66,15 @@ get_intro_div <- function() {
                      # buttons
                      div(
                        align = "center",
-                       actionButton("glide_back1", "Back"),
+                       actionButton("glide_back3", "Back"),
                        actionButton("glide_training", "Training Modules"),
-                       actionButton("glide_next2", "Score Transcript")
+                       actionButton("glide_next3", "Score Transcript")
                      )
                    )),
       # This page takes patient information. only navigated to if scoring
       # not a part of the training module. 
       # probably some unnecessary html building in here...
-      tabPanelBody(value = "glide3",
+      tabPanelBody(value = "glide4",
                    column(
                      width = 10,
                      offset = 1,
@@ -80,7 +91,9 @@ get_intro_div <- function() {
                          # which stimulus you're scoring
                          selectInput(
                            inputId = "input_stimulus",
-                           label = "Stimulus:",
+                           label = div("Select Stimulus ", HTML('<a id="stiminfo" href="#" class="action-button">
+                                          <i class="fa fa-info-circle" role="presentation" aria-label="info icon"></i>
+                                          </a>')),
                            c(
                              "Broken Window" = 'broken_window',
                              "Cat Rescue" = 'cat_rescue',
@@ -121,14 +134,14 @@ get_intro_div <- function() {
                      # buttons to progress
                      div(
                        align = "center",
-                       actionButton("glide_back2", "Back"),
-                       actionButton("glide_next3", "Next")
+                       actionButton("glide_back4", "Back"),
+                       actionButton("glide_next4", "Next")
                      )
                    )),
       # last panel within intro. this is for trasncribing and segmenting
       # transcripts. Question of whether we should recommend that 
       # users save their transcript in a text file prior to progressing...
-      tabPanelBody(value = "glide4",
+      tabPanelBody(value = "glide5",
                    fluidRow(
                      column(
                        width = 5,
@@ -189,7 +202,7 @@ get_intro_div <- function() {
                      # buttons
                      div(
                        align = "center",
-                       actionButton("glide_back3", "Back"),
+                       #actionButton("glide_back5", "Back"),
                        actionButton("start",
                                     "Begin Scoring")
                      )

@@ -1,4 +1,4 @@
-app <- ShinyDriver$new("../../", seed = 1)
+app <- ShinyDriver$new(here::here(), seed = 1)
 app$snapshotInit("broken_window")
 
 app$setInputs(glide_next1 = "click")

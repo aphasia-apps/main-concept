@@ -52,31 +52,43 @@ app_server <- function( input, output, session ) {
   
   # includes a few other actions when moving to the last page. 
   
+  # Page 1 glide1
+  
   observeEvent(input$glide_next1,{
     updateTabsetPanel(session, "glide", "glide2")
   })
   
-  observeEvent(input$glide_back1,{
-    updateTabsetPanel(session, "glide", "glide1")
-  })
+  
+  #Page 2 glide2
   
   observeEvent(input$glide_next2,{
     updateTabsetPanel(session, "glide", "glide3")
   })
   
   observeEvent(input$glide_back2,{
-    updateTabsetPanel(session, "glide", "glide2")
+    updateTabsetPanel(session, "glide", "glide1")
   })
   
+  # Page 3 glide3
+  
   observeEvent(input$glide_next3,{
-    # log the time and date for record keeping
-    values$time = Sys.time()
-    # show waiter while waiting for norms to load from google sheets. 
-    values$norms = get_norms(stimulus = input$input_stimulus)
     updateTabsetPanel(session, "glide", "glide4")
   })
   
   observeEvent(input$glide_back3,{
+    updateTabsetPanel(session, "glide", "glide2")
+  })
+  
+  observeEvent(input$glide_next4,{
+    # log the time and date for record keeping
+    values$time = Sys.time()
+    # show waiter while waiting for norms to load from google sheets. 
+    values$norms = get_norms(stimulus = input$input_stimulus)
+    shinyjs::show("start_over")
+    updateTabsetPanel(session, "glide", "glide5")
+  })
+  
+  observeEvent(input$glide_back4,{
     updateTabsetPanel(session, "glide", "glide3")
   })
 
@@ -123,7 +135,7 @@ app_server <- function( input, output, session ) {
       footer = tagList(actionButton("confirm_start_over", "Start over"),
                        modalButton("Cancel")
       ), 
-      size = "s",
+      size = "m",
     ))
   })
   
@@ -292,6 +304,15 @@ app_server <- function( input, output, session ) {
       size = "l",
       easyClose = TRUE,
       footer = NULL
+    ))
+  })
+  
+  # selecting stimuli modal
+  observeEvent(input$stiminfo, {
+    showModal(modalDialog(
+      shiny::includeMarkdown(system.file("app/www/selectstim.md", package = "mainConcept")),
+      easyClose = TRUE,
+      size = "m"
     ))
   })
   
