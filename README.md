@@ -32,6 +32,8 @@ library(mainConcept)
 mainconcept::run_app()
 ```
 
+More detailed installed instructions can be found here: https://github.com/rbcavanaugh/mainConcept/wiki
+
 ## Feedback
 
 At this stage, we would appreciate feedback on the app - whether related
