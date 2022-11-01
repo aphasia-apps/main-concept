@@ -3,7 +3,6 @@
 #' 
 #' This function renders the UI for input$mainpage == "intro" on the navbar. 
 #'
-#' @return
 #' @export
 get_intro_div <- function() {
   column(

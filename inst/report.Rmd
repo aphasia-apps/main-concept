@@ -51,6 +51,10 @@ Main Concept Analysis (MCA) is a hybrid discourse measure that provides some inf
 				
 MC codes were transformed to numeric scores using the formula adapted from Kong (2009): AC(3) + AI(2) + IC(2) + II(1) + AB(0) = MC score.
 
+```{r, include = FALSE}
+print("pre")
+```
+
 ### Results
 
 This test was completed by `r params$name` and scored on `r format(params$start_time, format="%B %d %Y %R %Z")`. These results are specific to the ***`r stringr::str_to_title(paste(unlist(strsplit(params$stim, split = "_")), collapse = " "))` stimulus.*** 
@@ -73,13 +77,14 @@ Attempts: Your patient/participant attempted to produce `r params$summary_table[
 
 Accurate and Complete Codes per minute (AC/min): AC/min is a measure of discourse efficiency, specifically how many accurate and complete main concepts were produced per minute. Derived efficiency measures are “useful in examining the effort needed by the speaker to produce discourse and the consequent effort needed by the listener in receiving the information effectively” (Armstrong, 2000). Your patient/participant produced `r params$summary_table[8,2]`. This is in the `r params$summary_table[8,4]` percentile of persons with aphasia (PWAs), meaning that `r params$summary_table[8,4]` percent of the PWAs in the sample produced equal to or fewer AC concepts per minute than your patient/participant. This is in the `r params$summary_table[8,5]` percentile of controls, meaning that `r params$summary_table[8,5]` percent of controls in the sample produced equal to or fewer AC concepts per minute than your patient/participant. 
 
-```{r, echo = F}
+```{r, echo = F, message = F}
 kableExtra::kbl(params$summary_table,
                 format = "latex",
                 booktabs = TRUE,
                 caption = "Summary of results from MCA") %>%
   kableExtra::kable_styling(latex_options = "HOLD_position")
 shiny::setProgress(0.3)
+message("early")
 ```
 
 **About this table:**
@@ -96,9 +101,18 @@ shiny::setProgress(0.3)
 
 \newpage
 
-```{r, echo=F, fig.height=5.5, fig.width=7, warning = F, fig.cap="Results relative to normative samples"}
+```{r, echo=F, fig.height=5.5, fig.width=7, warning = F, message = FALSE, fig.cap="Results relative to normative samples"}
 library(cowplot)
+message(
+  as.numeric(c(
+               params$summary_table[[1,3]], # composite
+               params$summary_table[[2,2]], # AC
+               params$summary_table[[7,2]],
+               readr::parse_number(params$summary_table[[8,2]])
+             ))
+)
 
+message("start plots")
 p1 <- get_plot_report(norms = params$norms,
              current_score = as.numeric(c(
                params$summary_table[[1,3]], # composite
@@ -111,7 +125,7 @@ p1 <- get_plot_report(norms = params$norms,
              scoring = "dalton_richardson",
              norm_var = "MC COMPOSITE",
              basesize=11)
-  
+message("p1 done")
 p2 <- get_plot_report(norms = params$norms,
              current_score = as.numeric(c(
                params$summary_table[[1,3]], # composite
@@ -124,7 +138,8 @@ p2 <- get_plot_report(norms = params$norms,
              scoring = "dalton_richardson",
              norm_var = "AC",
              basesize=11)
-  
+  message("p2 done")
+
 p3 <- get_plot_report(norms = params$norms,
              current_score = as.numeric(c(
                params$summary_table[[1,3]], # composite
@@ -137,7 +152,8 @@ p3 <- get_plot_report(norms = params$norms,
              scoring = "dalton_richardson",
              norm_var = "MC Attempts",
              basesize=11)
-  
+message("p3 done")
+
 p4 <- get_plot_report(norms = params$norms,
              current_score = as.numeric(c(
                params$summary_table[[1,3]], # composite
@@ -150,6 +166,7 @@ p4 <- get_plot_report(norms = params$norms,
              scoring = "dalton_richardson",
              norm_var = "AC_min",
              basesize=11)
+message("p4 done")
 
 plots <- cowplot::plot_grid(p1, p2, p3, p4, ncol = 2)
 
@@ -161,7 +178,6 @@ legend <- cowplot::get_legend(
 shiny::setProgress(0.5)
 
 cowplot::plot_grid(plots, legend, ncol=1, rel_heights = c(1, .1))
-shiny::setProgress(0.8)
 ```
 
 **About these plots:**
@@ -177,7 +193,9 @@ shiny::setProgress(0.8)
 *If notes were entered prior to scoring, they will appear below*
 
 ```{r, echo = F, results = 'asis'}
-cat(params$notes)
+shiny::setProgress(0.8)
+
+#cat(params$notes)
 shiny::setProgress(0.9)
 ```
 

@@ -5,7 +5,6 @@
 #' @param dat_in data going into the table
 #' @param hide_answers should answers (a column) be hidden?
 #'
-#' @return
 #' @export
 get_training_table <- function(dat_in, hide_answers = T){
   

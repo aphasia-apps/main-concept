@@ -8,7 +8,6 @@
 #'
 #' @param rds_list a list sentences
 #'
-#' @return
 #' @export
 get_sentence_data <- function(rds_list){
   a = rds_list

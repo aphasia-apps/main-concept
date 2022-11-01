@@ -30,9 +30,9 @@ get_plot_report <-
       
       dat = norms %>%
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-        dplyr::rename(score = norm_var)
+        dplyr::rename(score = all_of(norm_var))
       
-      val = max(dat$score)
+      val = max(dat$score, na.rm = TRUE)
       
     # Accurate complete concepts
     } else if (norm_var == "AC") {
@@ -41,9 +41,9 @@ get_plot_report <-
       
       dat = norms %>%
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-        dplyr::rename(score = norm_var)
+        dplyr::rename(score = all_of(norm_var))
       
-      val = max(dat$score)
+      val = max(dat$score, na.rm = TRUE)
       
     # number of attempts
     } else if (norm_var == "MC Attempts") {
@@ -52,9 +52,9 @@ get_plot_report <-
       
       dat = norms %>%
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-        dplyr::rename(score = norm_var)
+        dplyr::rename(score = all_of(norm_var))
       
-      val = max(dat$score)
+      val = max(dat$score, na.rm = TRUE)
   
       # AC per minute. 
     } else if (norm_var == "AC_min") {
@@ -63,10 +63,10 @@ get_plot_report <-
       
       dat = eff_norms %>%
         dplyr::mutate(group = ifelse(Aphasia == 1, "Aphasia", "Control")) %>%
-        dplyr::rename(score = norm_var)
+        dplyr::rename(score = all_of(norm_var))
       
-      val = quantile(dat$score, probs = .97)
-      
+      val = ceiling(quantile(dat$score, probs = .97))[[1]]
+
     } else {
       vert_line <- 0
       xlabel <- ""

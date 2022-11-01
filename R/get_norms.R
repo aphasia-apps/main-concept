@@ -8,7 +8,6 @@
 #' @param stimulus which stimulus was chosen
 #'
 #' @description Note that if googlesheets fails, static norms will be used. 
-#' @return
 #' @export
 get_norms <- function(stimulus, google_sheets = F){
   

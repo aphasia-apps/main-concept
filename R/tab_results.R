@@ -3,7 +3,6 @@
 #' 
 #' this function generates the UI for the results page. 
 #'
-#' @return
 #' @export
 get_results_div <- function() {
   # allows for a loading screen to start the results page. 

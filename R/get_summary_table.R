@@ -8,7 +8,6 @@
 #' @param scoring which scoring system is selected
 #' @param min how long did the sample take, if 0, considered NA. 
 #'
-#' @return
 #' @export
 get_summary_table <- function(results, norms, scoring = "dalton_richardson", min = 0){
   
